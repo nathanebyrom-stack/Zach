@@ -1,0 +1,100 @@
+/* AOE Engineering — design tokens
+   Palette: deep steel blue, graphite, off-white, one cool accent. Never orange. */
+:root {
+  /* Steel blue (primary) */
+  --steel-950: #0b1a28;
+  --steel-900: #0f2233;
+  --steel-800: #16324a;
+  --steel-700: #1f4566;
+  --steel-600: #2b5a82;
+  --steel-500: #3d6f98;
+  --steel-300: #8fb0c9;
+  --steel-100: #dde7ef;
+
+  /* Graphite (support) */
+  --graphite-950: #121417;
+  --graphite-900: #181b1f;
+  --graphite-800: #22262b;
+  --graphite-700: #31363d;
+  --graphite-500: #5b636c;
+  --graphite-400: #7b838c;
+  --graphite-300: #a6adb5;
+
+  /* Off-white (support) */
+  --paper: #f3f2ee;
+  --paper-2: #e8e7e2;
+  --paper-3: #d9d8d2;
+
+  /* Cool accent (one only) */
+  --accent: #6fd0e4;
+  --accent-strong: #3fb7d1;
+  --accent-ink: #0e5f72; /* accent for text on light backgrounds (AA) */
+
+  /* Semantic */
+  --bg: var(--paper);
+  --surface: #ffffff;
+  --ink: var(--graphite-900);
+  --ink-soft: var(--graphite-700);
+  --ink-muted: var(--graphite-500);
+  --line: rgba(24, 27, 31, 0.14);
+  --line-strong: rgba(24, 27, 31, 0.28);
+  --focus: var(--accent-strong);
+
+  --dark-bg: var(--steel-900);
+  --dark-ink: var(--paper);
+  --dark-ink-soft: #c3d1dc;
+  --dark-line: rgba(221, 231, 239, 0.14);
+
+  /* Type */
+  --font-head: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1.0625rem;
+  --fs-md: 1.25rem;
+  --fs-lg: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
+  --fs-xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  --fs-2xl: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --fs-3xl: clamp(2.75rem, 1.6rem + 4.8vw, 5.5rem);
+
+  --lh-tight: 1.04;
+  --lh-head: 1.12;
+  --lh-body: 1.6;
+  --track-head: -0.02em;
+  --track-label: 0.12em;
+
+  /* Spacing (4px base) */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+  --section-y: clamp(4rem, 2.5rem + 6vw, 8rem);
+
+  /* Grid */
+  --container: 1280px;
+  --gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  --cols: 12;
+  --col-gap: clamp(1rem, 0.6rem + 1.2vw, 2rem);
+  --grid-cell: 32px; /* fine background grid */
+
+  /* Edges — sharp corners throughout */
+  --radius: 0;
+  --hairline: 1px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 700ms;
+
+  --header-h: 72px;
+}

@@ -3,7 +3,7 @@
 Work top to bottom. Tick an item only when it's committed and working.
 
 ## Foundations
-- [ ] 1. Scaffold `site/`, `netlify.toml` (publish = "site"), design tokens (colours, type, spacing, grid) as CSS variables, shared header/nav/footer, 404 page
+- [x] 1. Scaffold `site/`, `netlify.toml` (publish = "site"), design tokens (colours, type, spacing, grid) as CSS variables, shared header/nav/footer, 404 page
 - [ ] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs)
 
 ## Pages
