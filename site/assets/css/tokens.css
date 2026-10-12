@@ -1,49 +1,44 @@
 /* AOE Engineering — design tokens
-   Palette: deep steel blue, graphite, off-white, one cool accent. Never orange. */
+   Palette taken from the AOE logo (BRIEF.md, Look):
+   near-black and deep steel-blue backgrounds, brushed silver for type and lines,
+   electric blue #0043FE as the single accent, used sparingly. Never orange. */
 :root {
-  /* Steel blue (primary) */
-  --steel-950: #0b1a28;
-  --steel-900: #0f2233;
-  --steel-800: #16324a;
-  --steel-700: #1f4566;
-  --steel-600: #2b5a82;
-  --steel-500: #3d6f98;
-  --steel-300: #8fb0c9;
-  --steel-100: #dde7ef;
+  /* Backgrounds: near-black → deep steel blue */
+  --black: #07090c;
+  --black-2: #0c0f13;
+  --steel-950: #0a1622;
+  --steel-900: #0e1e2e;
+  --steel-800: #142a3f;
+  --steel-700: #1c3a55;
+  --steel-500: #3a5f80;
 
-  /* Graphite (support) */
-  --graphite-950: #121417;
-  --graphite-900: #181b1f;
-  --graphite-800: #22262b;
-  --graphite-700: #31363d;
-  --graphite-500: #5b636c;
-  --graphite-400: #7b838c;
-  --graphite-300: #a6adb5;
+  /* Brushed silver (type and lines) */
+  --silver-100: #e9ebf0;
+  --silver-200: #d6dae0;
+  --silver-300: #b5bcc4;
+  --silver-400: #8d959e;
+  --silver-500: #6b737c;
 
-  /* Off-white (support) */
-  --paper: #f3f2ee;
-  --paper-2: #e8e7e2;
-  --paper-3: #d9d8d2;
-
-  /* Cool accent (one only) */
-  --accent: #6fd0e4;
-  --accent-strong: #3fb7d1;
-  --accent-ink: #0e5f72; /* accent for text on light backgrounds (AA) */
+  /* Electric blue accent (from the logo bar) — sparingly */
+  --blue: #0043fe;
+  --blue-hover: #1f5bff;
+  --blue-text: #6f97ff;   /* tint of the accent for small text on dark (AA) */
+  --blue-glow: rgba(0, 67, 254, 0.45);
 
   /* Semantic */
-  --bg: var(--paper);
-  --surface: #ffffff;
-  --ink: var(--graphite-900);
-  --ink-soft: var(--graphite-700);
-  --ink-muted: var(--graphite-500);
-  --line: rgba(24, 27, 31, 0.14);
-  --line-strong: rgba(24, 27, 31, 0.28);
-  --focus: var(--accent-strong);
-
-  --dark-bg: var(--steel-900);
-  --dark-ink: var(--paper);
-  --dark-ink-soft: #c3d1dc;
-  --dark-line: rgba(221, 231, 239, 0.14);
+  --bg: var(--black-2);
+  --bg-alt: var(--steel-950);
+  --bg-steel: var(--steel-900);
+  --surface: rgba(233, 235, 240, 0.03);
+  --surface-2: rgba(233, 235, 240, 0.06);
+  --ink: var(--silver-100);
+  --ink-soft: var(--silver-200);
+  --ink-muted: var(--silver-300);
+  --ink-faint: var(--silver-400);
+  --line: rgba(181, 188, 196, 0.16);
+  --line-strong: rgba(181, 188, 196, 0.32);
+  --focus: var(--blue-text);
+  --brushed: linear-gradient(180deg, #f2f4f7 0%, #c9cfd6 55%, #a9b1ba 100%);
 
   /* Type */
   --font-head: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -57,13 +52,13 @@
   --fs-lg: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
   --fs-xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
   --fs-2xl: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
-  --fs-3xl: clamp(2.75rem, 1.6rem + 4.8vw, 5.5rem);
+  --fs-3xl: clamp(2.6rem, 1.6rem + 4.6vw, 5.5rem);
 
   --lh-tight: 1.04;
   --lh-head: 1.12;
   --lh-body: 1.6;
   --track-head: -0.02em;
-  --track-label: 0.12em;
+  --track-label: 0.14em;
 
   /* Spacing (4px base) */
   --sp-1: 0.25rem;
@@ -83,7 +78,8 @@
   --gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
   --cols: 12;
   --col-gap: clamp(1rem, 0.6rem + 1.2vw, 2rem);
-  --grid-cell: 32px; /* fine background grid */
+  --grid-cell: 32px;
+  --grid-line: rgba(181, 188, 196, 0.055);
 
   /* Edges — sharp corners throughout */
   --radius: 0;

@@ -7,7 +7,7 @@
 <meta name="description" content="We couldn't find that page. Head back to the AOE Engineering home page or get in touch.">
 <meta name="robots" content="noindex">
 <!-- @head -->
-<meta name="theme-color" content="#0f2233">
+<meta name="theme-color" content="#07090c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -22,12 +22,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container">
-    <!-- TODO-IMAGE: replace wordmark with AOE's own logo file when supplied -->
-    <a class="brand" href="/" aria-label="AOE Engineering, home">
-      <span class="brand__text">
-        <span class="brand__name">AOE</span>
-        <span class="brand__sub">Engineering</span>
-      </span>
+    <a class="brand" href="/">
+      <picture>
+        <source srcset="/assets/brand/aoe-logo-240.webp" type="image/webp">
+        <img src="/assets/brand/aoe-logo-240.png" alt="AOE Engineering, home" width="240" height="71">
+      </picture>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="nav-toggle__bars" aria-hidden="true"></span>
@@ -66,7 +65,11 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h2>AOE Engineering</h2>
+        <h2 class="visually-hidden">AOE Engineering</h2>
+        <picture class="footer-brand">
+          <source srcset="/assets/brand/aoe-logo-240.webp" type="image/webp">
+          <img src="/assets/brand/aoe-logo-240.png" alt="AOE Engineering" width="240" height="71" loading="lazy">
+        </picture>
         <p>Engineers who move awkward, heavy and fragile loads. Lifting equipment and automation, from design and installation to workshop adaptations and servicing.</p>
         <p>UK supplier and installer of ATIS pneumatic manipulators. We service manipulators of all makes.</p>
       </div>
