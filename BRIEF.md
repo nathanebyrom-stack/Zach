@@ -1,7 +1,7 @@
 # AOE Engineering website — build brief
 
 Master copy: https://claude.ai/code/artifact/7aaa6bbc-c7ba-4d90-a1e0-57aab72b62b1
-Owner: Nathan. Edited only by Nathan or Jenny. Last change: 12 Oct 2026.
+Owner: Nathan. Edited only by Nathan or Jenny. Last change: 12 Oct 2026 (logo and palette added).
 
 ## The job
 Rebuild aoeengineering.com, code-first, ready to go live by **Mon 19 Oct 2026**. The website is your only job.
@@ -41,7 +41,11 @@ Only the About and Services content is taken from the current AOE site. Ignore e
 Navigation order: Home, Manipulators, Gripping, Solutions, Services, Industries, About, Contact.
 
 ## Look
-- **Palette:** deep steel blue, with graphite and off-white supporting it, plus one cool accent. Never orange.
+- **Logo (main branding, used everywhere):** brushed-silver "AOE" wordmark with an electric-blue bar, and "ENGINEERING" spaced beneath.
+  - Use `site/assets/brand/aoe-logo.webp` (fallback `aoe-logo.png`), transparent, for any dark background.
+  - `aoe-logo-on-black.png` is for pure black only. `aoe-logo-original.svg` is the source file; don't use it on the site (it's a 490KB raster wrapped in SVG).
+  - Never recolour, redraw, stretch or place the logo on a light background.
+- **Palette (taken from the logo):** near-black and deep steel-blue backgrounds, brushed silver (#E9EBF0 to #B5BCC4) for type and lines, and electric blue #0043FE as the single accent. Use the blue sparingly (CTAs, active states, a glow like the logo's). Never orange.
 - **Style:** engineering-grade. Sharp corners, a fine grid and industrial texture. Calm, precise and confident.
 - **Type:** a strong grotesk for headings and a highly readable sans for body text (Google Fonts).
 - **Hero:** real footage of an actual ATIS manipulator moving a real load, graded like a film: slow motion, close detail, deep steel-blue grade. Scroll-driven type and subtle WebGL effects sit over the footage.
