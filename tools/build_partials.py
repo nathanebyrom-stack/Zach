@@ -30,6 +30,46 @@ def page_url(path: Path) -> str:
     return "/" + rel
 
 
+SITE_URL = "https://www.aoeengineering.com"
+
+
+def og_tags(html: str, url: str) -> str:
+    """Open Graph and Twitter tags built from the page's own title and description."""
+    import html as h
+    title = re.search(r"<title>(.*?)</title>", html, re.S)
+    desc = re.search(r'<meta name="description" content="(.*?)">', html, re.S)
+    if not title or not desc:
+        return ""
+    t, d = title.group(1).strip(), desc.group(1).strip()
+    return "\n".join([
+        '<meta property="og:type" content="website">',
+        '<meta property="og:site_name" content="AOE Engineering">',
+        '<meta property="og:locale" content="en_GB">',
+        f'<meta property="og:title" content="{t}">',
+        f'<meta property="og:description" content="{d}">',
+        f'<meta property="og:url" content="{SITE_URL}{url}">',
+        "<!-- TODO-IMAGE: og:image once graded ATIS photography is supplied -->",
+        '<meta name="twitter:card" content="summary">',
+    ])
+
+
+def write_sitemap(pages) -> None:
+    urls = []
+    for page in pages:
+        html = page.read_text()
+        if 'name="robots" content="noindex"' in html:
+            continue
+        urls.append(f"  <url><loc>{SITE_URL}{page_url(page)}</loc></url>")
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "\n".join(urls)
+        + "\n</urlset>\n"
+    )
+    (SITE / "sitemap.xml").write_text(xml)
+    print(f"sitemap.xml: {len(urls)} url(s)")
+
+
 def main() -> int:
     partials = {b: (PARTIALS / f"{b}.html").read_text().strip() for b in BLOCKS}
     changed = 0
@@ -38,6 +78,8 @@ def main() -> int:
         original = html
         url = page_url(page)
         for block, content in partials.items():
+            if block == "head":
+                content = og_tags(html, url) + "\n" + content
             if block == "header":
                 content = content.replace(
                     f'data-nav="{url}"', f'data-nav="{url}" aria-current="page"'
@@ -53,6 +95,7 @@ def main() -> int:
             page.write_text(html)
             changed += 1
     print(f"partials injected; {changed} page(s) updated")
+    write_sitemap(sorted(p for p in SITE.rglob("*.html") if p.name != "404.html"))
     return 0
 
 
