@@ -346,6 +346,9 @@ hr { border: 0; border-top: var(--hairline) solid var(--line); margin: var(--sp-
 
 .offer { display: grid; gap: var(--col-gap); grid-template-columns: 1fr; }
 @media (min-width: 900px) { .offer { grid-template-columns: repeat(2, 1fr); } }
+.offer__item { display: grid; gap: var(--sp-5); align-content: start; }
+.offer__item h3 { margin-bottom: var(--sp-3); }
+.intro-lede { margin-top: var(--sp-6); }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--black); color: var(--silver-400); padding-block: var(--sp-9) var(--sp-6); font-size: var(--fs-sm); border-top: 1px solid var(--line); }

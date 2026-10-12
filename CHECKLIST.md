@@ -4,10 +4,10 @@ Work top to bottom. Tick an item only when it's committed and working.
 
 ## Foundations
 - [x] 1. Scaffold `site/`, `netlify.toml` (publish = "site"), design tokens (colours, type, spacing, grid) as CSS variables, shared header/nav/footer, 404 page
-- [ ] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs)
+- [ ] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs) BLOCKED: web fetch of aoeengineering.com and atismanipolatori.com needs a permission approval; unattended session, requests timed out. See content/sources.md
 
 ## Pages
-- [ ] 3. Home: every section except the hero (leave a hero slot with a still placeholder)
+- [x] 3. Home: every section except the hero (leave a hero slot with a still placeholder)
 - [ ] 4. Industrial manipulators
 - [ ] 5. Gripping systems
 - [ ] 6. Solutions
