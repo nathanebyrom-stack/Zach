@@ -8,14 +8,14 @@ Work top to bottom. Tick an item only when it's committed and working.
 
 ## Pages
 - [x] 3. Home: every section except the hero (leave a hero slot with a still placeholder)
-- [ ] 4. Industrial manipulators
-- [ ] 5. Gripping systems
-- [ ] 6. Solutions
-- [ ] 7. Services, including servicing for all makes
-- [ ] 8. Industries: Automotive, Defence, Windows & Doors, Wine
-- [ ] 9. About, with no figures
-- [ ] 10. Contact: Netlify form, phone and email placeholders
-- [ ] 11. Privacy policy (UK GDPR, placeholders)
+- [ ] 4. Industrial manipulators BLOCKED: needs source facts from item 2 (web fetch not approved)
+- [ ] 5. Gripping systems BLOCKED: needs source facts from item 2 (web fetch not approved)
+- [ ] 6. Solutions BLOCKED: needs source facts from item 2 (web fetch not approved)
+- [ ] 7. Services, including servicing for all makes BLOCKED: needs source facts from item 2 (web fetch not approved)
+- [x] 8. Industries: Automotive, Defence, Windows & Doors, Wine
+- [ ] 9. About, with no figures BLOCKED: needs source facts from item 2 (web fetch not approved)
+- [x] 10. Contact: Netlify form, phone and email placeholders
+- [x] 11. Privacy policy (UK GDPR, placeholders)
 
 ## Finish
 - [ ] 12. Motion pass: GSAP scroll and transition work across every page, with a reduced-motion fallback

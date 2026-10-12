@@ -63,7 +63,7 @@ hr { border: 0; border-top: var(--hairline) solid var(--line); margin: var(--sp-
 @media (min-width: 900px) {
   .grid > .span-4 { grid-column: span 4; } .grid > .span-5 { grid-column: span 5; } .grid > .span-6 { grid-column: span 6; }
   .grid > .span-7 { grid-column: span 7; } .grid > .span-8 { grid-column: span 8; }
-  .grid > .span-5.start-8 { grid-column: 8 / span 5; } .grid > .span-6.start-7 { grid-column: 7 / span 6; }
+  .grid > .span-5.start-8 { grid-column: 8 / span 5; } .grid > .span-6.start-7 { grid-column: 7 / span 6; } .grid > .span-4.start-9 { grid-column: 9 / span 4; }
 }
 
 /* Fine engineering grid texture */
@@ -127,8 +127,7 @@ hr { border: 0; border-top: var(--hairline) solid var(--line); margin: var(--sp-
 /* ---------- Header / nav ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 100; height: var(--header-h);
-  background: rgba(7, 9, 12, 0.88); color: var(--silver-100);
-  backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px);
+  background: rgba(7, 9, 12, 0.97); color: var(--silver-100);
   border-bottom: 1px solid var(--line);
 }
 .site-header .container { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--sp-5); }
@@ -174,6 +173,8 @@ hr { border: 0; border-top: var(--hairline) solid var(--line); margin: var(--sp-
   body.nav-open { overflow: hidden; }
 }
 @media (min-width: 1080px) {
+  /* backdrop-filter creates a containing block for fixed children, so desktop only (mobile nav is position: fixed) */
+  .site-header { background: rgba(7, 9, 12, 0.88); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px); }
   .nav-toggle { display: none; }
   .site-nav ul { display: flex; align-items: center; gap: clamp(1rem, 0.2rem + 1.4vw, 1.75rem); }
   .site-nav li { margin: 0; }
@@ -307,6 +308,9 @@ hr { border: 0; border-top: var(--hairline) solid var(--line); margin: var(--sp-
 .field--check label { font-family: var(--font-body); font-weight: 400; color: var(--ink-muted); }
 .req { color: var(--blue-text); }
 .hidden-field { display: none; }
+.form-note { font-size: var(--fs-sm); margin: 0; color: var(--ink-faint); }
+.contact-aside { margin-top: var(--sp-7); }
+@media (min-width: 900px) { .contact-aside { margin-top: 0; } }
 
 /* Contact detail list */
 .detail-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }

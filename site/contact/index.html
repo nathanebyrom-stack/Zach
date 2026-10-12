@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | AOE Engineering</title>
+<meta name="description" content="Tell AOE Engineering about the load you need to move. Send a message, call or email, and an engineer will get back to you.">
+<link rel="canonical" href="https://www.aoeengineering.com/contact/">
+<!-- @head -->
+<meta name="theme-color" content="#07090c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<script src="/assets/js/main.js" defer></script>
+<!-- /@head -->
+</head>
+<body>
+<!-- @header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <picture>
+        <source srcset="/assets/brand/aoe-logo-240.webp" type="image/webp">
+        <img src="/assets/brand/aoe-logo-240.png" alt="AOE Engineering, home" width="240" height="71">
+      </picture>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+      <span class="nav-toggle__label">Menu</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/" data-nav="/">Home</a></li>
+        <li><a href="/manipulators/" data-nav="/manipulators/">Manipulators</a></li>
+        <li><a href="/gripping/" data-nav="/gripping/">Gripping</a></li>
+        <li><a href="/solutions/" data-nav="/solutions/">Solutions</a></li>
+        <li><a href="/services/" data-nav="/services/">Services</a></li>
+        <li><a href="/industries/" data-nav="/industries/">Industries</a></li>
+        <li><a href="/about/" data-nav="/about/">About</a></li>
+        <li class="nav-cta"><a class="btn" href="/contact/" data-nav="/contact/" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- /@header -->
+<main id="main">
+
+  <section class="page-head texture-grid">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="/">Home</a></li><li><span aria-current="page">Contact</span></li></ol>
+      </nav>
+      <p class="label">Contact</p>
+      <h1>Tell us what you need to move.</h1>
+      <p class="lede">A rough description is enough to start. What the load is, roughly what it weighs and how you handle it now. We'll come back to you to talk it through.</p>
+    </div>
+  </section>
+
+  <section class="section section--flush">
+    <div class="container grid">
+      <div class="span-7">
+        <h2 class="visually-hidden">Send us a message</h2>
+        <form class="form" name="contact" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden-field">
+            <label>Leave this empty if you're human: <input name="company-website" tabindex="-1" autocomplete="off"></label>
+          </p>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-company">Company</label>
+              <input id="f-company" name="company" type="text" autocomplete="organization">
+            </div>
+          </div>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-topic">What's it about?</label>
+            <select id="f-topic" name="topic">
+              <option value="">Choose one (optional)</option>
+              <option>A new handling or lifting project</option>
+              <option>Industrial manipulators</option>
+              <option>Gripping systems</option>
+              <option>Automation</option>
+              <option>Servicing or repairs (any make)</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-message">Your message <span class="req" aria-hidden="true">*</span></label>
+            <p class="hint" id="f-message-hint">The load, its rough weight and size, and how it's handled today.</p>
+            <textarea id="f-message" name="message" aria-describedby="f-message-hint" required></textarea>
+          </div>
+          <div class="field field--check">
+            <input id="f-consent" name="consent" type="checkbox" value="yes" required>
+            <label for="f-consent">I'm happy for AOE Engineering to use these details to reply to my enquiry, as set out in the <a href="/privacy/">privacy policy</a>. <span class="req" aria-hidden="true">*</span></label>
+          </div>
+          <p class="form-note">Fields marked <span class="req" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+          <div>
+            <button class="btn" type="submit">Send message</button>
+          </div>
+        </form>
+      </div>
+      <aside class="span-4 start-9 contact-aside" aria-labelledby="direct-title">
+        <h2 id="direct-title" class="label">Or get in touch directly</h2>
+        <ul class="detail-list">
+          <!-- PLACEHOLDER: Nathan to confirm phone, email and address before launch -->
+          <li><span class="k">Phone</span><a class="v" href="tel:+440000000000"><span class="placeholder-mark">To be confirmed</span></a></li>
+          <li><span class="k">Email</span><a class="v" href="mailto:info@example.com"><span class="placeholder-mark">To be confirmed</span></a></li>
+          <li><span class="k">Address</span><span class="v"><span class="placeholder-mark">To be confirmed</span></span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+</main>
+<!-- @footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2 class="visually-hidden">AOE Engineering</h2>
+        <picture class="footer-brand">
+          <source srcset="/assets/brand/aoe-logo-240.webp" type="image/webp">
+          <img src="/assets/brand/aoe-logo-240.png" alt="AOE Engineering" width="240" height="71" loading="lazy">
+        </picture>
+        <p>Engineers who move awkward, heavy and fragile loads. Lifting equipment and automation, from design and installation to workshop adaptations and servicing.</p>
+        <p>UK supplier and installer of ATIS pneumatic manipulators. We service manipulators of all makes.</p>
+      </div>
+      <div>
+        <h2>Equipment</h2>
+        <ul>
+          <li><a href="/manipulators/">Industrial manipulators</a></li>
+          <li><a href="/gripping/">Gripping systems</a></li>
+          <li><a href="/solutions/">Solutions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Talk to us</h2>
+        <ul>
+          <!-- PLACEHOLDER: phone and email to be confirmed by Nathan -->
+          <li><a href="tel:+440000000000">Phone: to be confirmed</a></li>
+          <li><a href="mailto:info@example.com">Email: to be confirmed</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; <span data-year>2026</span> AOE Engineering</span>
+      <ul>
+        <li><a href="/privacy/">Privacy policy</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- /@footer -->
+</body>
+</html>
