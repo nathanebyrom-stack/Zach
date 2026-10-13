@@ -4,16 +4,16 @@ Work top to bottom. Tick an item only when it's committed and working.
 
 ## Foundations
 - [x] 1. Scaffold `site/`, `netlify.toml` (publish = "site"), design tokens (colours, type, spacing, grid) as CSS variables, shared header/nav/footer, 404 page
-- [ ] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs) BLOCKED: web fetch of aoeengineering.com and atismanipolatori.com needs a permission approval; unattended session, requests timed out. See content/sources.md
+- [ ] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs) BLOCKED: web fetch of aoeengineering.com and atismanipolatori.com needs a permission approval; unattended session, requests timed out. 13 Oct: also refused by the sandbox egress proxy (403). Exact page URLs now confirmed in content/sources.md
 
 ## Pages
 - [x] 3. Home: every section except the hero (leave a hero slot with a still placeholder)
-- [ ] 4. Industrial manipulators BLOCKED: needs source facts from item 2 (web fetch not approved)
-- [ ] 5. Gripping systems BLOCKED: needs source facts from item 2 (web fetch not approved)
-- [ ] 6. Solutions BLOCKED: needs source facts from item 2 (web fetch not approved)
-- [ ] 7. Services, including servicing for all makes BLOCKED: needs source facts from item 2 (web fetch not approved)
+- [ ] 4. Industrial manipulators BLOCKED: needs source facts from item 2 (web fetch not approved). Page layout built with TODO-SOURCE copy slots and noindex; copy waits on facts
+- [ ] 5. Gripping systems BLOCKED: needs source facts from item 2 (web fetch not approved). Page layout built with TODO-SOURCE copy slots and noindex; copy waits on facts
+- [ ] 6. Solutions BLOCKED: needs source facts from item 2 (web fetch not approved). Page layout built with TODO-SOURCE copy slots and noindex; copy waits on facts
+- [ ] 7. Services, including servicing for all makes BLOCKED: needs source facts from item 2 (web fetch not approved). Page layout built with TODO-SOURCE copy slots and noindex; copy waits on facts
 - [x] 8. Industries: Automotive, Defence, Windows & Doors, Wine
-- [ ] 9. About, with no figures BLOCKED: needs source facts from item 2 (web fetch not approved)
+- [ ] 9. About, with no figures BLOCKED: needs source facts from item 2 (web fetch not approved). Page layout built with TODO-SOURCE copy slots and noindex; copy waits on facts
 - [x] 10. Contact: Netlify form, phone and email placeholders
 - [x] 11. Privacy policy (UK GDPR, placeholders)
 

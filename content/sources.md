@@ -8,6 +8,22 @@ Allowed sources (CLAUDE.md): the current AOE site (About and Services pages only
 
 - **12 Oct 2026:** web fetch of aoeengineering.com and atismanipolatori.com was blocked. Each request needs a permission approval, and this session ran unattended, so the requests timed out. Nothing has been gathered from either site yet. To unblock: approve web fetch for those two domains, or run the next session while someone can approve the prompts.
 
+- **13 Oct 2026 (session 3):** still blocked. Direct HTTPS to both domains is refused by the sandbox egress proxy (403), and WebFetch needs a permission approval that an unattended run can't give. Web search did confirm the exact page URLs below, so the next session can fetch them directly. Search returned titles only, not page text, so no facts were taken from it.
+
+## Confirmed page URLs (from web search, 13 Oct 2026)
+
+| Page | URL |
+|---|---|
+| AOE About | https://www.aoeengineering.com/blank-1 |
+| AOE Services | https://www.aoeengineering.com/blank-4 |
+| ATIS industrial manipulators | https://www.atismanipolatori.com/en/industrial-manipulators/ |
+| ATIS products overview | https://www.atismanipolatori.com/en/Products |
+| ATIS vacuum-cup manipulators | https://www.atismanipolatori.com/en/gripping-systems/vacuum-cup-manipulators/ |
+| ATIS pneumatic clamps | https://www.atismanipolatori.com/en/gripping-systems/atis-manipulators-with-pneumatic-clamps/ |
+| ATIS bespoke gripping systems | https://atismanipolatori.com/en/Services/Bespoke-gripping-systems |
+
+Section names used on the Gripping page (vacuum cups, pneumatic clamps, bespoke) come from these page titles.
+
 ## From BRIEF.md (positioning, approved by Nathan)
 
 | Fact | Source |

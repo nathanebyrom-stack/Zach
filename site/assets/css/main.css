@@ -239,6 +239,8 @@ hr { border: 0; border-top: var(--hairline) solid var(--line); margin: var(--sp-
 /* Callout / principle block */
 .callout { border-left: 2px solid var(--blue); padding: var(--sp-2) 0 var(--sp-2) var(--sp-5); }
 .callout p:last-child { margin-bottom: 0; }
+.callout--todo { margin-top: var(--sp-5); }
+.callout--todo .mono { overflow-wrap: anywhere; font-size: var(--fs-sm); }
 
 /* Media placeholder — TODO-IMAGE until graded ATIS photography arrives */
 .media {
