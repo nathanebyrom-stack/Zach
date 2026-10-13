@@ -1,5 +1,10 @@
 # Log (newest first, keep 5)
 
+## 13 Oct 2026 ~09:40 UTC, build session 3 (Zach)
+- Done: retried item 2. Still blocked: the sandbox egress proxy refuses HTTPS to both domains (403), and WebFetch needs a permission approval an unattended run can't give. Web search confirmed the exact source page URLs (AOE About = /blank-1, Services = /blank-4, plus five ATIS range pages), now in content/sources.md. Built page layouts for items 4, 5, 6, 7 and 9 so the nav no longer 404s: copy is limited to BRIEF.md facts, with marked TODO-SOURCE slots where the sourced copy goes, and each page is noindex until then. Checked all 10 pages at 375px and 1440px: no horizontal scroll, one h1 each, no missing alt text, no orange, no JS errors. Nothing ticked: items 4–7 and 9 still need their sourced copy.
+- Next: item 2 (fetch the URLs in content/sources.md), fill the TODO-SOURCE slots and remove noindex, tick 4–7 and 9; then 12, 13, 14, 16.
+- Blocker: source fetch. Nathan or Jenny needs to allow aoeengineering.com and atismanipolatori.com for this routine (egress allowlist plus WebFetch approval), or run one session attended. Netlify not connected, so no preview link. Hero (15) waits on HERO.md. No humanize voice profile exists yet for item 13.
+
 ## 12 Oct 2026 20:30 UTC, build session 2 (Zach)
 - Done: confirmed in the repo that item 1 was already committed in session 1, so I didn't redo it. Retried the fetch for item 2 and it was blocked again. Ran early Lighthouse checks (mobile) on the built pages. Home, Industries and Contact scored 98 for performance; Privacy scored 100. All four scored 100 for accessibility and SEO, and 96 for best practices. The only failing audit is console errors, and those come from the sandbox blocking Google Fonts and cdnjs, not from the site. Nothing ticked: no new item could be finished.
 - Next: item 2, then 4, 5, 6, 7 and 9, then 12, 13 and 14 across all pages.
