@@ -18,7 +18,7 @@ Work top to bottom. Tick an item only when it's committed and working.
 - [x] 11. Privacy policy (UK GDPR, placeholders)
 
 ## Finish
-- [ ] 12. Motion pass: GSAP scroll and transition work across every page, with a reduced-motion fallback
+- [x] 12. Motion pass: GSAP scroll and transition work across every page, with a reduced-motion fallback
 - [ ] 13. Humanize pass on all copy, then a hard-rules check (no ATIS-as-AOE, no figures, no orange, nothing invented)
 - [ ] 14. SEO baseline: titles, meta descriptions, Open Graph, sitemap.xml, robots.txt, alt text
 - [ ] 15. Hero. BLOCKED until HERO.md exists (approved real ATIS footage or CAD render)
