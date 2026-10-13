@@ -48,8 +48,12 @@ def og_tags(html: str, url: str) -> str:
         f'<meta property="og:title" content="{t}">',
         f'<meta property="og:description" content="{d}">',
         f'<meta property="og:url" content="{SITE_URL}{url}">',
-        "<!-- TODO-IMAGE: og:image once graded ATIS photography is supplied -->",
-        '<meta name="twitter:card" content="summary">',
+        # Interim share image: logo on the steel grid. Swap for graded ATIS photography when supplied.
+        f'<meta property="og:image" content="{SITE_URL}/assets/img/og-default.jpg">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        '<meta property="og:image:alt" content="AOE Engineering logo">',
+        '<meta name="twitter:card" content="summary_large_image">',
     ])
 
 
