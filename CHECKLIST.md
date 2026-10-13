@@ -19,8 +19,8 @@ Work top to bottom. Tick an item only when it's committed and working.
 
 ## Finish
 - [x] 12. Motion pass: GSAP scroll and transition work across every page, with a reduced-motion fallback
-- [ ] 13. Humanize pass on all copy, then a hard-rules check (no ATIS-as-AOE, no figures, no orange, nothing invented)
-- [ ] 14. SEO baseline: titles, meta descriptions, Open Graph, sitemap.xml, robots.txt, alt text
+- [ ] 13. Humanize pass on all copy, then a hard-rules check (no ATIS-as-AOE, no figures, no orange, nothing invented) BLOCKED: copy for items 4–7 and 9 isn't written yet (item 2), and no humanize voice profile exists
+- [x] 14. SEO baseline: titles, meta descriptions, Open Graph, sitemap.xml, robots.txt, alt text
 - [ ] 15. Hero. BLOCKED until HERO.md exists (approved real ATIS footage or CAD render)
-- [ ] 16. Quality pass: Lighthouse mobile 85+, keyboard navigation, every page checked at 375px and 1440px
+- [ ] 16. Quality pass: Lighthouse mobile 85+, keyboard navigation, every page checked at 375px and 1440px BLOCKED: waits on final copy for items 4–7 and 9. 13 Oct interim: Lighthouse mobile perf 96–98, a11y 100
 - [ ] 17. Ready for Nathan's sign-off. List any remaining TODO-IMAGE and placeholder items in LOG.md
