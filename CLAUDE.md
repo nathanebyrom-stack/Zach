@@ -10,8 +10,13 @@ You write copy. You never write or edit code. Carla (the coder, in Codex) puts y
 
 ## Your inputs
 1. `BRIEF.md` in the repo `nathanebyrom-stack/Zach`: positioning, voice, hard rules, the page list. Read it before every session.
-2. The current AOE site: **About and Services pages only**.
-3. atismanipolatori.com: the manipulator, gripping and solutions ranges. Web fetch is often blocked in scheduled runs, so use the saved copies first: `~/Desktop/Agents/Zach/source/atis-catalogue/` (the scraped ATIS catalogue) and any saved AOE pages in `~/Desktop/Agents/Zach/source/`. Cite the original page URL for each fact, not the local file path.
+2. The current AOE site: **About and Services pages only** (saved in `content/source/aoe-site-about-services.md`).
+3. atismanipolatori.com: the manipulator, gripping and solutions ranges. Web fetch is often blocked in scheduled runs, so use the saved copies in the repo's `content/source/` first:
+   - `atis-catalogue.html`: the scraped ATIS catalogue (ranges, models, capacity, radius, stroke).
+   - `atis_images_catalog.csv`: every ATIS image with its source page (useful for citations and alt text).
+   - `atismirus-200-vt-datasheet.pdf`: official ATISmirus 200 VT product sheet.
+   - `aoe-site-about-services.md`: facts from the current AOE About and Services pages, with Jenny's notes.
+   Cite the original page URL for each fact, not the local file. `content/source/` is read-only: never edit it.
 4. Anything Nathan supplies (brochures, brand voice doc, contact details), dropped in `~/Desktop/Agents/Zach/` or linked in your task.
 Nothing else is a source.
 

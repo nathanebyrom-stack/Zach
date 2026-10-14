@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATIS Manipulators — Product Catalogue</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f5f7;
+      color: #1a1a2e;
+      padding: 32px 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #1a1a2e;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+    header a { color: #c8102e; text-decoration: none; }
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    nav.toc a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: #fff;
+      color: #1a3a6b;
+      border: 1.5px solid #1a3a6b;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    nav.toc a:hover { background: #1a3a6b; color: #fff; }
+    section { margin-bottom: 56px; }
+    section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #c8102e;
+      border-bottom: 2px solid #c8102e;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+    }
+    h3.sub-heading {
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #1a3a6b;
+      margin: 28px 0 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    .card-img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      background: #f9f9fb;
+      padding: 16px;
+    }
+    .card-img.cover { object-fit: cover; padding: 0; }
+    .card-body {
+      padding: 14px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-name { font-size: 0.95rem; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
+    .card-spec { font-size: 0.78rem; color: #888; line-height: 1.5; }
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: #eef0f7;
+      color: #555;
+      margin-top: 8px;
+    }
+    .badge.blue { background: #e8edf7; color: #1a3a6b; }
+    .badge.green { background: #e8f5ed; color: #1a6b3a; }
+    .card-link { text-decoration: none; color: inherit; }
+    /* Video cards */
+    .video-card {
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .video-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+    .video-thumb-wrap {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding-top: 56.25%;
+      overflow: hidden;
+    }
+    .video-thumb-wrap img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: opacity 0.2s;
+    }
+    .video-thumb-wrap:hover img { opacity: 0.82; }
+    .play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px; height: 56px;
+      background: rgba(200,16,46,0.9);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .play-btn::after {
+      content: '';
+      border-left: 18px solid #fff;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      margin-left: 4px;
+    }
+    .video-caption {
+      padding: 10px 14px 12px;
+      background: #1a1a2e;
+      color: #eee;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .video-caption .tag {
+      font-size: 0.68rem;
+      color: #c8102e;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 2px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.82rem;
+      color: #aaa;
+    }
+    footer a { color: #c8102e; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ATIS Industrial Manipulators &amp; Gripping Systems</h1>
+  <p>Full product catalogue scraped from <a href="https://www.atismanipolatori.com/en/" target="_blank">atismanipolatori.com</a></p>
+</header>
+
+<nav class="toc">
+  <a href="#mirus">ATISmirus</a>
+  <a href="#acer">ATISacer</a>
+  <a href="#ferax">ATISferax</a>
+  <a href="#linear">ATISlinear</a>
+  <a href="#gripping">Gripping Systems</a>
+  <a href="#action-shots">Action Shots</a>
+  <a href="#solutions">Solutions</a>
+  <a href="#videos">Videos</a>
+</nav>
+
+<!-- ═══ SECTION 1 — ATISmirus ══════════════════════ -->
+<section id="mirus">
+  <h2>Industrial Manipulators — ATISmirus (Rigid Arm)</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/09/ATISmirus-80-FG-senza-sfondo-1-1_senza-filo.png"
+           alt="ATISmirus 80" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISmirus 80</div>
+          <div class="card-spec">Max capacity: 115 kg · Radius: 3100 mm<br>Vertical stroke: 1500 mm</div>
+        </div>
+        <span class="badge">Rigid Arm · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/09/ATISmirus-100-senza-attrezzo.png"
+           alt="ATISmirus 100" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISmirus 100</div>
+          <div class="card-spec">Max capacity: 180 kg · Radius: 4000 mm<br>Vertical stroke: 2250 mm</div>
+        </div>
+        <span class="badge">Rigid Arm · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/09/ATISmirus-200-1.png"
+           alt="ATISmirus 200" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISmirus 200</div>
+          <div class="card-spec">Max capacity: 260 kg · Radius: 3250 mm<br>Vertical stroke: 2250 mm</div>
+        </div>
+        <span class="badge">Rigid Arm · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/09/ATISmirus-300-FG-senza-sfondo.png"
+           alt="ATISmirus 300" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISmirus 300</div>
+          <div class="card-spec">Max capacity: 440 kg · Radius: 4400 mm<br>Vertical stroke: 2250 mm</div>
+        </div>
+        <span class="badge">Rigid Arm · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/09/mirus-500-ATIS-senza-filo.png"
+           alt="ATISmirus 500" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISmirus 500</div>
+          <div class="card-spec">Max capacity: 600 kg · Radius: 4000 mm<br>Vertical stroke: 2100 mm</div>
+        </div>
+        <span class="badge">Rigid Arm · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/09/mirus-800.png"
+           alt="ATISmirus 800" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISmirus 800</div>
+          <div class="card-spec">Max capacity: 1000 kg · Radius: 4200 mm<br>Vertical stroke: 2250 mm</div>
+        </div>
+        <span class="badge">Rigid Arm · Pneumatic</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 2 — ATISacer ══════════════════════ -->
+<section id="acer">
+  <h2>Industrial Manipulators — ATISacer (Double-Rope)</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/10/ATISacer-55-5-Photoroom.png-Photoroom-1_senza-filo.png"
+           alt="ATISacer 55" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISacer 55</div>
+          <div class="card-spec">Max capacity: 55 kg · Radius: 4000 mm<br>Vertical stroke: 1600 mm</div>
+        </div>
+        <span class="badge">Double-Rope · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/10/ATISacer-80-Photoroom-1_senza-filo.png"
+           alt="ATISacer 80" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISacer 80</div>
+          <div class="card-spec">Max capacity: 95 kg · Radius: 4100 mm<br>Vertical stroke: 1800 mm</div>
+        </div>
+        <span class="badge">Double-Rope · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/10/ATISACER-150_no-basamento-no-attrezzo_senza-filo.png"
+           alt="ATISacer 150" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISacer 150</div>
+          <div class="card-spec">Max capacity: 150 kg · Radius: 5000 mm<br>Vertical stroke: 1800 mm</div>
+        </div>
+        <span class="badge">Double-Rope · Pneumatic</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 3 — ATISferax ═════════════════════ -->
+<section id="ferax">
+  <h2>Industrial Manipulators — ATISferax (Lever)</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/09/ATISFERAX-senza-attrezzo_senza-filo.png"
+           alt="ATISferax" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISferax</div>
+          <div class="card-spec">Max capacity: 80 kg · Radius: 4000 mm<br>Vertical stroke: 1500 mm · Low inertia</div>
+        </div>
+        <span class="badge">Lever · Pneumatic</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 4 — ATISlinear ════════════════════ -->
+<section id="linear">
+  <h2>Industrial Manipulators — ATISlinear (Vertical Sliding)</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/09/ATISlinear-senza-attrezzo_senza-filo.png"
+           alt="ATISlinear" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">ATISlinear</div>
+          <div class="card-spec">Max capacity: 800 kg · Linear-guide vertical movement<br>Overhead rail installation</div>
+        </div>
+        <span class="badge">Linear Slide · Pneumatic</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 5 — GRIPPING SYSTEMS (catalogue icons) ═ -->
+<section id="gripping">
+  <h2>Gripping Systems</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.240.354-355-SISTEMA-DI-PRESA-PINZA-MECCANICA.png"
+           alt="Mechanical Clamp Manipulators" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">Mechanical Clamp Manipulators</div>
+          <div class="card-spec">Custom jaw design · Parallel, angular &amp; toggle-joint<br>Automotive, electronics, packaging, machining</div>
+        </div>
+        <span class="badge">Gripper · Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.029-SISTEMA-DI-PRESA-PINZA-PNEUMATICA.png"
+           alt="Pneumatic Clamp Manipulators" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">Pneumatic Clamp Manipulators</div>
+          <div class="card-spec">Internal &amp; external diameter gripping · EOAT<br>Cylindrical, conical, special shapes</div>
+        </div>
+        <span class="badge">Gripper · Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.019-SISTEMA-DI-PRESA-A-MAGNETE.png"
+           alt="Manipulators with Magnets" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">Manipulators with Magnets</div>
+          <div class="card-spec">Permanent magnets · Steel sheets, plates, tubes<br>Zero surface damage</div>
+        </div>
+        <span class="badge">Gripper · Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.230.403-SISTEMA-DI-PRESA-FORCHE.png"
+           alt="Manipulators with Integrated Forks" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">Manipulators with Integrated Forks</div>
+          <div class="card-spec">Pallets, boxes, sheets, bulky components<br>Custom fork dimensions</div>
+        </div>
+        <span class="badge">Gripper · Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.143-SISTEMA-DI-PRESA-GANCIO.png"
+           alt="Manipulators with Hook Systems" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">Manipulators with Hook Systems</div>
+          <div class="card-spec">Custom hook EOAT · Pallets, coils, containers<br>Logistics and metalworking</div>
+        </div>
+        <span class="badge">Gripper · Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.250.020-SISTEMA-DI-PRESA-VENTOSE.png"
+           alt="Vacuum-Cup Manipulators" />
+      <div class="card-body">
+        <div>
+          <div class="card-name">Vacuum-Cup Manipulators</div>
+          <div class="card-spec">Modular suction frames · Glass, marble, wood, metal<br>180° tilt, 360° rotation</div>
+        </div>
+        <span class="badge">Gripper · Vacuum</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 6 — ACTION SHOTS ══════════════════ -->
+<section id="action-shots">
+  <h2>Gripping Systems — Action Shots &amp; Variants</h2>
+
+  <h3 class="sub-heading">Mechanical Clamp — In Use</h3>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40180358-6-azzeratore-di-pes-pinza-per-sedili.jpg"
+           alt="Mechanical clamp — seat handling" />
+      <div class="card-body">
+        <div class="card-name">Seat Gripper</div>
+        <div class="card-spec">Automotive · Seat assembly line handling</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40200118-8-partner-sollevamente-testata-motore-fune-1.jpg"
+           alt="Mechanical clamp — engine head" />
+      <div class="card-body">
+        <div class="card-name">Engine Head Gripper</div>
+        <div class="card-spec">Automotive · Engine head handling with rope balancer</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.110.077-2-azzeratore-di-peso-per-sactole.jpg"
+           alt="Mechanical clamp — box" />
+      <div class="card-body">
+        <div class="card-name">Box &amp; Crate Clamp</div>
+        <div class="card-spec">Packaging · Side-clamping for boxes</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.170.082-6-Photoroom.jpg"
+           alt="Mechanical clamp variant" />
+      <div class="card-body">
+        <div class="card-name">Custom Mechanical Clamp</div>
+        <div class="card-spec">Precision jaw design for complex parts</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.230.051-6.jpg"
+           alt="Mechanical clamp variant 2" />
+      <div class="card-body">
+        <div class="card-name">Multi-Point Clamp</div>
+        <div class="card-spec">Handling of structured components</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.240.094-5-SERENA-Photoroom.jpg"
+           alt="SERENA mechanical clamp" />
+      <div class="card-body">
+        <div class="card-name">SERENA Mechanical Clamp</div>
+        <div class="card-spec">Ergonomic clamp system for panels</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.230.157-Photoroom.jpg"
+           alt="Mechanical clamp variant 3" />
+      <div class="card-body">
+        <div class="card-name">Clamp with Tilt Function</div>
+        <div class="card-spec">Combined gripper with rotation and tilt capability</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.041-Photoroom-listing-slider.jpg"
+           alt="Mechanical clamp listing" />
+      <div class="card-body">
+        <div class="card-name">Mechanical Clamp — Product Variant</div>
+        <div class="card-spec">Standard gripper for industrial handling cycles</div>
+        <span class="badge">Mechanical</span>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 class="sub-heading">Pneumatic Clamp — In Use</h3>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.160.191-9-azzeratore-di-peso-tealio.jpg"
+           alt="Pneumatic clamp — tealio" />
+      <div class="card-body">
+        <div class="card-name">Compact Pneumatic Clamp</div>
+        <div class="card-spec">Compact clamp for cylindrical loads (tealio)</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.170.124-sollevatore-lavatrice-atis-Photoroom.jpg"
+           alt="Pneumatic clamp — washing machine" />
+      <div class="card-body">
+        <div class="card-name">Washing Machine Gripper</div>
+        <div class="card-spec">Electromechanical · Household appliance handling</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.170.172-14-Manipolatore-pneumatico-pinza-filtro.jpg"
+           alt="Pneumatic clamp — filter" />
+      <div class="card-body">
+        <div class="card-name">Filter Gripper</div>
+        <div class="card-spec">Automotive · Precision filter assembly handling</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.170.173-12-azzeratore-peso-movimentazione-bobine-tessuto.jpg"
+           alt="Pneumatic clamp — textile coils" />
+      <div class="card-body">
+        <div class="card-name">Textile Coil Gripper</div>
+        <div class="card-spec">Textile · Fabric roll and coil handling</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.210.254-3-azzeratore-di-peso-sollevamento-bidoni-pinza.jpg"
+           alt="Pneumatic clamp — bins" />
+      <div class="card-body">
+        <div class="card-name">Bin &amp; Container Clamp</div>
+        <div class="card-spec">Chemical/Food · OD clamping of cylindrical containers</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.112-8-manipolatore-pneumatico-sollevamento-cilindri.jpg"
+           alt="Pneumatic clamp — cylinders" />
+      <div class="card-body">
+        <div class="card-name">Cylinder Lifting Clamp</div>
+        <div class="card-spec">Mechanical · Gas cylinder and drum handling</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.289-21-azzeratore-di-peso-pinza-pneumatica-statore.jpg"
+           alt="Pneumatic clamp — stator" />
+      <div class="card-body">
+        <div class="card-name">Motor Stator Gripper</div>
+        <div class="card-spec">Electromechanical · Motor stator handling</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.160.246-3-movimentazione-di-albero-motore-slider.jpg"
+           alt="Pneumatic clamp — motor shaft" />
+      <div class="card-body">
+        <div class="card-name">Motor Shaft Gripper</div>
+        <div class="card-spec">Automotive · Drive shaft and axle handling</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.156-Sollevare-Bobine-Azzeratore-di-peso-Photoroom.jpg"
+           alt="Pneumatic clamp — coil" />
+      <div class="card-body">
+        <div class="card-name">Coil Lifting Clamp</div>
+        <div class="card-spec">Packaging / Textile · Roll and coil OD gripping</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.167-Movimentare-Fusti-Azzeratore-di-peso-Photoroom.jpg"
+           alt="Pneumatic clamp — drums" />
+      <div class="card-body">
+        <div class="card-name">Drum Pneumatic Clamp</div>
+        <div class="card-spec">Chemical · 200 L drum OD gripping and rotation</div>
+        <span class="badge">Pneumatic</span>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 class="sub-heading">Magnetic Grippers — In Use</h3>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40200282-16-manipolatore-per-movimentazione-profili.jpg"
+           alt="Magnetic — profiles" />
+      <div class="card-body">
+        <div class="card-name">Magnetic Profile Handling</div>
+        <div class="card-spec">Metalworking · Steel profile and section handling</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.180.118-9-azzeratore-di-peso-piastre-rotaie-ferrovia.jpg"
+           alt="Magnetic — railway plates" />
+      <div class="card-body">
+        <div class="card-name">Railway Track Plate Lifter</div>
+        <div class="card-spec">Infrastructure · Steel rail and plate handling</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.240.295-5-azzeratore-di-peso-movimentazione-traverse-magnete.jpg"
+           alt="Magnetic — crossbeams" />
+      <div class="card-body">
+        <div class="card-name">Crossbeam Magnetic Lifter</div>
+        <div class="card-spec">Construction/Steel · Traverse and structural beam handling</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.240.257-15-Photoroom.jpg"
+           alt="Magnetic — flat sheets" />
+      <div class="card-body">
+        <div class="card-name">Flat Sheet Magnetic Gripper</div>
+        <div class="card-spec">Metalworking · Steel plate and sheet handling</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.230.250-Photoroom.jpg"
+           alt="Magnetic — variant" />
+      <div class="card-body">
+        <div class="card-name">Custom Magnetic EOAT</div>
+        <div class="card-spec">Multi-piece magnetic frame for complex loads</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.170.049-10-manipolatore-pneumatico-pulegge.jpg"
+           alt="Magnetic — pulleys" />
+      <div class="card-body">
+        <div class="card-name">Pulley &amp; Disc Magnetic Gripper</div>
+        <div class="card-spec">Mechanical · Ferrous pulleys and discs handling</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.082-19.jpg"
+           alt="Magnetic variant 2" />
+      <div class="card-body">
+        <div class="card-name">Industrial Magnetic Lifter</div>
+        <div class="card-spec">General metalworking · High-cycle magnetic lifting</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.150.063-5-azzeratore-di-peso-movimentazione-con-magnete-slider.jpg"
+           alt="Magnetic — slider overhead" />
+      <div class="card-body">
+        <div class="card-name">Overhead Magnetic Slider</div>
+        <div class="card-spec">Rail-mounted magnetic lifter for production lines</div>
+        <span class="badge">Magnetic</span>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 class="sub-heading">Fork Grippers — In Use</h3>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.220.432-Photoroom.jpg"
+           alt="Fork — variant" />
+      <div class="card-body">
+        <div class="card-name">Custom Fork EOAT</div>
+        <div class="card-spec">Custom fork profile for industrial loads</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.230.060-Photoroom.jpg"
+           alt="Fork — heavy load" />
+      <div class="card-body">
+        <div class="card-name">Heavy-Duty Fork System</div>
+        <div class="card-spec">Industrial · Heavy pallet and sheet handling</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.170.214-9-azzeratore-a-forche-sedie-e-poltrone.jpg"
+           alt="Fork — chairs and armchairs" />
+      <div class="card-body">
+        <div class="card-name">Chair &amp; Armchair Fork</div>
+        <div class="card-spec">Packaging · Furniture handling and stacking</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.180.126-5-sollevatore-con-forche-di-scatole.jpg"
+           alt="Fork — boxes" />
+      <div class="card-body">
+        <div class="card-name">Box Fork Lifter</div>
+        <div class="card-spec">Logistics · Box stacking and palletising</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.230.206-Photoroom.jpg"
+           alt="Fork — variant 2" />
+      <div class="card-body">
+        <div class="card-name">Adjustable Fork System</div>
+        <div class="card-spec">Adjustable span fork for varying load widths</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.070-1-Photoroom.jpg"
+           alt="Fork — pallet" />
+      <div class="card-body">
+        <div class="card-name">Pallet Fork System</div>
+        <div class="card-spec">Logistics · Euro-pallet and flat load handling</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.155-2.jpg"
+           alt="Fork — wide span" />
+      <div class="card-body">
+        <div class="card-name">Wide-Span Fork</div>
+        <div class="card-spec">Heavy panels and sheets on wide forks</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.005-Photoroom-slider.jpg"
+           alt="Fork — overhead slider" />
+      <div class="card-body">
+        <div class="card-name">Overhead Fork Manipulator</div>
+        <div class="card-spec">Rail-mounted fork system for production line feeding</div>
+        <span class="badge">Fork</span>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 class="sub-heading">Hook Systems — In Use</h3>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250-Photoroom.jpg"
+           alt="Hook — main variant" />
+      <div class="card-body">
+        <div class="card-name">Custom Hook EOAT</div>
+        <div class="card-spec">Engineered hook for specific lifting points</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.144-1-azzeratore-di-peso-ganci-scatole.jpg"
+           alt="Hook — boxes" />
+      <div class="card-body">
+        <div class="card-name">Multi-Hook Box Handler</div>
+        <div class="card-spec">Logistics · Multi-point hook lifting of crates</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40180255-4-manipolatore-pneumatico-taniche-multiple.jpg"
+           alt="Hook — multiple jerrycans" />
+      <div class="card-body">
+        <div class="card-name">Multiple Jerrycan Hook</div>
+        <div class="card-spec">Chemical · Multi-handle jerrycan handling</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.090.024-11SOLLEVATORE-fusti-canistre-movimentazione-con-ganci-multipli-Photoroom.jpg"
+           alt="Hook — drums and canisters" />
+      <div class="card-body">
+        <div class="card-name">Drum &amp; Canister Multi-Hook</div>
+        <div class="card-spec">Chemical · Drums and canisters with multiple hooks</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.180.221-Gancio-per-Fustini-Bilanciatore-di-peso-ATIS-Photoroom.jpg"
+           alt="Hook — small drums balancer" />
+      <div class="card-body">
+        <div class="card-name">Small Drum Hook Balancer</div>
+        <div class="card-spec">Chemical/Food · Precision drum hook lifter</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.240.399-SOLLEVATORE-fusti-birra.jpg"
+           alt="Hook — beer barrels" />
+      <div class="card-body">
+        <div class="card-name">Beer Barrel Lifter</div>
+        <div class="card-spec">Food &amp; Beverage · Keg and barrel handling</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.150.210-10-manipolatore-pneumatico-sollevamento-telaio.jpg"
+           alt="Hook — frame" />
+      <div class="card-body">
+        <div class="card-name">Frame Hook Manipulator</div>
+        <div class="card-spec">Automotive · Chassis and frame lifting</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.084-Photoroom-slider.jpg"
+           alt="Hook — slider" />
+      <div class="card-body">
+        <div class="card-name">Hook Slider System</div>
+        <div class="card-spec">Overhead hook manipulator for continuous handling</div>
+        <span class="badge">Hook</span>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 class="sub-heading">Vacuum-Cup Grippers — In Use</h3>
+  <div class="grid">
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.250.025-19-1.jpg"
+           alt="Vacuum — panel handling" />
+      <div class="card-body">
+        <div class="card-name">Vacuum Panel Handler</div>
+        <div class="card-spec">Construction · Large panel handling with suction cups</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.240.219-senza-sfondo-4-1.jpg"
+           alt="Vacuum — modular frame" />
+      <div class="card-body">
+        <div class="card-name">Modular Suction Frame</div>
+        <div class="card-spec">Multi-cup configurable frame for panels</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.240.082-Photoroom-1.jpg"
+           alt="Vacuum — overhead" />
+      <div class="card-body">
+        <div class="card-name">Overhead Vacuum System</div>
+        <div class="card-spec">Glass &amp; ceramic · Overhead flat material lifting</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.240.185-2-s-s-1.jpg"
+           alt="Vacuum — metal sheets" />
+      <div class="card-body">
+        <div class="card-name">Metal Sheet Vacuum Gripper</div>
+        <div class="card-spec">Metalworking · Sheet metal handling with suction</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.240.251-11-1.jpg"
+           alt="Vacuum — glass pane" />
+      <div class="card-body">
+        <div class="card-name">Glass Pane Vacuum Lifter</div>
+        <div class="card-spec">Construction · Large glass pane handling</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.240.363-S-1.jpg"
+           alt="Vacuum — large format" />
+      <div class="card-body">
+        <div class="card-name">Large-Format Vacuum Frame</div>
+        <div class="card-spec">Construction · Wide suction frame for heavy panels</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.250.026-14-1.jpg"
+           alt="Vacuum — bag handling" />
+      <div class="card-body">
+        <div class="card-name">Bag &amp; Sack Vacuum Gripper</div>
+        <div class="card-spec">Chemical/Food · Flexible bag handling</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.250.298-16-1.jpg"
+           alt="Vacuum — box palletising" />
+      <div class="card-body">
+        <div class="card-name">Box Vacuum Handler</div>
+        <div class="card-spec">Packaging · Cardboard box palletising with vacuum</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.250.064-ATISmirus-200-VT-scatole-multiple-5-2.jpg"
+           alt="Vacuum — ATISmirus 200 multi-box" />
+      <div class="card-body">
+        <div class="card-name">ATISmirus 200 VT — Multi-Box Frame</div>
+        <div class="card-spec">Packaging · ATISmirus 200 with multi-box vacuum frame</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.210.172-12-2.jpg"
+           alt="Vacuum — large panel wide" />
+      <div class="card-body">
+        <div class="card-name">Wide Vacuum Panel Lifter</div>
+        <div class="card-spec">Construction · Extra-wide suction frame for panels</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img cover" loading="lazy"
+           src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.170.292-1.jpg"
+           alt="Vacuum — variant" />
+      <div class="card-body">
+        <div class="card-name">Vacuum Gripper — Custom</div>
+        <div class="card-spec">Custom suction configuration for special loads</div>
+        <span class="badge">Vacuum</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 7 — SOLUTIONS ═════════════════════ -->
+<section id="solutions">
+  <h2>Solutions — Applied Experience by Industry</h2>
+  <div class="grid">
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/pneumatic-manipulator-sparkling-wine-bottles/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2026/05/Manipolazione-di-bottiglie.png"
+             alt="Sparkling wine bottle handling" />
+        <div class="card-body">
+          <div class="card-name">Sparkling Wine Bottles</div>
+          <div class="card-spec">Pneumatic manipulator for disgorging &amp; bottle rotation.<br>90°/180° tilt and 360° rotation capabilities.</div>
+          <span class="badge green">Food · Bottles</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/handling-with-magnetic-gripping-tools-safety-and-ergonomics-with-atis-manipulators/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40200282-16-manipolatore-per-movimentazione-profili.jpg"
+             alt="Magnetic gripping tools" />
+        <div class="card-body">
+          <div class="card-name">Magnetic Gripping Tools</div>
+          <div class="card-spec">Safe, zero-damage handling of ferrous loads.<br>Steel sheets, plates, tubes, profiles.</div>
+          <span class="badge blue">Mechanical / Metalworking · Magnets</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/handling-and-lifting-sheet-metal-efficiency-and-safety-with-atis-manipulators/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.240.257-15-Photoroom.jpg"
+             alt="Sheet metal handling" />
+        <div class="card-body">
+          <div class="card-name">Sheet Metal Handling</div>
+          <div class="card-spec">Ergonomic lifting and positioning of metal sheets.<br>Stamping, cutting, and assembly lines.</div>
+          <span class="badge blue">Mechanical / Metalworking · Sheet Metal</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/handling-and-lifting-window-frames-efficiency-and-safety-with-atis-manipulators/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2026/09/edilizia-ceramica-1.png"
+             alt="Window frame handling" />
+        <div class="card-body">
+          <div class="card-name">Window Frame Handling</div>
+          <div class="card-spec">Safe lifting of window frames, doors, and gates.<br>Aluminium, PVC, and wood profiles.</div>
+          <span class="badge blue">Construction · Window Frames</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/handling-cardboard-boxes-with-industrial-manipulators/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.250.298-16-1.jpg"
+             alt="Cardboard box handling" />
+        <div class="card-body">
+          <div class="card-name">Cardboard Box Handling</div>
+          <div class="card-spec">High-cycle box palletising and depalletising.<br>End-of-line packaging automation.</div>
+          <span class="badge green">Packaging · Boxes &amp; Cartons</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/handling-bags-with-industrial-manipulators/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.250.026-14-1.jpg"
+             alt="Bag handling" />
+        <div class="card-body">
+          <div class="card-name">Bag &amp; Sack Handling</div>
+          <div class="card-spec">Flexible-body load handling without damage.<br>Chemical powders, cement, food sacks.</div>
+          <span class="badge blue">Chemical · Bags</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/glass-handling-glass-suction-cups/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2025/12/40.240.251-11-1.jpg"
+             alt="Glass handling" />
+        <div class="card-body">
+          <div class="card-name">Glass Handling</div>
+          <div class="card-spec">Vacuum-cup lifting of large glass panes.<br>Float glass, safety glass, insulating units.</div>
+          <span class="badge blue">Construction · Glass</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/handling-drums-with-lifting-and-rotation/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.167-Movimentare-Fusti-Azzeratore-di-peso-Photoroom.jpg"
+             alt="Drum handling" />
+        <div class="card-body">
+          <div class="card-name">Drum Handling with Rotation</div>
+          <div class="card-spec">Lifting, tilting and rotating 200 L drums.<br>Chemical, paint, and food industry.</div>
+          <span class="badge blue">Chemical · Drums</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.atismanipolatori.com/en/solutions/handling-coils-how-to-increase-efficiency-and-safety-with-atis-manipulators/" target="_blank">
+      <div class="card">
+        <img class="card-img cover" loading="lazy"
+             src="https://www.atismanipolatori.com/wp-content/uploads/2026/01/40.250.156-Sollevare-Bobine-Azzeratore-di-peso-Photoroom.jpg"
+             alt="Coil handling" />
+        <div class="card-body">
+          <div class="card-name">Coil Handling</div>
+          <div class="card-spec">Safe handling of heavy paper, plastic &amp; metal coils.<br>Pneumatic clamp with core or OD grip.</div>
+          <span class="badge green">Packaging / Textile · Coils</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 8 — VIDEOS ════════════════════════ -->
+<section id="videos">
+  <h2>Videos — ATIS in Action</h2>
+  <div class="grid">
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=wf2hCdy4ceA" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/wf2hCdy4ceA/maxresdefault.jpg" alt="Windshield handling" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Automotive · Windshields</span>
+        Windshield handling with ATIS manipulator
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=CgwhEDucUds" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/CgwhEDucUds/maxresdefault.jpg" alt="Sparkling wine bottle handling" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Food · Bottles</span>
+        Pneumatic manipulator for sparkling wine bottles
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=RvOTVzHlah4" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/RvOTVzHlah4/maxresdefault.jpg" alt="Magnetic gripper metalworking" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Mechanical / Metalworking · Magnets</span>
+        Handling with magnetic gripping tools
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=D6uKfqlU3vc" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/D6uKfqlU3vc/maxresdefault.jpg" alt="Tube handling" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Mechanical / Metalworking · Tubes</span>
+        Steel tube and pipe handling with ATIS
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=imuaIY3oN-E" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/imuaIY3oN-E/maxresdefault.jpg" alt="Gear handling" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Mechanical / Metalworking · Gears</span>
+        Industrial gear and component handling
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=MuvxTRB2ZO4" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/MuvxTRB2ZO4/maxresdefault.jpg" alt="Bearing ring handling" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Mechanical · Bearing Rings</span>
+        Bearing ring handling with pneumatic clamp
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=D4Q9Mys9fEg" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/D4Q9Mys9fEg/maxresdefault.jpg" alt="Coil handling 1" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Packaging · Coils</span>
+        Coil handling — pneumatic clamp system
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=LxJxvaMnfNY" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/LxJxvaMnfNY/maxresdefault.jpg" alt="Coil handling 2" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Packaging · Coils</span>
+        High-cycle coil handling in production line
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=2jeJlFR1r7Q" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/2jeJlFR1r7Q/maxresdefault.jpg" alt="Coil handling 3" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Packaging · Coils</span>
+        Coil core gripper — internal diameter clamp
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=ezHidUkwr8I" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/ezHidUkwr8I/maxresdefault.jpg" alt="Coil handling 4" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Packaging · Coils</span>
+        Coil roll handling with OD pneumatic clamp
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=nE-J6nRluxM" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/nE-J6nRluxM/maxresdefault.jpg" alt="Box and crate handling" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Packaging · Boxes &amp; Cartons</span>
+        Cardboard box handling and palletising
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=G8lomE-aDcQ" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/G8lomE-aDcQ/maxresdefault.jpg" alt="Drum handling" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Chemical · Drums</span>
+        Drum lifting with rotation capability
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=-XotvnblJ7s" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/-XotvnblJ7s/maxresdefault.jpg" alt="Sanitary ware" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Construction · Sanitary Ware</span>
+        Ceramic sanitary ware handling with vacuum
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=z4Tyra02UTI" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/z4Tyra02UTI/maxresdefault.jpg" alt="Household appliances" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Electromechanical · Household Appliances</span>
+        Washing machine &amp; appliance handling
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a class="video-thumb-wrap" href="https://www.youtube.com/watch?v=zV7Wo6f5pRY" target="_blank">
+        <img loading="lazy" src="https://img.youtube.com/vi/zV7Wo6f5pRY/maxresdefault.jpg" alt="Wood panels" />
+        <div class="play-btn"></div>
+      </a>
+      <div class="video-caption">
+        <span class="tag">Wood · Panels</span>
+        Wood panel handling with vacuum suction frame
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>Source: <a href="https://www.atismanipolatori.com/en/" target="_blank">atismanipolatori.com</a> · Images &amp; videos load from ATIS CDN / YouTube · Catalogue updated October 2026</p>
+</footer>
+
+</body>
+</html>
