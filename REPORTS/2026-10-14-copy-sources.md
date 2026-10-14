@@ -4,28 +4,48 @@ Branch: copy/sources
 Status: READY FOR REVIEW
 
 ## Written
-- `content/sources.md`: the fact base for every page. Roughly 100 fact lines with IDs (A-01 and so on) that page files will cite in their `## Claims` sections. About 2,800 words.
-- Sections: A AOE positioning (from BRIEF.md) · B AOE services (old Services page) · C AOE about (old About page, figures left out) · D contact placeholders · E ATIS manipulator range with capacity, radius and stroke for all 11 models · F mounting options · G gripping systems · H ATIS solutions · I ATISmirus 200 VT datasheet · J evidence for each industry (Automotive, Windows & Doors, Food & Beverage) · K images · L things that must not be used.
-- Built from the saved pack in `content/source/`. A live check of atismanipolatori.com was blocked in this scheduled run, so ATIS facts rest on the saved scrape. Each one is cited to its original page URL.
+- `content/sources.md` (CHECKLIST item 2): about 100 fact lines, each with a stable ID and its original URL. No page copy has been written.
+- This run regrouped the facts by the page they serve, in BRIEF.md order:
+  1. Home: AOE positioning, A-01 to A-06
+  2. Industrial manipulators: all 11 ATIS models with capacity, radius and stroke (E-01 to E-18), plus mounting options (F)
+  3. Gripping systems: six gripper types and their variants (G)
+  4. Solutions: nine ATIS solution pages (H), plus the ATISmirus 200 VT datasheet as a worked example (I)
+  5. Services: AOE's old Services page (B)
+  6. Industries: Automotive, Windows & Doors, Food & Beverage (A-07 and J)
+  7. About: AOE's old About page with figures removed (C)
+  8. Contact: placeholders (D). The privacy policy and 404 need no product facts.
+  - There are also shared sections for images and for facts that must not be used.
+- Each fact appears once. Where another page needs it, that page has an "Also uses" line with the IDs.
+- All IDs from the first version are unchanged.
+- Built from `content/source/`, which was not edited:
+  - the ATIS catalogue
+  - the image CSV (for page URLs)
+  - the ATISmirus 200 VT datasheet
+  - the AOE About and Services facts
 
 ## Humanize pass
-- Not run. `sources.md` is an internal reference list, not site copy, so nothing here goes on the site word for word.
-- Also: there was no voice profile in this run (`~/.claude/voice-profile.md` is missing, and `~/Desktop/Agents/Zach/` can't be reached from the cloud). The humanize skill needs one, so this will block the humanize step on every page until Nathan's voice profile is supplied.
+- Not run. `sources.md` is an internal fact list, not site copy.
+- There was no voice profile in this run either (`~/.claude/voice-profile.md` is missing and `~/Desktop/Agents/Zach/` can't be reached from the cloud). Until one is supplied, no page can be humanized.
 
 ## Claims and sources
-- No site claims are made in this task. Each fact line in `sources.md` carries its own source.
-- Main sources used: https://www.aoeengineering.com/blank-4 (Services), https://www.aoeengineering.com/blank-1 (About), https://www.atismanipolatori.com/en/industrial-manipulators/ and the range pages (atismirus, acer, ferax, linear), the six `/en/gripping-systems/` pages, the nine `/en/solutions/` pages, `/en/executions/`, the ATIS ATISmirus 200 VT product sheet and BRIEF.md (positioning).
+- This task makes no site claims. Each line in `sources.md` carries its own source.
+- Main sources:
+  - https://www.aoeengineering.com/blank-4 (Services)
+  - https://www.aoeengineering.com/blank-1 (About)
+  - ATIS pages: `/en/industrial-manipulators/` and its four range pages, the six `/en/gripping-systems/` pages, the nine `/en/solutions/` pages and `/en/executions/`
+  - the ATIS ATISmirus 200 VT product sheet
+  - BRIEF.md (positioning)
 
 ## Needs Nathan
-- **Voice profile:** please supply it, either through the voice-profiler skill or as a file in the repo or the task, so pages can be humanized.
+- **Voice profile:** please supply one so pages can be humanized.
 - **Contact details:** `[CONFIRM: phone]`, `[CONFIRM: email]`, `[CONFIRM: address]`, `[CONFIRM: company number]`, `[CONFIRM: VAT number]`.
-- **Old About capabilities (C-03 to C-08):** bespoke automotive manipulators, conveyor systems, gantry cranes, steel structures, offshore and subsea handling, special-purpose machinery. Which of these can be described as current? The gantry crane size figure is held back until you confirm it.
-- **Old Services lines:** "Make & build" and "Project management" (B-04 to B-07) are wider than the new positioning. Should they stay on the Services page?
-- **Mounting options (F-01 to F-09):** these were taken from image file names on ATIS's executions page, not from its text. A quick check of the live page is needed before they're listed.
-- **Industry evidence is thin and belongs to ATIS.** Section J shows ATIS equipment working in all three industries, but none of it is AOE's own work. Pages will say what the equipment can handle and will never present these as AOE jobs. If AOE has its own projects that can be named or described, please send them over.
-- **Bottles:** the sparkling-wine solution (H-09) is excluded under the no-Wine rule. Can I use it as a generic "bottles" example, or should it stay out completely?
+- **About (C-03 to C-08):** which of the old capabilities are still current? The gantry crane size stays out until you confirm it.
+- **Services scope:** do "Make & build" and "Project management" (B-04 to B-07) stay on the new site?
+- **Services gap:** "workshop adaptations" and "servicing all makes" are in the brief, but no source says what they involve. Please send detail, or accept the one-line versions in A-02 and A-06.
+- **Industries:** every example in J is ATIS's work, not AOE's. Do you have AOE projects in these industries that can be described?
+- **Mounting options (F-01 to F-09):** these come from image file names, not page text. Someone needs to check the live page.
+- **Bottles (H-09):** the sparkling-wine example is out under the no-Wine rule. Can it be used as a generic bottles example, or should it stay out completely?
 
 ## Not done
-- No pages written. Next run: Home (`copy/home`).
-- No live re-check of the ATIS site (web fetch blocked).
-- `[VERIFY]` lines (mounting options, ATIS blog titles) still need a live page check before they're quoted.
+- No page copy, as instructed. Next run: Home, on branch `copy/home`.
+- No live check of the ATIS site (web fetch was blocked in scheduled runs). Lines tagged `[VERIFY]` still need one.

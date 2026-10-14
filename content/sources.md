@@ -1,19 +1,24 @@
 # Sources
 
-Built by Zach, 14 Oct 2026. Every fact the site copy may use, one per line, with its original URL (or the brief/instruction it comes from). Page files cite these lines by ID in their `## Claims` section.
+Built by Zach, 14 Oct 2026; regrouped by page the same day (task from Jenny). Every fact the site copy may use, one per line, with its original URL (or the brief/instruction it comes from). Page files cite these lines by ID in their `## Claims` section. No page copy is written here.
 
-How this was built: from the saved pack in `content/source/` (read-only). A live check of atismanipolatori.com was attempted and blocked in this scheduled run, so every ATIS fact below rests on the saved pack and is cited to the original page URL it was scraped from.
+How this was built: from the saved pack in `content/source/` (read-only): `atis-catalogue.html` (ranges, models, specs), `atis_images_catalog.csv` (page URLs), `atismirus-200-vt-datasheet.pdf` and `aoe-site-about-services.md`. A live check of atismanipolatori.com was blocked in the scheduled run, so every ATIS fact rests on the saved pack and is cited to the original page URL it was scraped from.
 
-Key to tags:
+**Layout.** Facts are grouped under the page they mainly serve, in BRIEF.md page order. Each fact appears once; where another page also needs it, that page lists the IDs under "Also uses". IDs are stable: the letter shows the fact's origin (A brief, B AOE Services, C AOE About, D contact, E ATIS range, F mountings, G gripping, H ATIS solutions, I ATISmirus 200 VT sheet, J industry evidence), not the page.
+
+Tags:
 - **[CONFIRM]** needs Nathan before it goes on the site.
 - **[VERIFY]** the fact comes from an image file name or page address rather than page text. Fine as background; check the live page before quoting it.
 - **[DO NOT USE]** recorded so nobody adds it later by mistake.
 
 Base URLs: ATIS = `https://www.atismanipolatori.com`. AOE = `https://www.aoeengineering.com`.
 
+Hard-rule reminders for every page: AOE supplies, installs and services ATIS manipulators; ATIS makes them. No years-in-business or turnover. No ATIS customer presented as AOE's. Rewrite, never lift.
+
 ---
 
-## A. AOE: positioning (Nathan's brief)
+## 1. Home
+Written new from the brief, so most Home facts are AOE positioning.
 
 | ID | Fact | Source |
 |---|---|---|
@@ -23,53 +28,13 @@ Base URLs: ATIS = `https://www.atismanipolatori.com`. AOE = `https://www.aoeengi
 | A-04 | Automation isn't right for every company. AOE only recommends it where there's a serious benefit, then presents the options with the best return. | BRIEF.md, "Positioning and voice" |
 | A-05 | AOE is the UK supplier and installer of ATIS pneumatic manipulators. | BRIEF.md, "Positioning and voice" |
 | A-06 | AOE services manipulators of all makes, not only ATIS. | BRIEF.md, "Positioning and voice" |
-| A-07 | Industries served on the new site: Automotive, Windows & Doors, Food & Beverage. No Defence, no Wine. | CLAUDE.md "Industries" (Nathan, 13 Oct 2026) |
-| A-08 | AOE holds full rights to use ATIS imagery. | BRIEF.md, hard rule 6 |
 
-## B. AOE: services (current site)
-Source page: AOE Services, https://www.aoeengineering.com/blank-4 (via `content/source/aoe-site-about-services.md`)
+Also uses: E-01, E-18 (range overview) · G-01 (gripping overview) · A-07 (industries) · B-08, B-09 (support) · D-01 to D-03 (contact in CTA/footer).
 
-| ID | Fact | Source |
-|---|---|---|
-| B-01 | AOE describes its services as industrial process engineering services. | https://www.aoeengineering.com/blank-4 |
-| B-02 | Feasibility and concept design: AOE evaluates process options and produces quick concept designs. | https://www.aoeengineering.com/blank-4 |
-| B-03 | Feasibility work sets out the technical benefits, presents solutions to the customer's team and reduces programme risk. | https://www.aoeengineering.com/blank-4 |
-| B-04 | Make and build: AOE sources and manages the manufacture and assembly of custom components and equipment for customers short of capacity or capability. | https://www.aoeengineering.com/blank-4 |
-| B-05 | Make and build work is quoted competitively on request. | https://www.aoeengineering.com/blank-4 |
-| B-06 | Project management: AOE coordinates partners and suppliers, manages risk, and works to deliver on schedule and within budget. | https://www.aoeengineering.com/blank-4 |
-| B-07 | AOE uses its project management approach on its own equipment projects and also offers it as a standalone service. | https://www.aoeengineering.com/blank-4 |
-| B-08 | Equipment support: ongoing care packages for equipment AOE supplies, tailored to the customer. | https://www.aoeengineering.com/blank-4 |
-| B-09 | Support packages can include scheduled maintenance, statutory inspections and training for the customer's team. | https://www.aoeengineering.com/blank-4 |
+## 2. Industrial manipulators
+Source: ATIS catalogue scraped from https://www.atismanipolatori.com/en/ (`atis-catalogue.html`); range page URLs from `atis_images_catalog.csv`. ATIS makes these; AOE supplies, installs and services them.
 
-## C. AOE: about (current site)
-Source page: AOE About, https://www.aoeengineering.com/blank-1. Years-in-business and turnover figures are deliberately excluded (hard rule 2).
-
-| ID | Fact | Source |
-|---|---|---|
-| C-01 | AOE's background is in production equipment design, at the front line of manufacturing. | https://www.aoeengineering.com/blank-1 |
-| C-02 | AOE's purpose is to solve customers' technical manufacturing challenges and deliver effective equipment for demanding clients. | https://www.aoeengineering.com/blank-1 |
-| C-03 | Past work: bespoke automotive manipulators. **[CONFIRM]** whether to present as current. | https://www.aoeengineering.com/blank-1 |
-| C-04 | Past work: fully automated conveyor systems. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
-| C-05 | Past work: gantry cranes. **[CONFIRM]** whether current; the size figure on the old page is not recorded here and must not be used until Nathan confirms it. | https://www.aoeengineering.com/blank-1 |
-| C-06 | Past work: industrial steel structures. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
-| C-07 | Past work: offshore and subsea handling equipment. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
-| C-08 | Past work: special-purpose industrial machinery. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
-| C-09 | Past work: military and civil aerospace process equipment. **[DO NOT USE]**: Defence dropped (Nathan, 13 Oct). | https://www.aoeengineering.com/blank-1 |
-
-## D. AOE: contact details
-Nothing verified yet. Use these placeholders on every page.
-
-| ID | Item | Status |
-|---|---|---|
-| D-01 | Phone | `[CONFIRM: phone]` |
-| D-02 | Email | `[CONFIRM: email]` |
-| D-03 | Postal address / service area | `[CONFIRM: address]` |
-| D-04 | Company registration and VAT numbers (for footer and privacy policy) | `[CONFIRM: company number]`, `[CONFIRM: VAT number]` |
-| D-05 | ATIS's own address, phone and email appear on the ATIS datasheet. **[DO NOT USE]**: they are ATIS's, not AOE's. | `content/source/atismirus-200-vt-datasheet.pdf` |
-
-## E. ATIS manipulators: the range
-Source: ATIS catalogue scraped from https://www.atismanipolatori.com/en/ (saved as `content/source/atis-catalogue.html`). Range pages from `atis_images_catalog.csv`. All ATIS products are made by ATIS; AOE supplies, installs and services them.
-
+### Range and models
 | ID | Fact | Source |
 |---|---|---|
 | E-01 | ATIS makes four families of industrial manipulator: ATISmirus, ATISacer, ATISferax and ATISlinear. | https://www.atismanipolatori.com/en/industrial-manipulators/ |
@@ -90,9 +55,8 @@ Source: ATIS catalogue scraped from https://www.atismanipolatori.com/en/ (saved 
 | E-16 | ATISlinear moves vertically on linear guides, with max capacity 800 kg. | https://www.atismanipolatori.com/en/industrial-manipulators/linear/ |
 | E-17 | ATISlinear is installed on an overhead rail. | https://www.atismanipolatori.com/en/industrial-manipulators/linear/ |
 | E-18 | Across the range, capacity runs from 55 kg (ATISacer 55) to 1,000 kg (ATISmirus 800). Derived from E-04 to E-16. | https://www.atismanipolatori.com/en/industrial-manipulators/ |
-
-## F. ATIS manipulators: mounting options **[VERIFY]**
-Source page: https://www.atismanipolatori.com/en/executions/. These come from the Italian image file names on that page (translated by Zach), not from page text. Check the live page before listing them as options.
+### Mounting options **[VERIFY]**
+Source page: https://www.atismanipolatori.com/en/executions/. Taken from the Italian image file names on that page (translated by Zach), not page text. Check the live page before listing them.
 
 | ID | Mounting (translated from file name) | Source |
 |---|---|---|
@@ -106,8 +70,10 @@ Source page: https://www.atismanipolatori.com/en/executions/. These come from th
 | F-08 | Suspended from a fixed column (jib-style) | https://www.atismanipolatori.com/en/executions/ |
 | F-09 | Column with an integrated pallet truck (mobile) | https://www.atismanipolatori.com/en/executions/ |
 
-## G. ATIS gripping systems
-Source: ATIS catalogue (`atis-catalogue.html`), gripping range pages listed per line. "EOAT" = end-of-arm tooling.
+Also uses: A-05, A-06 (AOE supplies, installs, services) · I-01 to I-07 (worked example of an ATISmirus 200 configuration).
+
+## 3. Gripping systems
+Source: ATIS catalogue (`atis-catalogue.html`), gripping range pages as listed. "EOAT" = end-of-arm tooling.
 
 | ID | Fact | Source |
 |---|---|---|
@@ -124,7 +90,9 @@ Source: ATIS catalogue (`atis-catalogue.html`), gripping range pages listed per 
 | G-11 | Vacuum-cup grippers can tilt the load 180° and rotate it 360°. | https://www.atismanipolatori.com/en/gripping-systems/vacuum-cup-manipulators/ |
 | G-12 | Gripper variants shown by ATIS include a tilt-and-rotate clamp, a 200-litre drum clamp with rotation, an adjustable-span fork and rail-mounted (overhead) magnetic, fork and hook versions. | Gripping range pages above (catalogue "Action shots") |
 
-## H. ATIS solutions (application pages)
+Also uses: J-01 to J-04, J-11, J-20 to J-23 (industry examples of each gripper type).
+
+## 4. Solutions
 Source: ATIS catalogue "Solutions" section; each line is that solution's own page.
 
 | ID | Fact | Source |
@@ -138,9 +106,8 @@ Source: ATIS catalogue "Solutions" section; each line is that solution's own pag
 | H-07 | Drum handling: lifting, tilting and rotating 200-litre drums; used in chemical, paint and food industries. | https://www.atismanipolatori.com/en/solutions/handling-drums-with-lifting-and-rotation/ |
 | H-08 | Coil handling: heavy paper, plastic and metal coils, gripped by pneumatic clamp on the core or outside diameter. | https://www.atismanipolatori.com/en/solutions/handling-coils-how-to-increase-efficiency-and-safety-with-atis-manipulators/ |
 | H-09 | Sparkling wine bottle handling (disgorging, 90°/180° tilt, 360° rotation). **[DO NOT USE]** as an industry: no Wine (Nathan, 13 Oct). Could only appear as a generic "bottles" example if Nathan agrees. | https://www.atismanipolatori.com/en/solutions/pneumatic-manipulator-sparkling-wine-bottles/ |
-
-## I. ATISmirus 200 VT datasheet (window handling)
-Source: official ATIS product sheet, `content/source/atismirus-200-vt-datasheet.pdf` (ATIS, www.atismanipolatori.com). No public page URL in the pack; cite as "ATIS ATISmirus 200 VT product sheet".
+### Worked example: ATISmirus 200 VT for windows
+Source: official ATIS product sheet, `content/source/atismirus-200-vt-datasheet.pdf`. No public page URL in the pack; cite as "ATIS ATISmirus 200 VT product sheet".
 
 | ID | Fact | Source |
 |---|---|---|
@@ -154,8 +121,35 @@ Source: official ATIS product sheet, `content/source/atismirus-200-vt-datasheet.
 | I-08 | Typical applications: loading and unloading areas, assembly areas. | ATIS ATISmirus 200 VT product sheet |
 | I-09 | The datasheet claims improved productivity and reduced downtime but gives no figures. Don't quantify. | ATIS ATISmirus 200 VT product sheet |
 
-## J. Industry evidence (ATIS applications)
-These show that ATIS equipment handles loads in each of AOE's three industries. They are **ATIS's** applications, not AOE's jobs: never present them as AOE customers or case studies. Most are **[VERIFY]**: the fact is the page title or image, not the page text.
+Also uses: G-10, G-11 (vacuum gripping) · A-04 (honest about where automation fits).
+
+## 5. Services
+Source page: AOE Services, https://www.aoeengineering.com/blank-4 (via `content/source/aoe-site-about-services.md`). **[CONFIRM]** whether "Make & build" (B-04, B-05) and "Project management" (B-06, B-07) stay on the new site; they are wider than the brief's positioning.
+
+| ID | Fact | Source |
+|---|---|---|
+| B-01 | AOE describes its services as industrial process engineering services. | https://www.aoeengineering.com/blank-4 |
+| B-02 | Feasibility and concept design: AOE evaluates process options and produces quick concept designs. | https://www.aoeengineering.com/blank-4 |
+| B-03 | Feasibility work sets out the technical benefits, presents solutions to the customer's team and reduces programme risk. | https://www.aoeengineering.com/blank-4 |
+| B-04 | Make and build: AOE sources and manages the manufacture and assembly of custom components and equipment for customers short of capacity or capability. | https://www.aoeengineering.com/blank-4 |
+| B-05 | Make and build work is quoted competitively on request. | https://www.aoeengineering.com/blank-4 |
+| B-06 | Project management: AOE coordinates partners and suppliers, manages risk, and works to deliver on schedule and within budget. | https://www.aoeengineering.com/blank-4 |
+| B-07 | AOE uses its project management approach on its own equipment projects and also offers it as a standalone service. | https://www.aoeengineering.com/blank-4 |
+| B-08 | Equipment support: ongoing care packages for equipment AOE supplies, tailored to the customer. | https://www.aoeengineering.com/blank-4 |
+| B-09 | Support packages can include scheduled maintenance, statutory inspections and training for the customer's team. | https://www.aoeengineering.com/blank-4 |
+
+Also uses: A-02 (design, installation, workshop adaptations) · A-05 (ATIS supply and installation) · A-06 (servicing all makes) · A-04 (honest about automation).
+
+**Gap [CONFIRM]:** the brief names "workshop adaptations" and "servicing for all makes", but no source describes what either involves (scope, typical jobs, response times, where AOE works). Nathan to supply detail or accept the one-line versions in A-02 and A-06.
+
+## 6. Industries
+AOE's three industries are set by Nathan:
+
+| ID | Fact | Source |
+|---|---|---|
+| A-07 | Industries served on the new site: Automotive, Windows & Doors, Food & Beverage. No Defence, no Wine. | CLAUDE.md "Industries" (Nathan, 13 Oct 2026) |
+
+The lines below show ATIS equipment handling loads in each industry. They are **ATIS's** applications, not AOE's jobs: never present them as AOE customers or case studies. Most are **[VERIFY]** (page title or image, not page text). **[CONFIRM]** whether AOE has its own projects in these industries that can be described.
 
 ### Automotive
 | ID | Fact | Source |
@@ -172,7 +166,7 @@ These show that ATIS equipment handles loads in each of AOE's three industries. 
 ### Windows & Doors
 | ID | Fact | Source |
 |---|---|---|
-| J-10 | See H-01 (window frames, doors and gates), H-02 (glass panes) and section I (ATISmirus 200 VT for windows). | as cited |
+| J-10 | See H-01 (window frames, doors and gates), H-02 (glass panes) and I-01 to I-09 (ATISmirus 200 VT for windows). | as cited |
 | J-11 | ATIS shows vacuum lifters for large glass panes and large panels. | https://www.atismanipolatori.com/en/gripping-systems/vacuum-cup-manipulators/ |
 | J-12 | ATIS application pages cover door handling with an ATISmirus 300. [VERIFY] | https://www.atismanipolatori.com/en/blog/atismirus-300-manipulator-the-ideal-solution-for-handling-doors/ |
 | J-13 | ATIS application pages cover armoured doors, packaged doors, and windows with suction cups. [VERIFY] | https://www.atismanipolatori.com/en/blog/industrial-pneumatic-manipulator-for-armoured-doors/ ; https://www.atismanipolatori.com/en/blog/safe-lifting-of-packaged-doors-efficiency-protection-and-precision/ ; https://www.atismanipolatori.com/en/blog/window-manipulator-with-suction-cups-precision-safety-and-control-in-glass-handling/ |
@@ -190,10 +184,49 @@ These show that ATIS equipment handles loads in each of AOE's three industries. 
 | J-26 | ATIS application pages cover water bottle handling. [VERIFY] | https://www.atismanipolatori.com/en/blog/safety-and-efficiency-in-handling-water-bottles/ |
 | J-27 | Box handling and palletising at end of line (H-05) applies to packed food and drink. Zach's link, not ATIS's wording: present as "boxes and cartons", not as an F&B claim. | https://www.atismanipolatori.com/en/solutions/handling-cardboard-boxes-with-industrial-manipulators/ |
 
-## K. Images available (for alt text)
-Every ATIS image, its file URL and the page it sits on are listed in `content/source/atis_images_catalog.csv` (440 images). Alt text is written only for an image Jenny or Carla has actually placed. Product shots on the range pages: ATISmirus 80, 100, 200, 300, 500; ATISacer 55, 80, 150; ATISferax; ATISlinear (cited pages in section E). No AOE photography is in hand yet; site placeholders are `TODO-IMAGE`.
+Also uses: H-01, H-02, I-01 to I-09 (Windows & Doors) · H-05 to H-07 (Food & Beverage) · G-02, G-04 (Automotive grippers) · A-04.
 
-## L. Not usable (recorded so they stay out)
+## 7. About
+Source page: AOE About, https://www.aoeengineering.com/blank-1. Years-in-business and turnover figures deliberately excluded (hard rule 2).
+
+| ID | Fact | Source |
+|---|---|---|
+| C-01 | AOE's background is in production equipment design, at the front line of manufacturing. | https://www.aoeengineering.com/blank-1 |
+| C-02 | AOE's purpose is to solve customers' technical manufacturing challenges and deliver effective equipment for demanding clients. | https://www.aoeengineering.com/blank-1 |
+| C-03 | Past work: bespoke automotive manipulators. **[CONFIRM]** whether to present as current. | https://www.aoeengineering.com/blank-1 |
+| C-04 | Past work: fully automated conveyor systems. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
+| C-05 | Past work: gantry cranes. **[CONFIRM]** whether current; the size figure on the old page is not recorded here and must not be used until Nathan confirms it. | https://www.aoeengineering.com/blank-1 |
+| C-06 | Past work: industrial steel structures. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
+| C-07 | Past work: offshore and subsea handling equipment. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
+| C-08 | Past work: special-purpose industrial machinery. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
+| C-09 | Past work: military and civil aerospace process equipment. **[DO NOT USE]**: Defence dropped (Nathan, 13 Oct). | https://www.aoeengineering.com/blank-1 |
+
+Also uses: A-01 to A-06 (who AOE is and how it works).
+
+## 8. Contact
+Nothing verified yet. Use these placeholders on every page that shows contact details.
+
+| ID | Item | Status |
+|---|---|---|
+| D-01 | Phone | `[CONFIRM: phone]` |
+| D-02 | Email | `[CONFIRM: email]` |
+| D-03 | Postal address / service area | `[CONFIRM: address]` |
+| D-04 | Company registration and VAT numbers (for footer and privacy policy) | `[CONFIRM: company number]`, `[CONFIRM: VAT number]` |
+| D-05 | ATIS's own address, phone and email appear on the ATIS datasheet. **[DO NOT USE]**: they are ATIS's, not AOE's. | `content/source/atismirus-200-vt-datasheet.pdf` |
+
+Also uses: A-03 (trust-led, no hard sell) for the form intro.
+
+Privacy policy and 404 (pages 9 and 10) need no product facts; the privacy policy uses D-01 to D-04 as placeholders.
+
+## Shared: images (for alt text)
+Every ATIS image, its file URL and the page it sits on are listed in `content/source/atis_images_catalog.csv` (440 images). Alt text is written only for an image Jenny or Carla has actually placed. Product shots on the range pages: ATISmirus 80, 100, 200, 300, 500; ATISacer 55, 80, 150; ATISferax; ATISlinear (cited pages under "2. Industrial manipulators"). No AOE photography is in hand yet; site placeholders are `TODO-IMAGE`.
+
+
+| ID | Fact | Source |
+|---|---|---|
+| A-08 | AOE holds full rights to use ATIS imagery. | BRIEF.md, hard rule 6 |
+
+## Shared: not usable (recorded so they stay out)
 - Years in business, anniversaries ("20 years" ATIS blog), turnover: hard rule 2.
 - ATIS company history, headquarters, sustainability, trade fairs and staffing pages: ATIS's story, not AOE's.
 - ATIS's method pages (training, scheduled maintenance, quality): ATIS's process. AOE's own support offer is B-08/B-09.
