@@ -22,7 +22,8 @@ If they conflict, stop and flag it. Never edit `BRIEF.md`, `CLAUDE.md` or `HERO.
 ## Hard rules
 1. **No copy writing.** All text is supplied to you. Where copy is missing, put a visible placeholder: `[COPY NEEDED: what goes here]`. Never fill gaps with invented text, not even "temporary" lorem-style marketing lines.
 2. **No invented facts.** No customer names, case studies, testimonials, numbers, results, years in business or turnover figures. The years-in-business and turnover figures are removed from the site entirely.
-3. **Real machinery only.** ATIS manipulators and grippers appear only as real photos or footage supplied to you. No 3D models, low-poly, cartoon, illustrated or AI-generated machinery. Decorative motion (type, lines, transitions) is fine.
+3. **Faithful machinery only.** ATIS manipulators and grippers appear as real photos or footage supplied to you, or as renders that stay faithful to the real manipulator's form. Never cartoonish, low-poly, stylised or AI-invented machinery. Decorative motion (type, lines, transitions) is fine.
+8. **Orange.** ATIS orange appears only on the manipulators in imagery and on the word "ATIS" in text. Never use orange in the palette, UI or backgrounds.
 4. **The hero waits.** The homepage hero video is chosen by Nathan and specified in `HERO.md`. Until that file exists, build the hero slot with a plain placeholder and a poster frame, and note it in your report.
 5. **Never imply AOE manufactures the manipulators**, and never let the site read as ATIS's own.
 6. **Branding.** The AOE wordmark logo (silver AOE, blue bar, "ENGINEERING" beneath) is used everywhere. Use only the logo files in the repo; don't redraw or recolour it.
@@ -64,7 +65,7 @@ Status: DONE / PARTLY DONE / BLOCKED
 ## Checks run
 - Mobile width: pass/fail
 - Reduced motion: pass/fail
-- Rule check (no invented copy, facts, or machinery): pass/fail
+- Rule check (no invented copy or facts, faithful machinery, orange only where allowed): pass/fail
 
 ## Problems or questions
 - ...
