@@ -1,6 +1,6 @@
 # Sources
 
-Built by Zach, 14 Oct 2026; regrouped by page the same day (task from Jenny). Every fact the site copy may use, one per line, with its original URL (or the brief/instruction it comes from). Page files cite these lines by ID in their `## Claims` section. No page copy is written here.
+Built by Zach, 14 Oct 2026; regrouped by page the same day (task from Jenny). Refreshed 17 Oct 2026 against the 17 Oct brief (Dave Ogden's email of 16 Oct): AOE's role (A-05, A-06, A-09, A-10), industries (A-07, Defence added) and C-09. Every fact the site copy may use, one per line, with its original URL (or the brief/instruction it comes from). Page files cite these lines by ID in their `## Claims` section. No page copy is written here.
 
 How this was built: from the saved pack in `content/source/` (read-only): `atis-catalogue.html` (ranges, models, specs), `atis_images_catalog.csv` (page URLs), `atismirus-200-vt-datasheet.pdf` and `aoe-site-about-services.md`. A live check of atismanipolatori.com was blocked in the scheduled run, so every ATIS fact rests on the saved pack and is cited to the original page URL it was scraped from.
 
@@ -13,7 +13,7 @@ Tags:
 
 Base URLs: ATIS = `https://www.atismanipolatori.com`. AOE = `https://www.aoeengineering.com`.
 
-Hard-rule reminders for every page: AOE supplies, installs and services ATIS manipulators; ATIS makes them. No years-in-business or turnover. No ATIS customer presented as AOE's. Rewrite, never lift.
+Hard-rule reminders for every page: AOE designs, builds, installs and commissions manipulators; it is the UK agent for ATIS and also supplies manipulators and equipment not made by ATIS; it services all makes. ATIS makes ATIS products, never AOE. "UK agent for ATIS" is the only ATIS relationship wording allowed: no "ATIS specialist", "official partner" or endorsement. No years-in-business or turnover. No ATIS customer presented as AOE's. Rewrite, never lift.
 
 ---
 
@@ -26,13 +26,15 @@ Written new from the brief, so most Home facts are AOE positioning.
 | A-02 | AOE works across lifting apparatus and automating repetitive tasks, covering design, installation and workshop adaptations (a "360" company). | BRIEF.md, "Positioning and voice" |
 | A-03 | AOE aims for long-term, transparent partnerships; buyers choose on trust rather than brand. | BRIEF.md, "Positioning and voice" |
 | A-04 | Automation isn't right for every company. AOE only recommends it where there's a serious benefit, then presents the options with the best return. | BRIEF.md, "Positioning and voice" |
-| A-05 | AOE is the UK supplier and installer of ATIS pneumatic manipulators. | BRIEF.md, "Positioning and voice" |
-| A-06 | AOE services manipulators of all makes, not only ATIS. | BRIEF.md, "Positioning and voice" |
+| A-05 | AOE is the UK agent for ATIS and supplies ATIS manipulators. (Replaces the 14 Oct wording "UK supplier and installer of ATIS pneumatic manipulators".) | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; BRIEF.md "Positioning and voice" (17 Oct) |
+| A-06 | AOE services manipulators of all makes, not only ATIS. | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; BRIEF.md "Positioning and voice" (17 Oct) |
+| A-09 | AOE designs, builds, installs and commissions manipulators. (AOE's own work; never word it so it reads as AOE making ATIS products.) | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; BRIEF.md "Positioning and voice" (17 Oct) |
+| A-10 | As well as ATIS manipulators, AOE supplies other manipulators and equipment not made by ATIS. No other makers are named in any source: don't name any. | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; BRIEF.md "Positioning and voice" (17 Oct) |
 
-Also uses: E-01, E-18 (range overview) · G-01 (gripping overview) · A-07 (industries) · B-08, B-09 (support) · D-01 to D-03 (contact in CTA/footer).
+Also uses: E-01, E-18 (range overview) · A-09, A-10 (what AOE does) · G-01 (gripping overview) · A-07 (industries) · B-08, B-09 (support) · D-01 to D-03 (contact in CTA/footer).
 
 ## 2. Industrial manipulators
-Source: ATIS catalogue scraped from https://www.atismanipolatori.com/en/ (`atis-catalogue.html`); range page URLs from `atis_images_catalog.csv`. ATIS makes these; AOE supplies, installs and services them.
+Source: ATIS catalogue scraped from https://www.atismanipolatori.com/en/ (`atis-catalogue.html`); range page URLs from `atis_images_catalog.csv`. ATIS makes these; AOE, as the UK agent for ATIS, supplies them (A-05), and installs, commissions and services manipulators (A-06, A-09).
 
 ### Range and models
 | ID | Fact | Source |
@@ -70,7 +72,7 @@ Source page: https://www.atismanipolatori.com/en/executions/. Taken from the Ita
 | F-08 | Suspended from a fixed column (jib-style) | https://www.atismanipolatori.com/en/executions/ |
 | F-09 | Column with an integrated pallet truck (mobile) | https://www.atismanipolatori.com/en/executions/ |
 
-Also uses: A-05, A-06 (AOE supplies, installs, services) · I-01 to I-07 (worked example of an ATISmirus 200 configuration).
+Also uses: A-05, A-06, A-09, A-10 (AOE as UK agent for ATIS; designs, builds, installs, commissions; services all makes) · I-01 to I-07 (worked example of an ATISmirus 200 configuration).
 
 ## 3. Gripping systems
 Source: ATIS catalogue (`atis-catalogue.html`), gripping range pages as listed. "EOAT" = end-of-arm tooling.
@@ -138,18 +140,18 @@ Source page: AOE Services, https://www.aoeengineering.com/blank-4 (via `content/
 | B-08 | Equipment support: ongoing care packages for equipment AOE supplies, tailored to the customer. | https://www.aoeengineering.com/blank-4 |
 | B-09 | Support packages can include scheduled maintenance, statutory inspections and training for the customer's team. | https://www.aoeengineering.com/blank-4 |
 
-Also uses: A-02 (design, installation, workshop adaptations) · A-05 (ATIS supply and installation) · A-06 (servicing all makes) · A-04 (honest about automation).
+Also uses: A-02 (design, installation, workshop adaptations) · A-05 (UK agent for ATIS) · A-06 (servicing all makes) · A-09 (design, build, installation and commissioning of manipulators) · A-10 (non-ATIS manipulators and equipment) · A-04 (honest about automation).
 
-**Gap [CONFIRM]:** the brief names "workshop adaptations" and "servicing for all makes", but no source describes what either involves (scope, typical jobs, response times, where AOE works). Nathan to supply detail or accept the one-line versions in A-02 and A-06.
+**Gap [CONFIRM]:** the brief names "workshop adaptations" and "servicing for all makes", but no source describes what either involves (scope, typical jobs, response times, where AOE works). Nathan to supply detail or accept the one-line versions in A-02 and A-06. Dave's email (16 Oct) confirms servicing all makes and adds commissioning (A-09), but gives no further detail on scope. Also open: what "other manipulators and equipment" (A-10) covers.
 
 ## 6. Industries
-AOE's three industries are set by Nathan:
+AOE's four industries:
 
 | ID | Fact | Source |
 |---|---|---|
-| A-07 | Industries served on the new site: Automotive, Windows & Doors, Food & Beverage. No Defence, no Wine. | CLAUDE.md "Industries" (Nathan, 13 Oct 2026) |
+| A-07 | Industries served on the new site: Automotive, Windows & Doors, Food & Beverage, Defence. No Wine. (Supersedes Nathan's 13 Oct list, which dropped Defence.) | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; CLAUDE.md "Industries" and BRIEF.md page 6 (17 Oct) |
 
-The lines below show ATIS equipment handling loads in each industry. They are **ATIS's** applications, not AOE's jobs: never present them as AOE customers or case studies. Most are **[VERIFY]** (page title or image, not page text). **[CONFIRM]** whether AOE has its own projects in these industries that can be described.
+The Automotive, Windows & Doors and Food & Beverage lines below show ATIS equipment handling loads in each industry. They are **ATIS's** applications, not AOE's jobs: never present them as AOE customers or case studies. Most are **[VERIFY]** (page title or image, not page text). **[CONFIRM]** whether AOE has its own projects in these industries that can be described.
 
 ### Automotive
 | ID | Fact | Source |
@@ -184,6 +186,14 @@ The lines below show ATIS equipment handling loads in each industry. They are **
 | J-26 | ATIS application pages cover water bottle handling. [VERIFY] | https://www.atismanipolatori.com/en/blog/safety-and-efficiency-in-handling-water-bottles/ |
 | J-27 | Box handling and palletising at end of line (H-05) applies to packed food and drink. Zach's link, not ATIS's wording: present as "boxes and cartons", not as an F&B claim. | https://www.atismanipolatori.com/en/solutions/handling-cardboard-boxes-with-industrial-manipulators/ |
 
+### Defence
+| ID | Fact | Source |
+|---|---|---|
+| J-30 | Defence is one of AOE's four industries. | Dave Ogden (AOE), email to Nathan, 16 Oct 2026 (A-07) |
+| J-31 | AOE's old About page lists military and civil aerospace process equipment among its past work. **[CONFIRM]** whether current and whether it can be described under Defence (see C-09). | https://www.aoeengineering.com/blank-1 |
+
+**Gap [CONFIRM]:** beyond Dave's email (J-30) and the old About line (J-31), no source holds any Defence fact: no AOE projects, loads, equipment or requirements, and no Defence application anywhere in the saved ATIS pack (the "armoured doors" page, J-13, is a door product, not Defence). The Defence section can't go beyond a short, general statement until Nathan or Dave supplies sourced detail. Also confirm whether any Defence work is confidential and can't be named or described.
+
 Also uses: H-01, H-02, I-01 to I-09 (Windows & Doors) · H-05 to H-07 (Food & Beverage) · G-02, G-04 (Automotive grippers) · A-04.
 
 ## 7. About
@@ -199,9 +209,9 @@ Source page: AOE About, https://www.aoeengineering.com/blank-1. Years-in-busines
 | C-06 | Past work: industrial steel structures. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
 | C-07 | Past work: offshore and subsea handling equipment. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
 | C-08 | Past work: special-purpose industrial machinery. **[CONFIRM]** whether current. | https://www.aoeengineering.com/blank-1 |
-| C-09 | Past work: military and civil aerospace process equipment. **[DO NOT USE]**: Defence dropped (Nathan, 13 Oct). | https://www.aoeengineering.com/blank-1 |
+| C-09 | Past work: military and civil aerospace process equipment. **[CONFIRM]** whether current. (Was [DO NOT USE] on 14 Oct when Defence was dropped; Defence is back in per Dave Ogden, 16 Oct, so this is now usable once confirmed. Jenny's 14 Oct note in `aoe-site-about-services.md` saying not to build copy on this line predates that change.) | https://www.aoeengineering.com/blank-1 |
 
-Also uses: A-01 to A-06 (who AOE is and how it works).
+Also uses: A-01 to A-06, A-09, A-10 (who AOE is and how it works) · J-30 (Defence).
 
 ## 8. Contact
 Nothing verified yet. Use these placeholders on every page that shows contact details.
@@ -231,4 +241,6 @@ Every ATIS image, its file URL and the page it sits on are listed in `content/so
 - ATIS company history, headquarters, sustainability, trade fairs and staffing pages: ATIS's story, not AOE's.
 - ATIS's method pages (training, scheduled maintenance, quality): ATIS's process. AOE's own support offer is B-08/B-09.
 - Any ATIS customer name or logo (e.g. J-08).
-- Old AOE capability "military and civil aerospace" (C-09) and anything Wine (H-09).
+- Anything Wine (H-09).
+- Any wording that AOE is ATIS, makes ATIS products, is an "ATIS specialist", or is an official or endorsed ATIS partner. "UK agent for ATIS" only (A-05).
+- Names of other manipulator makers AOE supplies or services: none are sourced (A-10).
