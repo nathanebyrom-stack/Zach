@@ -1,10 +1,10 @@
 # Sources
 
-Built by Zach, 14 Oct 2026; regrouped by page the same day (task from Jenny). Refreshed 17 Oct 2026 against the 17 Oct brief (Dave Ogden's email of 16 Oct): AOE's role (A-05, A-06, A-09, A-10), industries (A-07, Defence added) and C-09. Second refresh 17 Oct 2026 against Nathan's answers to the [CONFIRM] list: contact details (D-01 to D-04), Services (Design & build, workshop adaptations, servicing; B-04, B-10, B-11), Defence (J-31, J-32), past work (C-03 to C-09) and other makes (A-10). Every fact the site copy may use, one per line, with its original URL (or the brief/instruction it comes from). Page files cite these lines by ID in their `## Claims` section. No page copy is written here.
+Built by Zach, 14 Oct 2026; regrouped by page the same day (task from Jenny). Refreshed 17 Oct 2026 against the 17 Oct brief (Dave Ogden's email of 16 Oct): AOE's role (A-05, A-06, A-09, A-10), industries (A-07, Defence added) and C-09. Second refresh 17 Oct 2026 against Nathan's answers to the [CONFIRM] list: contact details (D-01 to D-04), Services (Design & build, workshop adaptations, servicing; B-04, B-10, B-11), Defence (J-31, J-32), past work (C-03 to C-09) and other makes (A-10). Third refresh 17 Oct 2026 against Nathan's evening answers: hero message (A-11), contact details as in Dave's email footer (D-01, D-04, D-07), Defence not confidential (J-33), loads list (K-01 to K-08) and bottles (H-09). Every fact the site copy may use, one per line, with its original URL (or the brief/instruction it comes from). Page files cite these lines by ID in their `## Claims` section. No page copy is written here.
 
 How this was built: from the saved pack in `content/source/` (read-only): `atis-catalogue.html` (ranges, models, specs), `atis_images_catalog.csv` (page URLs), `atismirus-200-vt-datasheet.pdf` and `aoe-site-about-services.md`. A live check of atismanipolatori.com was blocked in the scheduled run, so every ATIS fact rests on the saved pack and is cited to the original page URL it was scraped from.
 
-**Layout.** Facts are grouped under the page they mainly serve, in BRIEF.md page order. Each fact appears once; where another page also needs it, that page lists the IDs under "Also uses". IDs are stable: the letter shows the fact's origin (A brief, B AOE Services, C AOE About, D contact, E ATIS range, F mountings, G gripping, H ATIS solutions, I ATISmirus 200 VT sheet, J industry evidence), not the page.
+**Layout.** Facts are grouped under the page they mainly serve, in BRIEF.md page order. Each fact appears once; where another page also needs it, that page lists the IDs under "Also uses". IDs are stable: the letter shows the fact's origin (A brief, B AOE Services, C AOE About, D contact, E ATIS range, F mountings, G gripping, H ATIS solutions, I ATISmirus 200 VT sheet, J industry evidence, K loads list), not the page.
 
 Tags:
 - **[CONFIRM]** needs Nathan before it goes on the site.
@@ -30,8 +30,9 @@ Written new from the brief, so most Home facts are AOE positioning.
 | A-06 | AOE services manipulators of all makes, not only ATIS. | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; BRIEF.md "Positioning and voice" (17 Oct) |
 | A-09 | AOE designs, builds, installs and commissions manipulators. (AOE's own work; never word it so it reads as AOE making ATIS products.) | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; BRIEF.md "Positioning and voice" (17 Oct) |
 | A-10 | As well as ATIS manipulators, AOE supplies other manipulators and equipment not made by ATIS. Keep it general: don't name any non-ATIS maker (Nathan, 17 Oct). | Dave Ogden (AOE), email to Nathan, 16 Oct 2026; BRIEF.md "Positioning and voice" (17 Oct); Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 3 |
+| A-11 | Headline idea for the Home hero: AOE doesn't just sell manipulators; it is a 360 engineering company. AOE sells, installs and services, and does the fitting, including workshop adaptations. This leads, ahead of "heavy, awkward or fragile" (A-01). | Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 6 |
 
-Also uses: E-01, E-18 (range overview) · A-09, A-10 (what AOE does) · G-01 (gripping overview) · A-07 (industries) · B-08, B-09 (support) · D-01 to D-03 (contact in CTA/footer).
+Also uses: K-01 to K-08 (loads list) · E-01, E-18 (range overview) · A-09, A-10 (what AOE does) · G-01 (gripping overview) · A-07 (industries) · B-08, B-09 (support) · D-01 to D-03 (contact in CTA/footer).
 
 ## 2. Industrial manipulators
 Source: ATIS catalogue scraped from https://www.atismanipolatori.com/en/ (`atis-catalogue.html`); range page URLs from `atis_images_catalog.csv`. ATIS makes these; AOE, as the UK agent for ATIS, supplies them (A-05), and installs, commissions and services manipulators (A-06, A-09).
@@ -107,7 +108,7 @@ Source: ATIS catalogue "Solutions" section; each line is that solution's own pag
 | H-06 | Bag and sack handling: flexible loads such as chemical powders, cement and food sacks, handled without damage. | https://www.atismanipolatori.com/en/solutions/handling-bags-with-industrial-manipulators/ |
 | H-07 | Drum handling: lifting, tilting and rotating 200-litre drums; used in chemical, paint and food industries. | https://www.atismanipolatori.com/en/solutions/handling-drums-with-lifting-and-rotation/ |
 | H-08 | Coil handling: heavy paper, plastic and metal coils, gripped by pneumatic clamp on the core or outside diameter. | https://www.atismanipolatori.com/en/solutions/handling-coils-how-to-increase-efficiency-and-safety-with-atis-manipulators/ |
-| H-09 | Sparkling wine bottle handling (disgorging, 90°/180° tilt, 360° rotation). **[DO NOT USE]** as an industry: no Wine (Nathan, 13 Oct). Could only appear as a generic "bottles" example if Nathan agrees. | https://www.atismanipolatori.com/en/solutions/pneumatic-manipulator-sparkling-wine-bottles/ |
+| H-09 | Sparkling wine bottle handling (disgorging, 90°/180° tilt, 360° rotation). **[DO NOT USE]**: no Wine (Nathan, 13 Oct), and Nathan's 17 Oct loads list doesn't include bottles, so it stays out entirely (Nathan, 17 Oct evening, item 9). | https://www.atismanipolatori.com/en/solutions/pneumatic-manipulator-sparkling-wine-bottles/ |
 ### Worked example: ATISmirus 200 VT for windows
 Source: official ATIS product sheet, `content/source/atismirus-200-vt-datasheet.pdf`. No public page URL in the pack; cite as "ATIS ATISmirus 200 VT product sheet".
 
@@ -194,8 +195,9 @@ The Automotive, Windows & Doors and Food & Beverage lines below show ATIS equipm
 | J-30 | Defence is one of AOE's four industries. | Dave Ogden (AOE), email to Nathan, 16 Oct 2026 (A-07) |
 | J-31 | AOE's old About page lists military and civil aerospace process equipment among its past work. Confirmed current and usable under Defence (Nathan, 17 Oct; see C-09). | https://www.aoeengineering.com/blank-1 ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 2 |
 | J-32 | AOE supplies and installs lifting equipment for the defence industry. | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 2 |
+| J-33 | None of AOE's Defence work is confidential. Copy can describe Defence as fully as the sources allow (J-30 to J-32, C-09); still no invented customers, programmes or sites. | Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 8 |
 
-**Gap:** beyond J-30 to J-32, no source holds any Defence fact: no named customers, programmes, sites or loads (Nathan, 17 Oct: nothing beyond this is sourced), and no Defence application anywhere in the saved ATIS pack (the "armoured doors" page, J-13, is a door product, not Defence). The Defence section stays short and general. **[CONFIRM]** still open: whether any Defence work is confidential (Nathan's answer didn't say; until he does, describe nothing beyond J-30 to J-32).
+**Gap:** beyond J-30 to J-32, no source holds any Defence fact: no named customers, programmes, sites or loads (Nathan, 17 Oct: nothing beyond this is sourced), and no Defence application anywhere in the saved ATIS pack (the "armoured doors" page, J-13, is a door product, not Defence). The Defence section stays short and general because the sources are thin, not because of confidentiality: Nathan closed that question on 17 Oct (J-33).
 
 Also uses: H-01, H-02, I-01 to I-09 (Windows & Doors) · H-05 to H-07 (Food & Beverage) · G-02, G-04 (Automotive grippers) · A-04.
 
@@ -217,20 +219,35 @@ Source page: AOE About, https://www.aoeengineering.com/blank-1. Years-in-busines
 Also uses: A-01 to A-06, A-09, A-10 (who AOE is and how it works) · B-10, B-11 (workshop adaptations, servicing) · J-30, J-32 (Defence). Present past work as capabilities, not as named projects: no customers or results are sourced.
 
 ## 8. Contact
-Confirmed by Nathan, 17 Oct: use the details from Dave Ogden's email signature (16 Oct 2026); "same phone number and email, all details are correct". Copy them exactly as below.
+Confirmed by Nathan, 17 Oct: use the details from Dave Ogden's email signature (16 Oct 2026); "same phone number and email, all details are correct". Confirmed again that evening: use them exactly as they appear in Dave's email footer, which Jenny checked against his email of 7 Oct 2026, "RE: Web details" (Nathan, 17 Oct evening, item 7). Copy them exactly as below.
 
 | ID | Item | Value | Source |
 |---|---|---|---|
-| D-01 | Phone | 07771 873177 | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 1 |
+| D-01 | Phone | 07771 873177 (footer shows 07771873177; display with the space) | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 1; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 7 |
 | D-02 | Email | davidogden@aoeengineering.com | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 1 |
 | D-03 | Postal address | AOE Engineering Ltd, Dorney House, 46-48a High Street, Burnham, Berkshire, SL1 7JP | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 1 |
-| D-04 | Company registration | Registered in England, company number 6716033 (as supplied; Companies House shows numbers as eight digits, so Jenny may want to check whether it should read 06716033) | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 1 |
+| D-04 | Company registration | Registered in England. Registered number: 6716033 (exactly as Dave's footer shows it; this settles the 06716033 question, so don't add a leading zero) | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 1; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 7 |
+| D-07 | Website | www.aoeengineering.com | Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 7 |
 | D-06 | VAT number | Not supplied. Leave it off the site. `[CONFIRM: VAT number]` only in the privacy policy draft, if that page needs one. | Nathan Byrom, answers to Jenny, 17 Oct 2026 (`content/source/nathan-answers-2026-10-17.md`), item 1 |
 | D-05 | ATIS's own address, phone and email appear on the ATIS datasheet. **[DO NOT USE]**: they are ATIS's, not AOE's. | `content/source/atismirus-200-vt-datasheet.pdf` |
 
 Also uses: A-03 (trust-led, no hard sell) for the form intro.
 
 Service area is not sourced: don't state one. Privacy policy and 404 (pages 9 and 10) need no product facts; the privacy policy uses D-01 to D-04 and D-06.
+
+## Shared: loads list
+Dave asked for the loads AOE can lift to be listed (for SEO). Nathan (17 Oct evening, item 9): anything already in AOE's own material may be carried over; nothing new is to be added. Approved sources are the old AOE site, the ATIS solutions pages already above (H-01 to H-08), and two of AOE's weekly content workbooks in Google Drive, where each item was checked against a named ATIS case-study PDF. Facts only: no sentences lifted from the workbooks. The workbooks and PDFs are not in the repo; I've relied on Nathan's list. The model and case-study numbers are for our records: they show ATIS equipment handling that load, not an AOE job, so never present them as AOE customers or projects.
+
+| ID | Load | Source |
+|---|---|---|
+| K-01 | Loads from the ATIS solutions pages: window frames, doors and gates (H-01); glass panes (H-02); metal sheets (H-03); ferrous sheets, plates, tubes and profiles (H-04); cardboard boxes (H-05); bags and sacks (H-06); 200-litre drums (H-07); coils (H-08). | as cited in section 4 ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
+| K-02 | Paint drums (ATISacer 55; ATIS case study 40.250.117). | "AOE_Weekly_Content_2026-10-05_Weekly_Planning_Workbook" (Google Drive) ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
+| K-03 | Boilers (ATISmirus 200; ATIS case study 40.250.070). | "AOE_Weekly_Content_2026-10-05_Weekly_Planning_Workbook" (Google Drive) ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
+| K-04 | Taped cardboard boxes, three at a time (ATISmirus 200; ATIS case study 40.250.064). | "AOE_Weekly_Content_2026-10-05_Weekly_Planning_Workbook" (Google Drive) ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
+| K-05 | Bushings (ATISmirus 100; ATIS case study 40.250.032). | "AOE_Weekly_Content_2026-10-12_Weekly_Planning_Workbook" (Google Drive) ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
+| K-06 | Metal sheets (ATISmirus 300; ATIS case study 40.160.120). | "AOE_Weekly_Content_2026-10-12_Weekly_Planning_Workbook" (Google Drive) ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
+| K-07 | Frames (ATISlinear; ATIS case study 40.240.098). | "AOE_Weekly_Content_2026-10-12_Weekly_Planning_Workbook" (Google Drive) ; Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
+| K-08 | Not on the list, so not to be added: bottles (H-09), and anything else not in K-01 to K-07 (e.g. barrels or cans) unless a new source arrives. The old AOE About and Services pages name equipment types (C-03 to C-09), not loads. | Nathan Byrom, answers to Jenny, 17 Oct 2026 (evening) (`content/source/nathan-answers-2026-10-17.md`), item 9 |
 
 ## Shared: images (for alt text)
 Every ATIS image, its file URL and the page it sits on are listed in `content/source/atis_images_catalog.csv` (440 images). Alt text is written only for an image Jenny or Carla has actually placed. Product shots on the range pages: ATISmirus 80, 100, 200, 300, 500; ATISacer 55, 80, 150; ATISferax; ATISlinear (cited pages under "2. Industrial manipulators"). No AOE photography is in hand yet; site placeholders are `TODO-IMAGE`.
@@ -245,7 +262,8 @@ Every ATIS image, its file URL and the page it sits on are listed in `content/so
 - ATIS company history, headquarters, sustainability, trade fairs and staffing pages: ATIS's story, not AOE's.
 - ATIS's method pages (training, scheduled maintenance, quality): ATIS's process. AOE's own support offer is B-08/B-09.
 - Any ATIS customer name or logo (e.g. J-08).
-- Anything Wine (H-09).
+- Anything Wine, and bottles generally (H-09, K-08).
+- Any load not in the loads list (K-01 to K-07).
 - Any wording that AOE is ATIS, makes ATIS products, is an "ATIS specialist", or is an official or endorsed ATIS partner. "UK agent for ATIS" only (A-05).
 - Names of other manipulator makers AOE supplies or services (A-10; Nathan, 17 Oct: keep it general).
 - The gantry crane size figure from the old About page (C-05).
