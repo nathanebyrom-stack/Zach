@@ -16,5 +16,5 @@ Page heading: Industrial process engineering services. Four services:
 
 ## Notes for Zach (from Jenny)
 - The new site is narrower than the old one: moving awkward, heavy and fragile loads, ATIS supply and installation, and servicing all makes. Use the old capability list as background, not as the headline offer.
-- Defence was dropped from the industries (Nathan, 13 Oct). Don't build copy around the military or aerospace line.
-- Before stating the gantry crane size, or any capability as current, flag it as [CONFIRM] for Nathan.
+- ~~Defence was dropped from the industries (Nathan, 13 Oct).~~ Superseded: Defence is back in (Dave Ogden, 16 Oct), and the military and civil aerospace line is confirmed current (Nathan, 17 Oct). See nathan-answers-2026-10-17.md.
+- Past capabilities are all confirmed current (Nathan, 17 Oct). The gantry crane size figure stays off the site. "Make & build" is renamed "Design & build" (Nathan, 17 Oct).
