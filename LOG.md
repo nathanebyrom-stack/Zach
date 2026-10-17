@@ -6,3 +6,5 @@
 - Blocker: none for items 1–14. Netlify not yet connected (Nathan). Hero waits on ATIS footage and HERO.md.
 
 - 17 Oct (Jenny): Task 01 site shell by Carla reviewed and merged (carla/site-shell). 375px and 1440px checked, no sideways scroll, menu works, palette per brief, no orange. Open: Netlify 404 check once Netlify is connected.
+
+- 17 Oct (Jenny): pushed Vic's hero-footage branch (a7c3cec) from his bundle. Ticked item 2 (sources merged d4a562a). Item 8 now lists four industries incl. Defence per Dave 16 Oct.
