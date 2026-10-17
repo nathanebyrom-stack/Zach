@@ -25,7 +25,7 @@ If they conflict, stop and flag it. Never edit `BRIEF.md`, `CLAUDE.md` or `HERO.
 3. **Faithful machinery only.** ATIS manipulators and grippers appear as real photos or footage supplied to you, or as renders that stay faithful to the real manipulator's form. Never cartoonish, low-poly, stylised or AI-invented machinery. Decorative motion (type, lines, transitions) is fine.
 8. **Orange.** ATIS orange appears only on the manipulators in imagery and on the word "ATIS" in text. Never use orange in the palette, UI or backgrounds.
 4. **The hero waits.** The homepage hero video is chosen by Nathan and specified in `HERO.md`. Until that file exists, build the hero slot with a plain placeholder and a poster frame, and note it in your report.
-5. **Never imply AOE manufactures the manipulators**, and never let the site read as ATIS's own.
+5. **Never imply AOE makes ATIS products**, and never let the site read as ATIS's own. (AOE does design, build, install and commission manipulators, and is ATIS's UK agent; that copy comes from Zach.)
 6. **Branding.** The AOE wordmark logo (silver AOE, blue bar, "ENGINEERING" beneath) is used everywhere. Use only the logo files in the repo; don't redraw or recolour it.
 7. **Links and contact details** come only from what's supplied. Never guess a phone number, email or URL.
 

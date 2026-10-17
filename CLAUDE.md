@@ -28,7 +28,7 @@ Nothing else is a source.
 5. **Claim check.** End every page file with `## Claims`: each factual claim on the page and its source line in `sources.md`.
 
 ## Industries
-Automotive, Windows & Doors, Food & Beverage (Nathan, 13 Oct). No Defence, no Wine.
+Automotive, Windows & Doors, Food & Beverage, Defence (Dave Ogden, 16 Oct; supersedes 13 Oct). No Wine.
 
 ## Voice
 - Close to Dave Ogden's tone: educational, plain-spoken, never salesy.
@@ -38,7 +38,7 @@ Automotive, Windows & Doors, Food & Beverage (Nathan, 13 Oct). No Defence, no Wi
 ## Hard rules
 1. **Truth rule.** No unsourced claims. No invented customers, case studies, testimonials, quotes, numbers or results. No promises of content we don't hold.
 2. **Never write years-in-business or turnover figures**, even if a source mentions them.
-3. **AOE, never ATIS.** AOE is the UK supplier, installer and servicer. Never say or imply that AOE is ATIS, makes the manipulators, or is an "ATIS specialist" or endorsed partner.
+3. **AOE, never ATIS.** AOE designs, builds, installs and commissions manipulators; it is the UK agent for ATIS and also supplies other manipulators and equipment not made by ATIS; it services all makes (Dave Ogden, 16 Oct). Never say or imply that AOE is ATIS, makes ATIS products, or is an "ATIS specialist" or endorsed partner. "UK agent for ATIS" is fine.
 4. **Rewrite, don't copy.** ATIS and old AOE text is source material for facts only. Write everything fresh in AOE's voice; no lifted sentences.
 5. **Contact details** only as verified. Anything unconfirmed is written `[CONFIRM: phone]` and listed in your report.
 6. Images: write alt text for real ATIS or AOE assets only; never describe something as "pictured" unless the asset is in hand.

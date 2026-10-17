@@ -1,7 +1,7 @@
 # AOE Engineering website — build brief
 
 Master copy: https://claude.ai/code/artifact/7aaa6bbc-c7ba-4d90-a1e0-57aab72b62b1
-Owner: Nathan. Edited only by Nathan or Jenny. Last change: 14 Oct 2026 (industries, orange and render rules updated per Nathan, 13 Oct).
+Owner: Nathan. Edited only by Nathan or Jenny. Last change: 17 Oct 2026 (Jenny: positioning, ATIS wording and Defence updated per Dave Ogden's email of 16 Oct).
 
 ## The job
 Rebuild aoeengineering.com, code-first, ready to go live by **Mon 19 Oct 2026**. The website is your only job.
@@ -12,14 +12,14 @@ Done when every page is built and works on mobile, the copy is final and humaniz
 - AOE are engineers who specialise in moving awkward, heavy and fragile loads. They're a 360 company: lifting apparatus and automating repetitive tasks, covering design, installation and workshop adaptations.
 - **Trust-led.** Buyers choose on trust, not brand. Long-term, transparent partnerships.
 - **Honest about automation.** It isn't right for every company. AOE only recommends it where there's a serious benefit, then presents the options with the best return.
-- **Supply and service.** AOE is the UK supplier and installer of ATIS pneumatic manipulators, and services manipulators of all makes.
+- **Supply and service.** AOE designs, builds, installs and commissions manipulators. AOE is the UK agent for ATIS and supplies ATIS manipulators, plus other manipulators and equipment not made by ATIS. AOE services manipulators of all makes. (Dave Ogden, email 16 Oct 2026.)
 - **Voice.** Close to Dave Ogden's tone: educational, plain-spoken, professional UK B2B English, never salesy. Short sentences, active voice, British spelling.
 
 ## Hard rules
-1. The site reads as AOE, never as ATIS. Never say or imply AOE is ATIS or manufactures the manipulators.
+1. The site reads as AOE, never as ATIS. Never say or imply AOE is ATIS or makes ATIS products. AOE may say it designs, builds, installs and commissions manipulators, and that it is ATIS's UK agent.
 2. ATIS orange appears only on the manipulators themselves in imagery and on the word "ATIS" in text. Everything around it stays in the AOE palette.
 3. No years-in-business or turnover figures anywhere.
-4. No "ATIS specialist" or endorsement claim.
+4. No "ATIS specialist" or endorsement claim beyond "UK agent for ATIS".
 5. No invented statistics, results, client names, logos, testimonials or quotes.
 6. ATIS imagery is cleared for use (AOE holds full rights).
 
@@ -31,7 +31,7 @@ Done when every page is built and works on mobile, the copy is final and humaniz
 | 3 | Gripping systems | ATIS range, rewritten |
 | 4 | Solutions | ATIS range, rewritten |
 | 5 | Services | Current AOE site: design, installation, workshop adaptations, servicing for all makes |
-| 6 | Industries | One section each: Automotive, Windows & Doors, Food & Beverage |
+| 6 | Industries | One section each: Automotive, Windows & Doors, Food & Beverage, Defence |
 | 7 | About | Current AOE site, all figures removed |
 | 8 | Contact | Netlify form plus phone and email (placeholders until confirmed) |
 | 9 | Privacy policy | Standard UK GDPR, placeholders for Nathan to confirm |
