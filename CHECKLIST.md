@@ -4,7 +4,7 @@ Work top to bottom. Tick an item only when it's committed and working.
 
 ## Foundations
 - [x] 1. Scaffold `site/`, `netlify.toml` (publish = "site"), design tokens (colours, type, spacing, grid) as CSS variables, shared header/nav/footer, 404 page
-- [ ] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs)
+- [x] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs)
 
 ## Pages
 - [ ] 3. Home: every section except the hero (leave a hero slot with a still placeholder)
@@ -12,7 +12,7 @@ Work top to bottom. Tick an item only when it's committed and working.
 - [ ] 5. Gripping systems
 - [ ] 6. Solutions
 - [ ] 7. Services, including servicing for all makes
-- [ ] 8. Industries: Automotive, Windows & Doors, Food & Beverage
+- [ ] 8. Industries: Automotive, Windows & Doors, Food & Beverage, Defence
 - [ ] 9. About, with no figures
 - [ ] 10. Contact: Netlify form, phone and email placeholders
 - [ ] 11. Privacy policy (UK GDPR, placeholders)
