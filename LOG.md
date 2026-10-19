@@ -10,3 +10,4 @@
 - 17 Oct (Jenny): pushed Vic's hero-footage branch (a7c3cec) from his bundle. Ticked item 2 (sources merged d4a562a). Item 8 now lists four industries incl. Defence per Dave 16 Oct.
 
 - 19 Oct (Jenny): HERO.md written. Nathan picked two ATIS YouTube videos (vehicle side member = main hero, seat rope balancer = secondary); Vic's five draft loops not used. Nathan reports Netlify (aoe-preview) deployed; Jenny can't reach it from her sandbox to verify. Hero headline (A/B/C) still to pick.
+- 19 Oct (Jenny): Nathan picked hero Option C. Merged copy/home (with copy/sources) to main. Wrote TASKS/02-home.md for Carla (Home build incl. hero slot and site-wide footer).

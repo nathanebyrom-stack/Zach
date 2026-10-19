@@ -12,7 +12,7 @@ Both are from ATIS's own YouTube channel ("ATIS pneumatic handling manipulators"
 
 ## Status
 - **Not cut yet.** No files from these two videos are in the repo. Hero build (checklist item 15) waits until the cut files below exist.
-- Hero headline is still Nathan's pick from Zach's options A/B/C on `copy/home`.
+- Hero headline: **Option C**, "Design. Supply. Fit. Service." (Nathan, 19 Oct). See `content/pages/home.md`.
 
 ## Cut spec (Vic)
 Follow the method in HERO-DRAFT.md: ping-pong loops, no audio, H.264 MP4 (faststart) + VP9 WebM, desktop 1920x1080 and mobile 1080x1920, never upscaled, poster and reduced-motion still as JPG and WebP, safe-area and scrim notes for headline text.

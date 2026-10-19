@@ -1,8 +1,8 @@
 # Home
 
 ## Hero
-<!-- FOOTAGE SLOT: full-bleed hero footage sits behind these words. HERO.md does not exist yet, so no footage is chosen; Carla uses a still placeholder (TODO-IMAGE) until it does. Keep the words short. -->
-<!-- NATHAN TO CHOOSE: three hero options below. Carla uses only the option Nathan approves; until then, Option A. -->
+<!-- FOOTAGE SLOT: full-bleed hero footage per HERO.md (ATIS vehicle side-member lift). Until Vic's files are in assets/hero/, Carla uses a still placeholder (TODO-IMAGE). -->
+<!-- NATHAN CHOSE OPTION C (19 Oct 2026). Carla builds Option C only; A and B are kept for the record. -->
 
 **Option A (recommended): what we are**
 We sell manipulators. Then we fit them.
