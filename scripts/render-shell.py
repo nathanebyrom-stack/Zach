@@ -1,5 +1,6 @@
-"""Refresh committed static stubs: python3 scripts/render-shell.py (no dependencies)."""
+"""Refresh shared shell regions (preserving existing page content): python3 scripts/render-shell.py (no dependencies)."""
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = [
@@ -51,4 +52,10 @@ for slug, title in PAGES + [("privacy", "Privacy policy"), ("404", "404")]:
 '''
     target = ROOT / "site" / ("404.html" if slug == "404" else f"{slug}/index.html" if slug else "index.html")
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(document)
+    if target.exists():
+        existing = target.read_text()
+        existing = re.sub(r'<a class="skip-link".*?</header>', lambda _: header.strip(), existing, flags=re.S)
+        existing = re.sub(r'<footer class="site-footer">.*?</footer>', lambda _: footer.strip(), existing, flags=re.S)
+        target.write_text(existing)
+    else:
+        target.write_text(document)
