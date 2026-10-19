@@ -21,6 +21,6 @@ Work top to bottom. Tick an item only when it's committed and working.
 - [ ] 12. Motion pass: GSAP scroll and transition work across every page, with a reduced-motion fallback
 - [ ] 13. Humanize pass on all copy, then a hard-rules check (no ATIS-as-AOE, no figures, orange only on manipulators and the word ATIS, nothing invented)
 - [ ] 14. SEO baseline: titles, meta descriptions, Open Graph, sitemap.xml, robots.txt, alt text
-- [ ] 15. Hero. BLOCKED until HERO.md exists (approved real ATIS footage, or a render faithful to the real manipulator)
+- [ ] 15. Hero. HERO.md approved 19 Oct (ATIS side-member lift + seat balancer). BLOCKED until Vic's cut files are in `assets/`
 - [ ] 16. Quality pass: Lighthouse mobile 85+, keyboard navigation, every page checked at 375px and 1440px
 - [ ] 17. Ready for Nathan's sign-off. List any remaining TODO-IMAGE and placeholder items in LOG.md
