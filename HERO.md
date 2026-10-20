@@ -11,6 +11,7 @@ Both are from ATIS's own YouTube channel ("ATIS pneumatic handling manipulators"
 | **Secondary clip** | https://www.youtube.com/watch?v=arEzDG5eCug (ATIS ref. 40240034) | Rope balancer handling automotive seats. Automotive. |
 
 ## Status
+- **20 Oct 2026 — interim hero live (Nathan's call):** Vic's roll-lift loop (`hero-roll-lift*`, from the ATIS website reel, 1920x1080, no watermark) is now on Home. The YouTube copies of the two approved videos were rejected: ATIS logo and www.atismanipolatori.com are burned into nearly every frame, and the side-member video is only 720p. Swap to the side-member and seat videos once clean originals arrive from ATIS.
 - **Not cut yet.** No files from these two videos are in the repo. Hero build (checklist item 15) waits until the cut files below exist.
 - Hero headline: **Option C**, "Design. Supply. Fit. Service." (Nathan, 19 Oct). See `content/pages/home.md`.
 
