@@ -6,7 +6,6 @@
   --color-text: #E9EBF0;
   --color-muted: #B5BCC4;
   --color-accent: #0043FE;
-  --color-grid: rgb(181 188 196 / 6%);
   --color-line: rgb(181 188 196 / 24%);
   --color-glow: rgb(0 67 254 / 25%);
   --font-heading: "Archivo", sans-serif;
@@ -30,8 +29,6 @@
   --space-7: 3rem;
   --space-8: 4rem;
   --space-9: 6rem;
-  --grid-size: 2rem;
-  --grid-line: 1px;
   --grid-columns: repeat(2, minmax(0, 1fr));
   --content-width: 80rem;
   --page-gutter: clamp(1rem, 4vw, 3rem);

@@ -2,10 +2,6 @@
 body {
   margin: var(--space-0);
   background-color: var(--color-bg);
-  background-image:
-    linear-gradient(var(--color-grid) var(--grid-line), transparent var(--grid-line)),
-    linear-gradient(90deg, var(--color-grid) var(--grid-line), transparent var(--grid-line));
-  background-size: var(--grid-size) var(--grid-size);
   color: var(--color-text);
   font: var(--weight-body) var(--text-body) / var(--leading-body) var(--font-body);
 }

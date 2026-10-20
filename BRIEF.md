@@ -46,7 +46,7 @@ Navigation order: Home, Manipulators, Gripping, Solutions, Services, Industries,
   - `aoe-logo-on-black.png` is for pure black only. `aoe-logo-original.svg` is the source file; don't use it on the site (it's a 490KB raster wrapped in SVG).
   - Never recolour, redraw, stretch or place the logo on a light background.
 - **Palette (taken from the logo):** near-black and deep steel-blue backgrounds, brushed silver (#E9EBF0 to #B5BCC4) for type and lines, and electric blue #0043FE as the single accent. Use the blue sparingly (CTAs, active states, a glow like the logo's). No orange in the palette (see hard rule 2).
-- **Style:** engineering-grade. Sharp corners, a fine grid and industrial texture. Calm, precise and confident.
+- **Style:** engineering-grade. Sharp corners and industrial texture. No grid backgrounds of any kind, faint line or dot (Nathan, 19 Oct). Calm, precise and confident.
 - **Type:** a strong grotesk for headings and a highly readable sans for body text (Google Fonts).
 - **Hero:** real footage of an actual ATIS manipulator moving a real load, graded like a film: slow motion, close detail, deep steel-blue grade. Scroll-driven type and subtle WebGL effects sit over the footage.
   - Renders are allowed only if they stay faithful to the real manipulator's form. **Never** cartoonish, low-poly or stylised distortion.
