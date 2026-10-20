@@ -3,11 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home | AOE Engineering</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <title>Manipulators &amp; Lifting Equipment | AOE Engineering</title>
+  <meta name="description" content="AOE supplies and fits manipulators, then adapts your workshop to take them. UK agent for ATIS. We service every make too.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional"></noscript>
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/shell.css">
+  <link rel="stylesheet" href="/css/home.css">
   <script src="/js/menu.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="/js/home.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -23,11 +30,95 @@
   </div>
 </header>
 
-<main class="container" id="main" tabindex="-1">
-  <h1>Home</h1>
-  <p>[COPY NEEDED: page content]</p>
-<!-- HERO: waiting on HERO.md -->
-<div class="hero-placeholder" aria-hidden="true"></div>
+<main class="home-main" id="main" tabindex="-1">
+  <section class="home-hero" aria-labelledby="hero-title">
+    <!-- TODO-HERO-FILES: approved side-member files absent on main and hero-footage.
+         Set data-media-ready="true" only after replacing the placeholder still and copying approved files. -->
+    <div class="hero-media" aria-hidden="true">
+      <picture>
+        <source data-srcset="/assets/hero/hero-side-member-mobile_still.webp" media="(max-width: 47.99rem)" type="image/webp">
+        <source data-srcset="/assets/hero/hero-side-member_still.webp" type="image/webp">
+        <img src="/assets/hero/placeholder-still.svg" data-still="/assets/hero/hero-side-member_still.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+      </picture>
+      <video autoplay muted loop playsinline preload="none" poster="/assets/hero/placeholder-still.svg" data-poster="/assets/hero/hero-side-member_poster.webp" data-media-ready="false" hidden>
+        <source data-src="/assets/hero/hero-side-member-mobile.webm" media="(max-width: 47.99rem)" type="video/webm">
+        <source data-src="/assets/hero/hero-side-member-mobile.mp4" media="(max-width: 47.99rem)" type="video/mp4">
+        <source data-src="/assets/hero/hero-side-member.webm" type="video/webm">
+        <source data-src="/assets/hero/hero-side-member.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="container hero-content">
+      <h1 id="hero-title">Design. Supply. Fit. Service.</h1>
+      <p>And if your workshop needs changing to take the new kit, we do that too.</p>
+      <a class="home-button" href="tel:07771873177">Call 07771 873177</a>
+      <span class="media-note">TODO-HERO-FILES</span>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="what-we-do">
+    <div class="container section-grid">
+      <h2 id="what-we-do">What we do</h2>
+      <div class="section-copy"><p>Heavy, awkward or easy to damage? That&#x27;s the kind of load we deal with. AOE Engineering supplies the lifting equipment and takes repetitive handling off your people.</p>
+<p>We design manipulators, build them, install them and commission them. If your workshop needs changing to take the new machinery, we do that too. You don&#x27;t have to organise any of it.</p>
+<p>We&#x27;re the UK agent for ATIS and supply its manipulators. We also supply manipulators and equipment from other makers, and pick whatever suits your process.</p></div>
+      <div class="home-image-placeholder" aria-hidden="true"><span>TODO-IMAGE: clip-seat-balancer</span></div>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="honest-about-automation">
+    <div class="container section-grid">
+      <h2 id="honest-about-automation">Honest about automation</h2>
+      <div class="section-copy"><p>Automation isn&#x27;t right for every company. If it isn&#x27;t right for yours, we&#x27;ll say so.</p>
+<p>Where it would make a serious difference, we lay out the options and show you which one gives the best return. Then it&#x27;s your call.</p>
+<p>We&#x27;d rather work with you for years than sell you one machine.</p></div>
+
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="manipulators">
+    <div class="container section-grid">
+      <h2 id="manipulators">Manipulators</h2>
+      <div class="section-copy"><p>ATIS makes four families of pneumatic manipulator. ATISmirus has a rigid arm. ATISacer runs on a double rope, ATISferax works on a lever, and ATISlinear moves up and down on linear guides. Between them they lift from 55 kg to 1,000 kg.</p>
+<a class="home-button" href="/manipulators/">See the manipulators</a></div>
+      <div class="home-image-placeholder" aria-hidden="true"><span>TODO-IMAGE: manipulators</span></div>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="gripping">
+    <div class="container section-grid">
+      <h2 id="gripping">Gripping</h2>
+      <div class="section-copy"><p>The arm is only half of it. What holds the load matters just as much: mechanical clamps, pneumatic clamps, magnets, forks, hooks or vacuum cups. The right one depends on what you&#x27;re lifting.</p>
+<a class="home-button" href="/gripping/">See gripping systems</a></div>
+      <div class="home-image-placeholder" aria-hidden="true"><span>TODO-IMAGE: gripping</span></div>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="what-you-can-lift">
+    <div class="container section-grid">
+      <h2 id="what-you-can-lift">What you can lift</h2>
+      <div class="section-copy"><p>Some of the loads ATIS manipulators have been set up to handle:</p>
+<ul class="loads-list"><li>Glass panes</li><li>Window frames, doors and gates</li><li>Metal sheets</li><li>Steel plates, tubes and profiles</li><li>Coils</li><li>200-litre drums</li><li>Paint drums</li><li>Boilers</li><li>Bushings</li><li>Frames</li><li>Bags and sacks</li><li>Cardboard boxes, including three taped boxes at a time</li></ul>
+<p>Not on the list? Ask us anyway.</p>
+<a class="home-button" href="/solutions/">See solutions</a></div>
+      <div class="home-image-placeholder" aria-hidden="true"><span>TODO-IMAGE: what-you-can-lift</span></div>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="industries">
+    <div class="container section-grid">
+      <h2 id="industries">Industries</h2>
+      <div class="section-copy"><p>Automotive. Windows &amp; Doors. Food &amp; Beverage. Defence.</p>
+<p>In Defence we supply and install lifting equipment. Past work includes process equipment for military and civil aerospace.</p>
+<a class="home-button" href="/industries/">See industries</a></div>
+      <div class="home-image-placeholder" aria-hidden="true"><span>TODO-IMAGE: industries</span></div>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="service-and-support">
+    <div class="container section-grid">
+      <h2 id="service-and-support">Service and support</h2>
+      <div class="section-copy"><p>We service manipulators and lifting equipment of every make, ATIS or otherwise.</p>
+<p>For equipment we supply, we&#x27;ll put together a support package to suit you: scheduled maintenance, statutory inspections and training for your team.</p>
+<a class="home-button" href="/services/">See services</a></div>
+
+    </div>
+  </section>
+<section class="home-section home-cta" aria-label="Contact"><div class="container"><p>Got a load that&#x27;s hard to handle? Just call us on <a href="tel:07771873177">07771 873177</a>.</p>
+<p>Or email <a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a>.</p>
+<a class="home-button" href="tel:07771873177">Call 07771 873177</a></div></section>
 </main>
 <footer class="site-footer">
   <div class="container footer-inner">
@@ -39,9 +130,11 @@
       <a href="/privacy/">Privacy policy</a>
     </nav>
     <div class="footer-contact">
-      <p>[COPY NEEDED: phone]</p>
-      <p>[COPY NEEDED: email]</p>
-      <p>[COPY NEEDED: address]</p>
+      <p>AOE Engineering Ltd, Dorney House, 46-48a High Street, Burnham, Berkshire, SL1 7JP</p>
+      <p>T: <a href="tel:07771873177">07771 873177</a></p>
+      <p>E: <a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a></p>
+      <p>W: <a href="https://www.aoeengineering.com">www.aoeengineering.com</a></p>
+      <p>Registered in England. Registered number: 6716033</p>
     </div>
     <p class="copyright">© AOE Engineering Ltd</p>
   </div>

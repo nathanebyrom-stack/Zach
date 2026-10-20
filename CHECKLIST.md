@@ -7,7 +7,7 @@ Work top to bottom. Tick an item only when it's committed and working.
 - [x] 2. Gather source facts into `content/sources.md`: current AOE About and Services, plus the ATIS manipulators, gripping and solutions ranges (with URLs)
 
 ## Pages
-- [ ] 3. Home: every section except the hero (leave a hero slot with a still placeholder)
+- [x] 3. Home: every section except the hero (leave a hero slot with a still placeholder). Carla Task 02, merged 20 Oct. Lighthouse mobile 73, to fix in item 16
 - [ ] 4. Industrial manipulators
 - [ ] 5. Gripping systems
 - [ ] 6. Solutions
