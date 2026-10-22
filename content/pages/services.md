@@ -12,6 +12,7 @@ And if automation isn't the answer, we'll say so.
 Short of capacity, or the right skills in-house? We'll source and manage the manufacture and assembly of custom components and equipment for you. Ask us for a quote.
 
 We design and build manipulators too, then install and commission them. We're the UK agent for ATIS, and we supply manipulators and equipment from other makers where they suit the job better.
+Image: strips-wide | ATISmirus 200 with a three-arm suction gripper over a pallet
 
 ## Section: Workshop adaptations
 New machinery often means changes to the workshop. We make them. You don't have to organise any of it.
@@ -24,6 +25,7 @@ We service manipulators and lifting equipment of every make. ATIS or anyone else
 
 ## Section: Equipment support
 For equipment we supply, we'll put together a care package around you. It can cover scheduled maintenance, statutory inspections and training for your team.
+Image: drums-tipper | ATISmirus 100 with a gripper that turns drums upside down
 
 ## CTA
 Want to talk through a project? Call 07771 873177.

@@ -18,6 +18,7 @@ PAGES = [
 BUILD = ["manipulators", "gripping", "solutions", "services", "industries", "about", "contact"]
 # Sections held back from the live page until checked (see report).
 HOLD = {("manipulators", "Mounting")}
+figures = []
 TEL = '<a href="tel:07771873177">07771 873177</a>'
 MAIL = '<a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a>'
 
@@ -45,6 +46,7 @@ def slugify(text):
 def blocks(lines):
     """Turn a section's markdown lines into HTML: paragraphs, lists, tables, buttons."""
     out, para, items, rows = [], [], [], []
+    global figures
 
     def flush():
         nonlocal para, items, rows
@@ -64,6 +66,11 @@ def blocks(lines):
         s = line.strip()
         if not s or s.startswith("<!--"):
             flush(); continue
+        if s.startswith("Image:"):
+            flush()
+            name, alt = [x.strip() for x in s[6:].split("|", 1)]
+            figures.append(f'<figure class="section-figure"><img src="/assets/atis/{name}.webp" alt="{html.escape(alt)}" loading="lazy" decoding="async"></figure>')
+            continue
         if s.startswith("Button:"):
             flush()
             out.append(f'<a class="home-button" href="/contact/">{inline(s[7:].strip())}</a>')
@@ -167,6 +174,7 @@ def build(slug):
       <div class="page-intro">{blocks(intro[1])}</div>
     </div>
   </section>''']
+    figures.clear()
     for name, lines in rest:
         name = name[len("Section: "):]
         if (slug, name) in HOLD:
@@ -177,10 +185,12 @@ def build(slug):
             content = blocks(lines) + "\n" + contact_form()
         else:
             content = blocks(lines)
+        fig = "".join(figures); figures.clear()
+        grid = "section-grid has-figure" if fig else "section-grid"
         parts.append(f'''  <section class="home-section" aria-labelledby="{sid}">
-    <div class="container section-grid">
+    <div class="container {grid}">
       <h2 id="{sid}">{html.escape(name)}</h2>
-      <div class="section-copy">{content}</div>
+      <div class="section-copy">{content}</div>{fig}
     </div>
   </section>''')
     if cta:

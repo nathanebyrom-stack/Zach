@@ -16,14 +16,17 @@ ATIS has set them up for car seats on an assembly line, and for engine heads on 
 These grip on an internal or external diameter, so they suit cylindrical, conical and odd-shaped parts.
 
 ATIS has used them on filters, drive shafts and axles, bushings that need tilting, and bins and containers gripped from the outside.
+Image: bushings-pneumatic | ATISmirus 100 with a tilting pneumatic gripper for bushings
 
 ## Section: Magnets
 Permanent magnets for steel sheets, plates and tubes. ATIS says they leave no mark on the surface.
+Image: coil-magnet | ATISmirus 100 with a double pneumatic magnet gripping a roll of metal strip
 
 ## Section: Integrated forks
 Pallets and boxes. Sheets. Big, bulky components. The forks can be made to the size you need.
 
 ATIS has fitted covered forks to an ATISmirus 200 to move boilers from a roller conveyor onto an assembly trolley.
+Image: boilers-forks | ATISmirus 200 with covered forks holding a boiler
 
 ## Section: Hooks
 Custom hook tooling for pallets, coils and containers. Common in logistics and metalworking.
@@ -34,6 +37,7 @@ ATIS has used hooks for chassis and frames, beer kegs and barrels, and small dru
 Modular suction frames for glass, marble, wood and metal. They can tilt the load through 180° and turn it through 360°.
 
 The ATISmirus 200 VT uses them for windows: the cups adjust for different sizes and thicknesses, and safety valves keep hold if the vacuum drops. Other set-ups handle large glass panes, large panels, metal sheets and flexible bags and sacks.
+Image: doors-vacuum | ATISmirus 100 with a vacuum-cup frame lifting a metal door
 
 ## CTA
 Tell us what you're lifting and we'll tell you what should hold it. Call 07771 873177.

@@ -5,6 +5,7 @@ AOE Engineering is a team of engineers. We move loads that are heavy, awkward or
 
 ## Section: What we do
 We design and build manipulators, then install and commission them. We're the UK agent for ATIS, and we also supply manipulators and equipment from other makers. We adapt your workshop to take the new machinery, and we service lifting equipment of every make.
+Image: plates-mirus200 | ATISmirus 200 rigid-arm manipulator with a plate gripper
 
 ## Section: How we work
 Automation isn't right for every company. We only recommend it where it makes a serious difference, then show you the options that give the best return.
@@ -21,7 +22,9 @@ We'd rather work with you for years than sell you one machine.
 - Special-purpose industrial machinery
 
 ## CTA
-Call 07771 873177 or email davidogden@aoeengineering.com.
+Call us on 07771 873177.
+
+Or email davidogden@aoeengineering.com.
 
 Button: Contact us
 

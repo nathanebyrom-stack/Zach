@@ -12,9 +12,11 @@ We also design and build bespoke automotive manipulators ourselves.
 Glass is heavy and it breaks. Frames are long and they flex. ATIS has set-ups for glass panes, window frames, doors and gates, packaged doors and armoured doors.
 
 The ATISmirus 200 VT is a good example. It takes a window out of its container and puts it down on a forklift. The suction cups adjust for size and thickness, and safety valves keep hold if the vacuum drops.
+Image: frames-windows | ATISmirus 300 with a suction gripper lifting a window frame
 
 ## Section: Food & Beverage
 Sacks, drums, kegs and boxes, often lifted all day long. ATIS has set-ups for food sacks, 200-litre drums, beer kegs and barrels, bins and containers, cheese, water bottles, and boxes and cartons at the end of the line.
+Image: kegs-in-situ | ATISmirus 100 with a drum tipper next to pallets of kegs
 
 ## Section: Defence
 We supply and install lifting equipment for the defence industry. Our work includes process equipment for military and civil aerospace.
@@ -23,7 +25,9 @@ We supply and install lifting equipment for the defence industry. Our work inclu
 Moving heavy, awkward or fragile loads isn't limited to four industries. If you've got a handling problem, call us.
 
 ## CTA
-Call 07771 873177 or email davidogden@aoeengineering.com.
+Call us on 07771 873177.
+
+Or email davidogden@aoeengineering.com.
 
 Button: Contact us
 
