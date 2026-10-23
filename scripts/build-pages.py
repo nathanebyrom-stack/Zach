@@ -181,13 +181,11 @@ def head(title, description, slug, extra=""):
   <meta property="og:image" content="{SITE}/assets/hero/hero-roll-lift_poster.jpg">
   <script>document.documentElement.classList.add("nav-js")</script>
   <link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/shell.css">
-  <link rel="stylesheet" href="/css/home.css">
-  <link rel="stylesheet" href="/css/pages.css">
-  <link rel="stylesheet" href="/css/design.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <script src="/js/menu.js" defer></script>
-  <script src="/js/pages.js" defer></script>{extra}
+  <script src="/js/pages.js" defer></script>
+  <script src="/js/fx.js" defer></script>{extra}
 </head>
 <body>
 '''
@@ -274,6 +272,8 @@ def build_simple(slug, title, h1, copy, description, path, noindex=True):
 
 
 if __name__ == "__main__":
+    CSS = ["tokens", "shell", "home", "pages", "design", "fx"]
+    (ROOT / "site/css/site.css").write_text("/* Built by scripts/build-pages.py from css/{tokens,shell,home,pages,design,fx}.css. Edit those, not this. */\n" + "\n".join((ROOT / f"site/css/{c}.css").read_text() for c in CSS))
     for slug in BUILD:
         build(slug)
     build_privacy()
