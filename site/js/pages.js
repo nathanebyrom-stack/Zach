@@ -1,16 +1,16 @@
-/* Reveal sections on entry; content stays visible if GSAP or JS is unavailable. */
-if (window.gsap && 'IntersectionObserver' in window) {
-  const motion = gsap.matchMedia();
-  motion.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.from('.page-hero h1, .page-hero .page-intro', { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.08, clearProps: 'all' });
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        gsap.fromTo(entry.target, { y: 24 }, { y: 0, duration: 0.55, ease: 'power2.out', clearProps: 'transform' });
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.home-section').forEach(section => observer.observe(section));
-    return () => observer.disconnect();
-  });
-}
+/* Drawing plates draw in as they enter view. Without JS or with reduced motion
+   the plates simply show; the .js class is what hides them first. */
+(() => {
+  const plates = document.querySelectorAll('.plate');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!plates.length || reduce || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-drawn');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.25 });
+  plates.forEach(p => io.observe(p));
+})();
