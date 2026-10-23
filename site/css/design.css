@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Archivo";
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
   font-weight: 100 900;
   font-stretch: 62% 125%;
   src: url(/assets/fonts/archivo-var.woff2) format("woff2-variations"), url(/assets/fonts/archivo-var.woff2) format("woff2");
@@ -127,3 +127,7 @@ h1 { font-size: clamp(2.6rem, 7.4vw, 6.25rem); line-height: 0.98; }
 h1, h2 { overflow-wrap: normal; word-break: normal; hyphens: manual; }
 .page-hero.has-plate h1 { font-size: clamp(2.3rem, 4.9vw, 4.6rem); }
 @media (max-width: 30rem) { h1 { font-size: clamp(2.1rem, 10.5vw, 3rem); } .page-hero.has-plate h1 { font-size: clamp(2rem, 9.6vw, 2.8rem); } }
+@media (max-width: 74.99rem) {
+  .nav-js .menu-toggle[hidden] { display: inline-flex !important; }
+  .nav-js .site-nav:not([data-ready]) { display: none; }
+}

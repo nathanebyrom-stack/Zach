@@ -8,10 +8,6 @@ const slowConnection = connection?.saveData || /(^|-)2g$/.test(connection?.effec
 function syncHero() {
   const ready = video.dataset.mediaReady === 'true';
   if (ready) {
-    hero.querySelectorAll('[data-srcset]').forEach(source => {
-      source.srcset = source.dataset.srcset;
-    });
-    hero.querySelector('img').src = hero.querySelector('img').dataset.still;
   }
   if (!ready || reducedMotion.matches || slowConnection) {
     video.pause();

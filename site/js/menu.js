@@ -9,6 +9,7 @@ function setOpen(open, restoreFocus = false) {
 }
 
 function syncLayout() {
+  navigation.dataset.ready = '';
   const focusWasInNavigation = navigation.contains(document.activeElement);
   toggle.hidden = desktop.matches;
   setOpen(desktop.matches);

@@ -179,6 +179,7 @@ def head(title, description, slug, extra=""):
   <meta property="og:description" content="{html.escape(description)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:image" content="{SITE}/assets/hero/hero-roll-lift_poster.jpg">
+  <script>document.documentElement.classList.add("nav-js")</script>
   <link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/shell.css">
