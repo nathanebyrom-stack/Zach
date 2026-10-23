@@ -39,7 +39,7 @@ Button: Contact us
 - Meta description: Feasibility, design and build, workshop adaptations, project management and servicing for manipulators and lifting equipment of every make.
 
 ## Alt text
-- All image slots: none yet (TODO-IMAGE).
+- Alt text is set on each `Image:` line in the sections above (real ATIS photos, see image register in sources.md).
 
 ## Claims
 | Claim | Source |

@@ -36,7 +36,7 @@ Button: Contact us
 - Meta description: Lifting and handling equipment for automotive, windows and doors, food and beverage and defence. Supplied, fitted and serviced by AOE Engineering.
 
 ## Alt text
-- All image slots: none yet (TODO-IMAGE).
+- Alt text is set on each `Image:` line in the sections above (real ATIS photos, see image register in sources.md).
 
 ## Claims
 | Claim | Source |

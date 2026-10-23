@@ -51,7 +51,7 @@ Button: Contact us
 - Meta description: Clamps, magnets, forks, hooks and vacuum cups for ATIS manipulators. AOE matches the gripper to your load, then fits it and looks after it.
 
 ## Alt text
-- All image slots: none yet (TODO-IMAGE).
+- Alt text is set on each `Image:` line in the sections above (real ATIS photos, see image register in sources.md).
 
 ## Claims
 | Claim | Source |
