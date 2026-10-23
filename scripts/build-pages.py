@@ -19,8 +19,50 @@ BUILD = ["manipulators", "gripping", "solutions", "services", "industries", "abo
 # Sections held back from the live page until checked (see report).
 HOLD = {("manipulators", "Mounting")}
 figures = []
+HERO_PLATES = {'manipulators': ('boxes-mirus200', 'ATISmirus 200 with multiple suction cups lifting taped cardboard boxes'), 'gripping': ('strips-arm', 'ATISmirus 200 with a three-arm suction gripper'), 'solutions': ('doors-vacuum', 'ATISmirus 100 with a vacuum-cup frame lifting a metal door'), 'services': ('boilers-forks', 'ATISmirus 200 with covered forks holding a boiler'), 'industries': ('sheets-mirus300', 'ATISmirus 300 with adjustable suction cups lifting a metal sheet'), 'about': ('strips-wide', 'ATISmirus 200 with a three-arm suction gripper over a pallet')}
 TEL = '<a href="tel:07771873177">07771 873177</a>'
 MAIL = '<a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a>'
+
+
+# Model specs for drawing plates. Every figure is from content/sources.md (E-05 to E-17).
+MODELS = {
+    "ATISmirus 100": [("Max capacity", "180 kg"), ("Reach", "4,000 mm"), ("Vertical stroke", "2,250 mm")],
+    "ATISmirus 200": [("Max capacity", "260 kg"), ("Reach", "3,250 mm"), ("Vertical stroke", "2,250 mm")],
+    "ATISmirus 300": [("Max capacity", "440 kg"), ("Reach", "4,400 mm"), ("Vertical stroke", "2,250 mm")],
+    "ATISacer 150": [("Max capacity", "150 kg"), ("Reach", "5,000 mm"), ("Vertical stroke", "1,800 mm")],
+    "ATISlinear": [("Max capacity", "800 kg"), ("Mounting", "Overhead rail")],
+}
+# Image -> (model, what the ATIS set-up shows). Loads limited to the approved list (K-01 to K-07).
+IMAGES = {
+    "boilers-forks": ("ATISmirus 200", "Covered forks for boilers"),
+    "plates-mirus200": ("ATISmirus 200", "Gripper for metal plates"),
+    "boxes-mirus200": ("ATISmirus 200", "Multiple suction cups for taped boxes"),
+    "strips-wide": ("ATISmirus 200", "Three-arm suction gripper"),
+    "strips-arm": ("ATISmirus 200", "Three-arm suction gripper"),
+    "sheets-mirus300": ("ATISmirus 300", "Adjustable suction cups for metal sheets"),
+    "frames-windows": ("ATISmirus 300", "Suction gripper for window frames"),
+    "drums-mirus300": ("ATISmirus 300", "Clamp for drums"),
+    "bushings-pneumatic": ("ATISmirus 100", "Tilting pneumatic gripper for bushings"),
+    "coil-magnet": ("ATISmirus 100", "Double magnet for a roll of metal strip"),
+    "doors-vacuum": ("ATISmirus 100", "Vacuum-cup frame for metal doors"),
+    "drums-tipper": ("ATISmirus 100", "Gripper that turns drums upside down"),
+    "kegs-in-situ": ("ATISmirus 100", "Drum tipper on site, beside pallets of kegs"),
+    "sacks-acer150": ("ATISacer 150", "Suction gripper for sacks"),
+    "frames-linear": ("ATISlinear", "Pneumatic clamp for frames"),
+}
+PHOTOS = {"kegs-in-situ"}  # full photographs rather than cut-outs
+
+
+def plate(name, alt, eager=False, extra_class=""):
+    model, shows = IMAGES[name]
+    rows = [("Model", model)] + MODELS[model]
+    dl = "".join(f"<div><dt>{k}</dt><dd>{html.escape(v)}</dd></div>" for k, v in rows)
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    kind = " plate-photo" if name in PHOTOS else ""
+    return (f'<figure class="plate{kind} {extra_class}"><div class="plate-art">'
+            f'<img src="/assets/atis/{name}.webp" alt="{html.escape(alt)}" {load} decoding="async">'
+            '<span class="mark tl"></span><span class="mark tr"></span><span class="mark bl"></span><span class="mark br"></span></div>'
+            f'<figcaption class="title-block"><dl>{dl}</dl><p>ATIS set-up: {html.escape(shows)}</p></figcaption></figure>')
 
 
 def navigation(current):
@@ -69,7 +111,7 @@ def blocks(lines):
         if s.startswith("Image:"):
             flush()
             name, alt = [x.strip() for x in s[6:].split("|", 1)]
-            figures.append(f'<figure class="section-figure"><img src="/assets/atis/{name}.webp" alt="{html.escape(alt)}" loading="lazy" decoding="async"></figure>')
+            figures.append(plate(name, alt))
             continue
         if s.startswith("Button:"):
             flush()
@@ -137,16 +179,13 @@ def head(title, description, slug, extra=""):
   <meta property="og:description" content="{html.escape(description)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:image" content="{SITE}/assets/hero/hero-roll-lift_poster.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional"></noscript>
+  <link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/shell.css">
   <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/design.css">
   <script src="/js/menu.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="/js/pages.js" defer></script>{extra}
 </head>
 <body>
@@ -166,12 +205,16 @@ def build(slug):
     body = [s for s in sections if s[0].startswith("Section: ")]
     intro, rest = body[0], body[1:]
     cta = next((s for s in sections if s[0] == "CTA"), None)
+    hp = HERO_PLATES.get(slug)
+    hero_fig = plate(hp[0], hp[1], eager=True, extra_class="hero-plate") if hp else ""
+    hero_cls = "page-hero has-plate" if hp else "page-hero"
     parts = [f'''<main class="page-main" id="main" tabindex="-1">
-  <section class="page-hero" aria-labelledby="page-title">
-    <div class="container">
-      <p class="eyebrow">AOE Engineering</p>
-      <h1 id="page-title">{html.escape(title)}</h1>
-      <div class="page-intro">{blocks(intro[1])}</div>
+  <section class="{hero_cls}" aria-labelledby="page-title">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1 id="page-title">{html.escape(title)}</h1>
+        <div class="page-intro">{blocks(intro[1])}</div>
+      </div>{hero_fig}
     </div>
   </section>''']
     figures.clear()
@@ -210,7 +253,7 @@ def build_privacy():
         name, *lines = chunk.splitlines()
         out.append(f"<h2>{html.escape(name)}</h2>\n{blocks(lines)}")
     body = f'''<main class="page-main" id="main" tabindex="-1">
-  <section class="page-hero" aria-labelledby="page-title"><div class="container"><p class="eyebrow">AOE Engineering</p><h1 id="page-title">Privacy policy</h1></div></section>
+  <section class="page-hero" aria-labelledby="page-title"><div class="container"><h1 id="page-title">Privacy policy</h1></div></section>
   <section class="home-section"><div class="container prose">{"".join(out)}</div></section>
 </main>'''
     doc = head("Privacy Policy | AOE Engineering", "How AOE Engineering Ltd handles the personal data you send us.", "privacy").replace('<meta property="og:type"', '<meta name="robots" content="noindex">\n  <meta property="og:type"') + header + "\n\n" + body + "\n" + footer + "\n\n</body>\n</html>\n"
@@ -220,7 +263,7 @@ def build_privacy():
 def build_simple(slug, title, h1, copy, description, path, noindex=True):
     header, footer = shell(slug)
     body = f'''<main class="page-main" id="main" tabindex="-1">
-  <section class="page-hero page-hero-tall" aria-labelledby="page-title"><div class="container"><p class="eyebrow">AOE Engineering</p><h1 id="page-title">{h1}</h1><div class="page-intro">{copy}</div></div></section>
+  <section class="page-hero page-hero-tall" aria-labelledby="page-title"><div class="container"><h1 id="page-title">{h1}</h1><div class="page-intro">{copy}</div></div></section>
 </main>'''
     doc = head(title, description, slug.strip("/"))
     if noindex:
