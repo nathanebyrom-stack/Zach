@@ -3,11 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | AOE Engineering</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <title>Contact AOE Engineering | Burnham, Berkshire</title>
+  <meta name="description" content="Talk to AOE Engineering about manipulators, lifting equipment and servicing. Call 07771 873177 or email davidogden@aoeengineering.com.">
+  <link rel="canonical" href="https://www.aoeengineering.com/contact/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AOE Engineering">
+  <meta property="og:title" content="Contact AOE Engineering | Burnham, Berkshire">
+  <meta property="og:description" content="Talk to AOE Engineering about manipulators, lifting equipment and servicing. Call 07771 873177 or email davidogden@aoeengineering.com.">
+  <meta property="og:url" content="https://www.aoeengineering.com/contact/">
+  <meta property="og:image" content="https://www.aoeengineering.com/assets/hero/hero-roll-lift_poster.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional"></noscript>
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/shell.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/pages.css">
   <script src="/js/menu.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="/js/pages.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -23,9 +38,37 @@
   </div>
 </header>
 
-<main class="container" id="main" tabindex="-1">
-  <h1>Contact</h1>
-  <p>[COPY NEEDED: page content]</p>
+<main class="page-main" id="main" tabindex="-1">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <p class="eyebrow">AOE Engineering</p>
+      <h1 id="page-title">Contact</h1>
+      <div class="page-intro"><p>The quickest way is to pick up the phone. Tell us what you're lifting and where, and we'll take it from there. No hard sell.</p></div>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="talk-to-us">
+    <div class="container section-grid">
+      <h2 id="talk-to-us">Talk to us</h2>
+      <div class="section-copy"><ul class="tick-list"><li>Phone: <a href="tel:07771873177">07771 873177</a></li><li>Email: <a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a></li><li>Address: AOE Engineering Ltd, Dorney House, 46-48a High Street, Burnham, Berkshire, SL1 7JP</li></ul></div>
+    </div>
+  </section>
+  <section class="home-section" aria-labelledby="send-us-a-message">
+    <div class="container section-grid">
+      <h2 id="send-us-a-message">Send us a message</h2>
+      <div class="section-copy"><p>Prefer to write it down? Send us the details and we'll get back to you.</p>
+<form class="enquiry-form" name="enquiry" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="company-website">
+  <input type="hidden" name="form-name" value="enquiry">
+  <p class="visually-hidden"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+  <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+  <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+  <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+  <div class="field"><label for="f-phone">Phone <span>(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+  <div class="field field-wide"><label for="f-load">What do you need to lift or move?</label><textarea id="f-load" name="message" rows="5" required></textarea></div>
+  <button class="home-button" type="submit">Send</button>
+  <p class="form-note">We'll only use your details to reply to your enquiry. See our <a href="/privacy/">privacy policy</a>.</p>
+</form></div>
+    </div>
+  </section>
 </main>
 <footer class="site-footer">
   <div class="container footer-inner">

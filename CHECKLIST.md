@@ -8,19 +8,19 @@ Work top to bottom. Tick an item only when it's committed and working.
 
 ## Pages
 - [x] 3. Home: every section except the hero (leave a hero slot with a still placeholder). Carla Task 02, merged 20 Oct. Lighthouse mobile 73, to fix in item 16
-- [ ] 4. Industrial manipulators
-- [ ] 5. Gripping systems
-- [ ] 6. Solutions
-- [ ] 7. Services, including servicing for all makes
-- [ ] 8. Industries: Automotive, Windows & Doors, Food & Beverage, Defence
-- [ ] 9. About, with no figures
-- [ ] 10. Contact: Netlify form, phone and email placeholders
-- [ ] 11. Privacy policy (UK GDPR, placeholders)
+- [x] 4. Industrial manipulators
+- [x] 5. Gripping systems
+- [x] 6. Solutions
+- [x] 7. Services, including servicing for all makes
+- [x] 8. Industries: Automotive, Windows & Doors, Food & Beverage, Defence
+- [x] 9. About, with no figures
+- [x] 10. Contact: Netlify form, phone and email placeholders
+- [x] 11. Privacy policy (UK GDPR, placeholders). Items 4–11 and 14 built by Jenny 22 Oct on build/all-pages (Nathan: build it now). Privacy has [CONFIRM] items; Manipulators mounting section held back until checked
 
 ## Finish
 - [ ] 12. Motion pass: GSAP scroll and transition work across every page, with a reduced-motion fallback
 - [ ] 13. Humanize pass on all copy, then a hard-rules check (no ATIS-as-AOE, no figures, orange only on manipulators and the word ATIS, nothing invented)
-- [ ] 14. SEO baseline: titles, meta descriptions, Open Graph, sitemap.xml, robots.txt, alt text
+- [x] 14. SEO baseline: titles, meta descriptions, Open Graph, sitemap.xml, robots.txt, alt text
 - [x] 15. Hero. Interim roll-lift loop live 20 Oct (Nathan). Swap to ATIS side-member/seat originals when they arrive (see HERO.md)
 - [ ] 16. Quality pass: Lighthouse mobile 85+, keyboard navigation, every page checked at 375px and 1440px
 - [ ] 17. Ready for Nathan's sign-off. List any remaining TODO-IMAGE and placeholder items in LOG.md
