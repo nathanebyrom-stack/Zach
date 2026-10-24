@@ -1,5 +1,7 @@
 # Log (newest first, keep 5)
 
+- 24 Oct 2026 (Jenny, evening push): Checklist 12, 13, 16 worked in one session (branch jenny/motion-quality). Item 12: GSAP 3.12.5 vendored (self-hosted, no CDN), shared site/js/motion.js — sections rise 18px power3.out 0.07s stagger, ATIS images settle from 1.035, inner-page hero rise; reduced-motion = still, no-JS = plain HTML, inline styles cleared; fixed fast-scroll skip, tall-Contact trigger and a tab-order bug. Item 13: hard-rules sweep clean (no figures, no orange, ATIS "UK agent" wording only, no grids); three debatable items in zach-REPORT (incl. footer "Registered number: 6716033" — verify at Companies House pre-launch). Item 16: Playwright 11 pages x 375/1440 x normal/reduced — overflow, alt, keyboard, console all pass; hero still preloaded for LCP. Ticked 12 and 13; 16 stays open until Lighthouse mobile 85+ is confirmed on the Netlify preview. Preview artifact published for Nathan.
+
 ## 12 Oct 2026, setup (Jenny)
 - Done: repo set up with BRIEF.md, CLAUDE.md, CHECKLIST.md and LOG.md.
 - Next: checklist item 1, scaffold.
