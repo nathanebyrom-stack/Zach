@@ -6,13 +6,9 @@ const connection = navigator.connection;
 const slowConnection = connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '');
 
 function syncHero() {
+  /* The still image loads from the markup itself (srcset in the picture),
+     so the LCP image needs no JavaScript. This only gates the video. */
   const ready = video.dataset.mediaReady === 'true';
-  if (ready) {
-    hero.querySelectorAll('[data-srcset]').forEach(source => {
-      source.srcset = source.dataset.srcset;
-    });
-    hero.querySelector('img').src = hero.querySelector('img').dataset.still;
-  }
   if (!ready || reducedMotion.matches || slowConnection) {
     video.pause();
     video.hidden = true;
@@ -20,7 +16,11 @@ function syncHero() {
     video.load();
     return;
   }
-  video.poster = video.dataset.poster;
+  /* Use the same still the picture already painted (and preloaded) as the
+     poster, so the video element never waits on a second image. */
+  video.poster = window.matchMedia('(max-width: 47.99rem)').matches
+    ? '/assets/hero/hero-roll-lift-mobile_still.webp'
+    : '/assets/hero/hero-roll-lift_still.webp';
   video.querySelectorAll('source').forEach(source => { source.src = source.dataset.src; });
   video.muted = true;
   video.load();

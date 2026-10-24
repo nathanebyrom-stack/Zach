@@ -38,6 +38,14 @@
     </nav>
   </div>
 </header>
+<script>/* Set the header's mobile/desktop state before first paint so the menu swap never shifts the layout. */
+(function () {
+  var d = window.matchMedia('(min-width: 75rem)').matches;
+  var t = document.querySelector('.menu-toggle');
+  var n = document.getElementById('primary-navigation');
+  if (t && n) { t.hidden = d; n.hidden = !d; t.setAttribute('aria-expanded', String(d)); }
+})();
+</script>
 
 <main class="page-main" id="main" tabindex="-1">
   <section class="page-hero page-hero-tall" aria-labelledby="page-title"><div class="container"><p class="eyebrow">AOE Engineering</p><h1 id="page-title">Thanks. We've got your message.</h1><div class="page-intro"><p>We'll get back to you soon. If it's urgent, call us on <a href="tel:07771873177">07771 873177</a>.</p><a class="home-button" href="/">Back to home</a></div></div></section>

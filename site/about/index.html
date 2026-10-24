@@ -37,6 +37,14 @@
     </nav>
   </div>
 </header>
+<script>/* Set the header's mobile/desktop state before first paint so the menu swap never shifts the layout. */
+(function () {
+  var d = window.matchMedia('(min-width: 75rem)').matches;
+  var t = document.querySelector('.menu-toggle');
+  var n = document.getElementById('primary-navigation');
+  if (t && n) { t.hidden = d; n.hidden = !d; t.setAttribute('aria-expanded', String(d)); }
+})();
+</script>
 
 <main class="page-main" id="main" tabindex="-1">
   <section class="page-hero" aria-labelledby="page-title">
@@ -49,7 +57,7 @@
   <section class="home-section" aria-labelledby="what-we-do">
     <div class="container section-grid has-figure">
       <h2 id="what-we-do">What we do</h2>
-      <div class="section-copy"><p>We design and build manipulators, then install and commission them. We're the UK agent for ATIS, and we also supply manipulators and equipment from other makers. We adapt your workshop to take the new machinery, and we service lifting equipment of every make.</p></div><figure class="section-figure"><img src="/assets/atis/plates-mirus200.webp" alt="ATISmirus 200 rigid-arm manipulator with a plate gripper" loading="lazy" decoding="async"></figure>
+      <div class="section-copy"><p>We design and build manipulators, then install and commission them. We're the UK agent for ATIS, and we also supply manipulators and equipment from other makers. We adapt your workshop to take the new machinery, and we service lifting equipment of every make.</p></div><figure class="section-figure"><img src="/assets/atis/plates-mirus200.webp" width="631" height="734" alt="ATISmirus 200 rigid-arm manipulator with a plate gripper" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="how-we-work">

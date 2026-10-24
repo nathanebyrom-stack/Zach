@@ -37,6 +37,14 @@
     </nav>
   </div>
 </header>
+<script>/* Set the header's mobile/desktop state before first paint so the menu swap never shifts the layout. */
+(function () {
+  var d = window.matchMedia('(min-width: 75rem)').matches;
+  var t = document.querySelector('.menu-toggle');
+  var n = document.getElementById('primary-navigation');
+  if (t && n) { t.hidden = d; n.hidden = !d; t.setAttribute('aria-expanded', String(d)); }
+})();
+</script>
 
 <main class="page-main" id="main" tabindex="-1">
   <section class="page-hero" aria-labelledby="page-title">
@@ -57,13 +65,13 @@
     <div class="container section-grid has-figure">
       <h2 id="windows-doors">Windows &amp; Doors</h2>
       <div class="section-copy"><p>Glass is heavy and it breaks. Frames are long and they flex. ATIS has set-ups for glass panes, window frames, doors and gates, packaged doors and armoured doors.</p>
-<p>The ATISmirus 200 VT is a good example. It takes a window out of its container and puts it down on a forklift. The suction cups adjust for size and thickness, and safety valves keep hold if the vacuum drops.</p></div><figure class="section-figure"><img src="/assets/atis/frames-windows.webp" alt="ATISmirus 300 with a suction gripper lifting a window frame" loading="lazy" decoding="async"></figure>
+<p>The ATISmirus 200 VT is a good example. It takes a window out of its container and puts it down on a forklift. The suction cups adjust for size and thickness, and safety valves keep hold if the vacuum drops.</p></div><figure class="section-figure"><img src="/assets/atis/frames-windows.webp" width="603" height="1100" alt="ATISmirus 300 with a suction gripper lifting a window frame" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="food-beverage">
     <div class="container section-grid has-figure">
       <h2 id="food-beverage">Food &amp; Beverage</h2>
-      <div class="section-copy"><p>Sacks, drums, kegs and boxes, often lifted all day long. ATIS has set-ups for food sacks, 200-litre drums, beer kegs and barrels, bins and containers, cheese, water bottles, and boxes and cartons at the end of the line.</p></div><figure class="section-figure"><img src="/assets/atis/kegs-in-situ.webp" alt="ATISmirus 100 with a drum tipper next to pallets of kegs" loading="lazy" decoding="async"></figure>
+      <div class="section-copy"><p>Sacks, drums, kegs and boxes, often lifted all day long. ATIS has set-ups for food sacks, 200-litre drums, beer kegs and barrels, bins and containers, cheese, water bottles, and boxes and cartons at the end of the line.</p></div><figure class="section-figure"><img src="/assets/atis/kegs-in-situ.webp" width="759" height="791" alt="ATISmirus 100 with a drum tipper next to pallets of kegs" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="defence">

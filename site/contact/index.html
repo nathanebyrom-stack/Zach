@@ -37,6 +37,14 @@
     </nav>
   </div>
 </header>
+<script>/* Set the header's mobile/desktop state before first paint so the menu swap never shifts the layout. */
+(function () {
+  var d = window.matchMedia('(min-width: 75rem)').matches;
+  var t = document.querySelector('.menu-toggle');
+  var n = document.getElementById('primary-navigation');
+  if (t && n) { t.hidden = d; n.hidden = !d; t.setAttribute('aria-expanded', String(d)); }
+})();
+</script>
 
 <main class="page-main" id="main" tabindex="-1">
   <section class="page-hero" aria-labelledby="page-title">

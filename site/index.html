@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional"></noscript>
-  <link rel="preload" as="image" href="/assets/hero/hero-roll-lift_still.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/hero/hero-roll-lift-mobile_still.webp" media="(max-width: 47.99rem)" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/hero/hero-roll-lift_still.webp" media="(min-width: 48rem)" fetchpriority="high">
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/shell.css">
   <link rel="stylesheet" href="/css/home.css">
@@ -32,17 +33,25 @@
     </nav>
   </div>
 </header>
+<script>/* Set the header's mobile/desktop state before first paint so the menu swap never shifts the layout. */
+(function () {
+  var d = window.matchMedia('(min-width: 75rem)').matches;
+  var t = document.querySelector('.menu-toggle');
+  var n = document.getElementById('primary-navigation');
+  if (t && n) { t.hidden = d; n.hidden = !d; t.setAttribute('aria-expanded', String(d)); }
+})();
+</script>
 
 <main class="home-main" id="main" tabindex="-1">
   <section class="home-hero" aria-labelledby="hero-title">
     <!-- Interim hero (Nathan, 20 Oct): Vic's roll-lift loop. Swap to the ATIS side-member originals when they arrive (HERO.md). -->
     <div class="hero-media" aria-hidden="true">
       <picture>
-        <source data-srcset="/assets/hero/hero-roll-lift-mobile_still.webp" media="(max-width: 47.99rem)" type="image/webp">
-        <source data-srcset="/assets/hero/hero-roll-lift_still.webp" type="image/webp">
-        <img src="/assets/hero/hero-roll-lift_still.jpg" data-still="/assets/hero/hero-roll-lift_still.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+        <source srcset="/assets/hero/hero-roll-lift-mobile_still.webp" media="(max-width: 47.99rem)" type="image/webp" width="1080" height="1920">
+        <source srcset="/assets/hero/hero-roll-lift_still.webp" type="image/webp" width="1920" height="1080">
+        <img src="/assets/hero/hero-roll-lift_still.jpg" alt="" width="1920" height="1080" fetchpriority="high">
       </picture>
-      <video autoplay muted loop playsinline preload="none" poster="/assets/hero/hero-roll-lift_poster.jpg" data-poster="/assets/hero/hero-roll-lift_poster.webp" data-media-ready="true" hidden>
+      <video autoplay muted loop playsinline preload="none" data-media-ready="true" hidden>
         <source data-src="/assets/hero/hero-roll-lift-mobile.webm" media="(max-width: 47.99rem)" type="video/webm">
         <source data-src="/assets/hero/hero-roll-lift-mobile.mp4" media="(max-width: 47.99rem)" type="video/mp4">
         <source data-src="/assets/hero/hero-roll-lift.webm" type="video/webm">
@@ -61,7 +70,7 @@
       <div class="section-copy"><p>Heavy, awkward or easy to damage? That&#x27;s the kind of load we deal with. AOE Engineering supplies the lifting equipment and takes repetitive handling off your people.</p>
 <p>We design manipulators, build them, install them and commission them. If your workshop needs changing to take the new machinery, we do that too. You don&#x27;t have to organise any of it.</p>
 <p>We&#x27;re the UK agent for ATIS and supply its manipulators. We also supply manipulators and equipment from other makers, and pick whatever suits your process.</p></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/boxes-mirus200.webp" alt="ATISmirus 200 with multiple suction cups lifting taped cardboard boxes" loading="lazy" decoding="async"></figure>
+      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/boxes-mirus200.webp" width="772" height="907" alt="ATISmirus 200 with multiple suction cups lifting taped cardboard boxes" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="honest-about-automation">
@@ -78,7 +87,7 @@
       <h2 id="manipulators">Manipulators</h2>
       <div class="section-copy"><p>ATIS makes four families of pneumatic manipulator. ATISmirus has a rigid arm. ATISacer runs on a double rope, ATISferax works on a lever, and ATISlinear moves up and down on linear guides. Between them they lift from 55 kg to 1,000 kg.</p>
 <a class="home-button" href="/manipulators/">See the manipulators</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/plates-mirus200.webp" alt="ATISmirus 200 rigid-arm manipulator with a plate gripper" loading="lazy" decoding="async"></figure>
+      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/plates-mirus200.webp" width="631" height="734" alt="ATISmirus 200 rigid-arm manipulator with a plate gripper" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="gripping">
@@ -86,7 +95,7 @@
       <h2 id="gripping">Gripping</h2>
       <div class="section-copy"><p>The arm is only half of it. What holds the load matters just as much: mechanical clamps, pneumatic clamps, magnets, forks, hooks or vacuum cups. The right one depends on what you&#x27;re lifting.</p>
 <a class="home-button" href="/gripping/">See gripping systems</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/bushings-pneumatic.webp" alt="ATISmirus 100 with a tilting pneumatic gripper for bushings" loading="lazy" decoding="async"></figure>
+      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/bushings-pneumatic.webp" width="974" height="1100" alt="ATISmirus 100 with a tilting pneumatic gripper for bushings" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="what-you-can-lift">
@@ -96,7 +105,7 @@
 <ul class="loads-list"><li>Glass panes</li><li>Window frames, doors and gates</li><li>Metal sheets</li><li>Steel plates, tubes and profiles</li><li>Coils</li><li>200-litre drums</li><li>Paint drums</li><li>Boilers</li><li>Bushings</li><li>Frames</li><li>Bags and sacks</li><li>Cardboard boxes, including three taped boxes at a time</li></ul>
 <p>Not on the list? Ask us anyway.</p>
 <a class="home-button" href="/solutions/">See solutions</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/drums-mirus300.webp" alt="ATISmirus 300 with a clamp gripping a drum" loading="lazy" decoding="async"></figure>
+      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/drums-mirus300.webp" width="697" height="1100" alt="ATISmirus 300 with a clamp gripping a drum" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="industries">
@@ -105,7 +114,7 @@
       <div class="section-copy"><p>Automotive. Windows &amp; Doors. Food &amp; Beverage. Defence.</p>
 <p>In Defence we supply and install lifting equipment. Past work includes process equipment for military and civil aerospace.</p>
 <a class="home-button" href="/industries/">See industries</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/kegs-in-situ.webp" alt="ATISmirus 100 with a drum tipper next to pallets of kegs" loading="lazy" decoding="async"></figure>
+      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/kegs-in-situ.webp" width="759" height="791" alt="ATISmirus 100 with a drum tipper next to pallets of kegs" loading="lazy" decoding="async"></figure>
     </div>
   </section>
   <section class="home-section" aria-labelledby="service-and-support">
