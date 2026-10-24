@@ -31,20 +31,4 @@ reducedMotion.addEventListener('change', syncHero);
 video.addEventListener('error', () => { video.hidden = true; });
 syncHero();
 
-/* Reveal on entry only; keep content visible if GSAP or JS is unavailable. */
-if (window.gsap && 'IntersectionObserver' in window) {
-  const motion = gsap.matchMedia();
-  motion.add('(prefers-reduced-motion: no-preference)', () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        gsap.fromTo(entry.target, { y: 24 }, {
-          y: 0, duration: 0.55, ease: 'power2.out', clearProps: 'transform'
-        });
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.home-section').forEach(section => observer.observe(section));
-    return () => observer.disconnect();
-  });
-}
+/* Section entrance motion lives in /js/motion.js (shared with the inner pages). */
