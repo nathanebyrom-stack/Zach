@@ -163,10 +163,15 @@ def css_block():
 
 
 def refresh_home():
-    """Home is hand-built; only its inlined CSS block is refreshed here."""
+    """Home is hand-built; only its inlined CSS and meta blocks are refreshed here."""
     path = ROOT / "site/index.html"
     doc = path.read_text()
     doc = re.sub(r"<!-- css:start.*?<!-- css:end -->", lambda m: css_block(), doc, flags=re.S)
+    # Social/icon meta, built from Home's own <title> and meta description.
+    title = html.unescape(re.search(r"<title>(.*?)</title>", doc).group(1))
+    desc = html.unescape(re.search(r'<meta name="description" content="(.*?)">', doc).group(1))
+    block = "<!-- meta:start (scripts/build-pages.py) -->\n  " + meta_block(title, desc, f"{SITE}/") + "\n  <!-- meta:end -->"
+    doc = re.sub(r"<!-- meta:start.*?<!-- meta:end -->", lambda m: block, doc, flags=re.S)
     path.write_text(doc)
 
 
@@ -223,6 +228,47 @@ def contact_form():
 </form>'''
 
 
+# Share card and icons (launch polish, 25 Oct). Alt text reuses existing site words only.
+OG_IMAGE = f"{SITE}/assets/brand/og-aoe.jpg"
+OG_ALT = "AOE Engineering: Design. Supply. Fit. Service."
+THEME = "#05080D"  # --color-bg in site/css/tokens.css
+
+
+def meta_block(title, description, url):
+    """Canonical, Open Graph, Twitter card, icons and theme colour. url=None (404) omits canonical and og:url."""
+    t, d = html.escape(title), html.escape(description)
+    lines = []
+    if url:
+        lines.append(f'<link rel="canonical" href="{url}">')
+    lines += [
+        '<meta property="og:type" content="website">',
+        '<meta property="og:site_name" content="AOE Engineering">',
+        '<meta property="og:locale" content="en_GB">',
+        f'<meta property="og:title" content="{t}">',
+        f'<meta property="og:description" content="{d}">',
+    ]
+    if url:
+        lines.append(f'<meta property="og:url" content="{url}">')
+    lines += [
+        f'<meta property="og:image" content="{OG_IMAGE}">',
+        '<meta property="og:image:type" content="image/jpeg">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        f'<meta property="og:image:alt" content="{html.escape(OG_ALT)}">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        f'<meta name="twitter:title" content="{t}">',
+        f'<meta name="twitter:description" content="{d}">',
+        f'<meta name="twitter:image" content="{OG_IMAGE}">',
+        f'<meta name="twitter:image:alt" content="{html.escape(OG_ALT)}">',
+        '<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">',
+        '<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">',
+        '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
+        '<link rel="manifest" href="/site.webmanifest">',
+        f'<meta name="theme-color" content="{THEME}">',
+    ]
+    return "\n  ".join(lines)
+
+
 def head(title, description, slug, extra=""):
     canonical = f"{SITE}/{slug}/" if slug else f"{SITE}/"
     return f'''<!doctype html>
@@ -232,13 +278,7 @@ def head(title, description, slug, extra=""):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(description)}">
-  <link rel="canonical" href="{canonical}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="AOE Engineering">
-  <meta property="og:title" content="{html.escape(title)}">
-  <meta property="og:description" content="{html.escape(description)}">
-  <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="{SITE}/assets/hero/hero-roll-lift_poster.jpg">
+  {meta_block(title, description, None if slug == "404" else canonical)}
   <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');</script>
   <link rel="preload" href="/assets/fonts/archivo-aoe.woff2" as="font" type="font/woff2" crossorigin>
   {css_block()}
