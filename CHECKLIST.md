@@ -21,6 +21,6 @@ Work top to bottom. Tick an item only when it's committed and working.
 - [x] 12. Motion pass: GSAP scroll and transition work across every page, with a reduced-motion fallback
 - [x] 13. Humanize pass on all copy, then a hard-rules check (no ATIS-as-AOE, no figures, orange only on manipulators and the word ATIS, nothing invented)
 - [x] 14. SEO baseline: titles, meta descriptions, Open Graph, sitemap.xml, robots.txt, alt text
-- [x] 15. Hero. Interim roll-lift loop live 20 Oct (Nathan). Swap to ATIS side-member/seat originals when they arrive (see HERO.md)
+- [x] 15. Hero. Roll-lift loop is the final hero (Nathan, 25 Oct); no swap pending. Roll gripper close-up loop behind the Home CTA band replaces the seat clip (see HERO.md)
 - [x] 16. Quality pass: Lighthouse mobile 85+, keyboard navigation, every page checked at 375px and 1440px
 - [x] 17. Ready for Nathan's sign-off. List any remaining TODO-IMAGE and placeholder items in LOG.md

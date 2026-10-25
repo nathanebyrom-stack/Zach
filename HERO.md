@@ -1,26 +1,17 @@
-# HERO.md: AOE homepage hero (approved source)
+# HERO.md: AOE homepage hero (final)
 
-Approved by Nathan, 19 Oct 2026. This replaces Vic's HERO-DRAFT candidates; none of the five draft loops is used.
+Final as of 25 Oct 2026 (Nathan). No swap is pending.
 
-## Approved footage
-Both are from ATIS's own YouTube channel ("ATIS pneumatic handling manipulators"). Rights: Dave Ogden confirmed 17 Oct 2026 that AOE can use any ATIS video or image. People may be edited out.
+## Final hero
+- **Home hero loop:** Vic's roll-lift loop, `site/assets/hero/hero-roll-lift{,-mobile}.{mp4,webm}`, with its `_poster` and `_still` frames (jpg and webp). It was cut from the ATIS website reel at 1920x1080 (desktop) and 1080x1920 (mobile), with no watermark. It went live as the interim hero on 20 Oct (Nathan). Vic ranked it his top pick: it is the steadiest shot, it has no legible ATIS mark, and an operator is in control.
+- **Second motion moment:** Vic's roll gripper close-up loop, `site/assets/hero/hero-roll-gripper-closeup{,-mobile}.{mp4,webm}`, with its `_poster` and `_still` frames. It plays behind the closing CTA band on Home. It has no people, low branding, and is the darkest and calmest of Vic's shots (from the hero-footage branch, 17 Oct). It replaces the planned seat-balancer clip.
+- **Rights:** Dave Ogden confirmed on 17 Oct 2026 that AOE can use any ATIS video or image.
 
-| Role | Video | What it shows |
-|---|---|---|
-| **Main hero loop** | https://www.youtube.com/watch?v=TzkbAVxzL3g (ATIS ref. 40230279) | Manipulator with suction-cup tooling lifting a vehicle side member from one production station to the next. Automotive. |
-| **Secondary clip** | https://www.youtube.com/watch?v=arEzDG5eCug (ATIS ref. 40240034) | Rope balancer handling automotive seats. Automotive. |
-
-## Status
-- **20 Oct 2026 — interim hero live (Nathan's call):** Vic's roll-lift loop (`hero-roll-lift*`, from the ATIS website reel, 1920x1080, no watermark) is now on Home. The YouTube copies of the two approved videos were rejected: ATIS logo and www.atismanipolatori.com are burned into nearly every frame, and the side-member video is only 720p. Swap to the side-member and seat videos once clean originals arrive from ATIS.
-- **Not cut yet.** No files from these two videos are in the repo. Hero build (checklist item 15) waits until the cut files below exist.
-- Hero headline: **Option C**, "Design. Supply. Fit. Service." (Nathan, 19 Oct). See `content/pages/home.md`.
-
-## Cut spec (Vic)
-Follow the method in HERO-DRAFT.md: ping-pong loops, no audio, H.264 MP4 (faststart) + VP9 WebM, desktop 1920x1080 and mobile 1080x1920, never upscaled, poster and reduced-motion still as JPG and WebP, safe-area and scrim notes for headline text.
-- `assets/hero/hero-side-member.{mp4,webm}` and `-mobile`: the clearest station-to-station lift with the part in motion.
-- `assets/clips/clip-seat-balancer.{mp4,webm}` and `-mobile`: a seat lift for use lower on the Home page.
-- Record source timecodes, file sizes and any branding flags (legible ATIS logos) in a REPORTS/ entry.
-- Operators may be removed if it looks right; if removing them makes the arm look self-driving, leave them in and say so.
+## Why the ATIS YouTube videos were not used
+Nathan picked two ATIS YouTube videos on 19 Oct: the vehicle side-member lift (ref. 40230279) and the seat rope balancer (ref. 40240034). The downloaded copies were rejected on 20 Oct for two reasons: the ATIS logo and www.atismanipolatori.com are burned into nearly every frame, and the side-member video is only 720p. On 25 Oct Nathan confirmed that Dave will not supply clean originals, so that plan is retired.
 
 ## Build rules (unchanged from BRIEF.md)
-Steel-blue grade, ATIS orange only on the machine itself, dark scrim behind white type, still frame for reduced-motion and slow devices.
+- Steel-blue grade. ATIS orange only on the machine itself.
+- Dark scrim behind white type.
+- Still frame for reduced-motion users, slow connections and no-JS.
+- The hero still is the preloaded LCP image. Video starts after load.
