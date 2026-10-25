@@ -1,24 +1,66 @@
+/* Self-hosted type (no third-party requests). Archivo variable (wght 500-900, wdth 100-125) and Inter variable (wght 400-600), Latin subset, SIL OFL (see /assets/fonts). */
+@font-face {
+  font-family: "Archivo AOE";
+  src: url("/assets/fonts/archivo-aoe.woff2") format("woff2");
+  font-weight: 500 900;
+  font-stretch: 100% 125%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter AOE";
+  src: url("/assets/fonts/inter-aoe.woff2") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+/* Metric-matched fallbacks so the swap to the real fonts doesn't shift the layout. */
+@font-face { font-family: "Archivo Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 700 900; size-adjust: 104%; ascent-override: 84%; descent-override: 20%; line-gap-override: 0%; }
+@font-face { font-family: "Inter Fallback"; src: local("Arial"), local("ArialMT"), local("Liberation Sans"); size-adjust: 105.5%; ascent-override: 91.9%; descent-override: 22.9%; line-gap-override: 0%; }
+
 :root {
   color-scheme: dark;
-  --color-bg: #0A0C10;
+  /* Surfaces: near-black through steel, cobalt and a teal-leaning steel. */
+  --color-bg: #05080D;
+  --color-ink: #070C15;
   --color-steel: #0E1A2B;
+  --color-steel-2: #0B1524;
   --color-panel: #132238;
+  --color-navy: #071434;
+  --color-cobalt: #0A2470;
+  --color-teal: #08262F;
+  --color-teal-2: #0B3540;
+  /* Type and lines: brushed silver from the logo. */
   --color-text: #E9EBF0;
   --color-muted: #B5BCC4;
+  --color-dim: #8D96A3;
+  --color-line: rgb(181 188 196 / 18%);
+  --color-line-strong: rgb(181 188 196 / 34%);
+  /* The single accent: electric blue from the logo bar, plus lighter tints of it for light and type. */
   --color-accent: #0043FE;
-  --color-line: rgb(181 188 196 / 24%);
-  --color-glow: rgb(0 67 254 / 25%);
-  --font-heading: "Archivo", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --color-accent-hi: #2C67FF;
+  --color-ice: #9DB9FF;
+  --color-glow: rgb(0 67 254 / 30%);
+  --color-glow-strong: rgb(0 67 254 / 55%);
+
+  --font-heading: "Archivo AOE", "Archivo Fallback", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter AOE", "Inter Fallback", "Helvetica Neue", Arial, sans-serif;
+  --stretch-display: 112%;
   --weight-body: 400;
   --weight-medium: 500;
   --weight-label: 600;
   --weight-heading: 800;
   --text-small: 0.875rem;
+  --text-label: 0.75rem;
   --text-body: 1rem;
-  --text-heading: clamp(2.25rem, 7vw, 5rem);
+  --text-lead: clamp(1.125rem, 1.4vw, 1.3rem);
+  --text-heading: clamp(2.25rem, 5.6vw, 5rem);
+  --text-display: clamp(3.4rem, 15vw, 9.75rem);
+  --text-statement: clamp(1.9rem, 4.4vw, 4.1rem);
   --leading-body: 1.6;
-  --leading-heading: 1.1;
+  --leading-heading: 1.02;
+  --tracking-display: -0.035em;
+  --tracking-heading: -0.025em;
+  --tracking-label: 0.18em;
+
   --space-0: 0;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -29,14 +71,21 @@
   --space-7: 3rem;
   --space-8: 4rem;
   --space-9: 6rem;
+  --space-10: clamp(6rem, 12vw, 10rem);
   --grid-columns: repeat(2, minmax(0, 1fr));
-  --content-width: 80rem;
+  --content-width: 84rem;
   --page-gutter: clamp(1rem, 4vw, 3rem);
-  --logo-width: 10rem;
+  --logo-width: 9rem;
+  --header-height: 5.25rem;
   --hero-height: 16rem;
   --target-size: 2.75rem;
   --radius: 2px;
   --border-width: 1px;
-  --focus-width: 3px;
-  --focus-offset: 4px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --ease-machined: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (min-width: 75rem) {
+  :root { --logo-width: 10rem; --header-height: 6rem; }
 }
