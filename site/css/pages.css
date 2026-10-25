@@ -11,7 +11,7 @@
 .page-hero-grid { display: grid; gap: var(--space-6); align-items: center; }
 .page-hero-copy { min-width: 0; }
 .page-title { margin: 0 0 var(--space-6); max-width: 14ch; font-size: clamp(2.6rem, 10.5vw, 8.25rem); line-height: 0.92; letter-spacing: var(--tracking-display); color: #fff; overflow-wrap: normal; text-wrap: balance; }
-.page-title .mask { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.04em 0.05em 0.1em 0; margin-bottom: -0.08em; }
+.page-title .mask { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.04em 0.05em 0.26em 0; margin-bottom: -0.24em; }
 .page-title .mask > span { display: inline-block; }
 .motion .page-title .mask > span { animation: aoe-rise 1.1s var(--ease-machined) both; }
 .motion .page-title .mask:nth-child(2) > span { animation-delay: 0.1s; }
@@ -45,7 +45,8 @@
 .section-head { min-width: 0; }
 .sec-num { margin: 0 0 var(--space-4); display: flex; align-items: center; gap: var(--space-3); color: var(--color-ice); font: var(--weight-label) var(--text-label) / 1 var(--font-body); letter-spacing: var(--tracking-label); }
 .sec-num::after { content: ""; width: 3rem; height: 1px; background: var(--color-line-strong); }
-.inner-section h2 { font-size: clamp(2.1rem, 5.4vw, 4.5rem); color: #fff; overflow-wrap: normal; hyphens: manual; }
+.section-head { container-type: inline-size; }
+.inner-section h2 { font-size: clamp(1.9rem, min(5.4vw, 11.5cqi), 4.5rem); color: #fff; overflow-wrap: normal; hyphens: manual; }
 .section-copy { font-size: 1.0625rem; }
 .section-copy p:first-child { font-size: var(--text-lead); color: var(--color-text); }
 .section-copy .home-button { margin-top: var(--space-2); }

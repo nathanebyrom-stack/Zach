@@ -163,7 +163,8 @@
       gsap.fromTo(img, { y: 36 }, { y: -36, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
     gsap.utils.toArray('.machine-grid .giant').forEach(h => {
-      gsap.fromTo(h, { xPercent: h.closest('.machine-grid-flip') ? 4 : -4 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: h, start: 'top bottom', end: 'bottom 40%', scrub: true } });
+      /* Drift inward only, so the heading never crosses the page gutter. */
+      gsap.fromTo(h, { xPercent: h.closest('.machine-grid-flip') ? -4 : 4 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: h, start: 'top bottom', end: 'bottom 40%', scrub: true } });
     });
     const cta = document.querySelector('.cta-media img');
     if (cta) gsap.fromTo(cta, { yPercent: -8, scale: 1.12 }, { yPercent: 8, scale: 1.12, ease: 'none', scrollTrigger: { trigger: '.cta-cinema', start: 'top bottom', end: 'bottom top', scrub: true } });
