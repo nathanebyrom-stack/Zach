@@ -213,9 +213,20 @@
 
 /* ---------- Closing CTA: cinematic band ---------- */
 .cta-cinema { padding-block: var(--space-10); overflow: hidden; background: var(--color-navy); border-top: var(--border-width) solid var(--color-line); }
-.cta-media { position: absolute; inset: 0; z-index: -2; }
-.cta-media img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; filter: grayscale(0.6) contrast(1.05); }
-.cta-cinema::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(5 8 13 / 96%) 0%, rgb(7 20 52 / 86%) 55%, rgb(10 36 112 / 70%) 100%); }
+/* Background: the roll gripper close-up loop (still frame as fallback). The media box is absolutely positioned inside a padded section, so nothing it loads can shift layout. */
+.cta-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--color-navy); }
+.cta-media picture, .cta-media img, .cta-media video { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cta-media img, .cta-media video { object-fit: cover; object-position: 50% 50%; }
+.cta-media video { opacity: 0; transition: opacity 0.9s var(--ease-out); }
+.cta-media video.is-playing { opacity: 1; }
+/* Grade + scrim: a cobalt wash pulls the footage into the palette; the left two-thirds, where the type sits, stays near-black. */
+.cta-cinema::before { content: ""; position: absolute; inset: 0; z-index: -1; background:
+  linear-gradient(90deg, rgb(5 8 13 / 94%) 0%, rgb(5 10 24 / 88%) 45%, rgb(7 20 52 / 66%) 75%, rgb(10 36 112 / 52%) 100%),
+  linear-gradient(0deg, rgb(5 8 13 / 55%), rgb(5 8 13 / 0%) 40%),
+  linear-gradient(120deg, rgb(7 22 72 / 45%), rgb(8 38 47 / 40%)); }
+@media (max-width: 47.99rem) {
+  .cta-cinema::before { background: linear-gradient(180deg, rgb(5 8 13 / 82%) 0%, rgb(5 10 24 / 90%) 50%, rgb(5 8 13 / 94%) 100%), linear-gradient(120deg, rgb(7 22 72 / 45%), rgb(8 38 47 / 40%)); }
+}
 .cta-big { max-width: 18ch; margin-bottom: var(--space-6); font: var(--weight-heading) clamp(2.2rem, 6vw, 5.5rem) / 0.98 var(--font-heading); font-stretch: var(--stretch-display); letter-spacing: var(--tracking-display); color: #fff; text-wrap: balance; }
 .cta-big a { color: var(--color-ice); text-decoration: none; background: linear-gradient(var(--color-accent), var(--color-accent)) left bottom / 100% 0.08em no-repeat; white-space: nowrap; }
 .cta-big a:hover { background-size: 100% 0.16em; }
@@ -243,5 +254,5 @@
   .hero-content { padding-bottom: var(--space-8); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-media video { display: none; }
+  .hero-media video, .cta-media video { display: none; }
 }

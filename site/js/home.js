@@ -33,3 +33,31 @@ video.addEventListener('error', () => { video.hidden = true; });
 if (document.readyState === 'complete') syncHero(); else window.addEventListener('load', syncHero, { once: true });
 
 /* Section entrance motion lives in /js/motion.js (shared with the inner pages). */
+
+/* Closing CTA band: the roll gripper close-up loop. Nothing is requested until the band is
+   near the viewport; it pauses when off-screen. Reduced motion, Save-Data/2G or no JS keep the still. */
+(() => {
+  const band = document.querySelector('.cta-cinema');
+  const clip = band && band.querySelector('.cta-video');
+  if (!clip || !('IntersectionObserver' in window)) return;
+  let loaded = false;
+  const allowed = () => !reducedMotion.matches && !slowConnection;
+  const stop = () => { clip.pause(); clip.classList.remove('is-playing'); };
+  const play = () => {
+    if (!allowed()) { stop(); clip.hidden = true; return; }
+    if (!loaded) {
+      loaded = true;
+      clip.querySelectorAll('source').forEach(s => { s.src = s.dataset.src; });
+      clip.muted = true;
+      clip.load();
+    }
+    clip.hidden = false;
+    const p = clip.play();
+    if (p) p.then(() => clip.classList.add('is-playing')).catch(() => { clip.hidden = true; });
+  };
+  clip.addEventListener('error', () => { clip.hidden = true; });
+  new IntersectionObserver(entries => {
+    entries.forEach(e => (e.isIntersecting ? play() : stop()));
+  }, { rootMargin: '200px 0px' }).observe(band);
+  reducedMotion.addEventListener('change', () => { if (!allowed()) { stop(); clip.hidden = true; } });
+})();
