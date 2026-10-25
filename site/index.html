@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manipulators &amp; Lifting Equipment | AOE Engineering</title>
   <meta name="description" content="AOE supplies and fits manipulators, then adapts your workshop to take them. UK agent for ATIS. We service every make too.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional"></noscript>
+  <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');</script>
+  <link rel="preload" href="/assets/fonts/archivo-aoe.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="/assets/hero/hero-roll-lift-mobile_still.webp" media="(max-width: 47.99rem)" fetchpriority="high">
   <link rel="preload" as="image" href="/assets/hero/hero-roll-lift_still.webp" media="(min-width: 48rem)" fetchpriority="high">
   <link rel="stylesheet" href="/css/tokens.css">
@@ -17,6 +15,7 @@
   <link rel="stylesheet" href="/css/pages.css">
   <script src="/js/menu.js" defer></script>
   <script src="/assets/vendor/gsap.min.js" defer></script>
+  <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
   <script src="/js/home.js" defer></script>
   <script src="/js/motion.js" defer></script>
 </head>
@@ -58,77 +57,151 @@
         <source data-src="/assets/hero/hero-roll-lift.mp4" type="video/mp4">
       </video>
     </div>
+    <div class="hero-grade" aria-hidden="true"></div>
     <div class="container hero-content">
-      <h1 id="hero-title">Design. Supply. Fit. Service.</h1>
-      <p>And if your workshop needs changing to take the new kit, we do that too.</p>
+      <h1 id="hero-title" class="hero-title"><span class="mask"><span>Design.</span></span> <span class="mask"><span>Supply.</span></span> <span class="mask"><span>Fit.</span></span> <span class="mask"><span>Service.</span></span></h1>
+      <div class="hero-foot">
+        <p class="hero-lead">And if your workshop needs changing to take the new kit, we do that too.</p>
+        <a class="home-button" href="tel:07771873177">Call 07771 873177</a>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#what-we-do"><span class="scroll-cue-line" aria-hidden="true"></span>Scroll</a>
+  </section>
+
+  <section class="home-section band-intro" aria-labelledby="what-we-do">
+    <div class="container intro-grid">
+      <h2 id="what-we-do" class="label">What we do</h2>
+      <p class="statement"><span class="statement-hi">Heavy, awkward or easy to damage? That&#x27;s the kind of load we deal with.</span> AOE Engineering supplies the lifting equipment and takes repetitive handling off your people.</p>
+    </div>
+  </section>
+
+  <section class="verbs" aria-label="Design, supply, fit and service">
+    <div class="verbs-track">
+      <div class="verbs-stage">
+        <ol class="verbs-index" aria-hidden="true">
+          <li class="is-active"><span>01</span>Design</li><li><span>02</span>Supply</li><li><span>03</span>Fit</li><li><span>04</span>Service</li>
+        </ol>
+        <div class="verbs-progress" aria-hidden="true"><span></span></div>
+        <article class="verb verb-design">
+          <div class="verb-media stage-light"><img class="machine" src="/assets/atis/strips-wide.webp" width="956" height="1034" alt="ATISmirus 200 with a three-arm suction gripper over a pallet" loading="lazy" decoding="async"></div>
+          <div class="verb-copy">
+            <p class="verb-num" aria-hidden="true">01</p>
+            <h3 class="verb-word">Design.</h3>
+            <p>We design manipulators, build them, install them and commission them.</p>
+          </div>
+        </article>
+        <article class="verb verb-supply">
+          <div class="verb-media stage-light"><img class="machine" src="/assets/atis/boxes-mirus200.webp" width="772" height="907" alt="ATISmirus 200 with multiple suction cups lifting taped cardboard boxes" loading="lazy" decoding="async"></div>
+          <div class="verb-copy">
+            <p class="verb-num" aria-hidden="true">02</p>
+            <h3 class="verb-word">Supply.</h3>
+            <p>We&#x27;re the UK agent for ATIS and supply its manipulators. We also supply manipulators and equipment from other makers, and pick whatever suits your process.</p>
+          </div>
+        </article>
+        <article class="verb verb-fit">
+          <div class="verb-media verb-photo"><img src="/assets/atis/kegs-in-situ.webp" width="759" height="791" alt="ATISmirus 100 with a drum tipper next to pallets of kegs" loading="lazy" decoding="async"></div>
+          <div class="verb-copy">
+            <p class="verb-num" aria-hidden="true">03</p>
+            <h3 class="verb-word">Fit.</h3>
+            <p>If your workshop needs changing to take the new machinery, we do that too. You don&#x27;t have to organise any of it.</p>
+          </div>
+        </article>
+        <article class="verb verb-service" aria-labelledby="service-and-support">
+          <div class="verb-media stage-light"><img class="machine" src="/assets/atis/drums-tipper.webp" width="674" height="818" alt="ATISmirus 100 with a gripper that turns drums upside down" loading="lazy" decoding="async"></div>
+          <div class="verb-copy">
+            <p class="verb-num" aria-hidden="true">04</p>
+            <h3 class="verb-word" id="service-and-support"><span class="visually-hidden">Service and support: </span>Service.</h3>
+            <p>We service manipulators and lifting equipment of every make, ATIS or otherwise.</p>
+            <p>For equipment we supply, we&#x27;ll put together a support package to suit you: scheduled maintenance, statutory inspections and training for your team.</p>
+            <a class="home-button" href="/services/">See services</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section band-honest" aria-labelledby="honest-about-automation">
+    <div class="container honest-grid">
+      <h2 id="honest-about-automation" class="label">Honest about automation</h2>
+      <p class="honest-big">Automation isn&#x27;t right for every company. <span>If it isn&#x27;t right for yours, we&#x27;ll say so.</span></p>
+      <div class="honest-copy">
+        <p>Where it would make a serious difference, we lay out the options and show you which one gives the best return. Then it&#x27;s your call.</p>
+        <p class="honest-sign">We&#x27;d rather work with you for years than sell you one machine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section band-machine band-manipulators" aria-labelledby="manipulators">
+    <div class="container machine-grid">
+      <h2 id="manipulators" class="giant">Manipulators</h2>
+      <figure class="machine-stage" data-tilt>
+        <img class="machine" src="/assets/atis/plates-mirus200.webp" width="631" height="734" alt="ATISmirus 200 rigid-arm manipulator with a plate gripper" loading="lazy" decoding="async">
+      </figure>
+      <div class="machine-copy">
+        <p>ATIS makes four families of pneumatic manipulator. ATISmirus has a rigid arm. ATISacer runs on a double rope, ATISferax works on a lever, and ATISlinear moves up and down on linear guides. Between them they lift from 55 kg to 1,000 kg.</p>
+        <a class="home-button" href="/manipulators/">See the manipulators</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section band-machine band-gripping" aria-labelledby="gripping">
+    <div class="container machine-grid machine-grid-flip">
+      <h2 id="gripping" class="giant">Gripping</h2>
+      <figure class="machine-stage stage-teal" data-tilt>
+        <img class="machine" src="/assets/atis/bushings-pneumatic.webp" width="974" height="1100" alt="ATISmirus 100 with a tilting pneumatic gripper for bushings" loading="lazy" decoding="async">
+      </figure>
+      <div class="machine-copy">
+        <p>The arm is only half of it. What holds the load matters just as much: mechanical clamps, pneumatic clamps, magnets, forks, hooks or vacuum cups. The right one depends on what you&#x27;re lifting.</p>
+        <a class="home-button" href="/gripping/">See gripping systems</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section band-loads" aria-labelledby="what-you-can-lift">
+    <div class="container loads-grid">
+      <div class="loads-head">
+        <h2 id="what-you-can-lift">What you can lift</h2>
+        <p>Some of the loads ATIS manipulators have been set up to handle:</p>
+      </div>
+      <ol class="loads-list">
+        <li>Glass panes</li><li>Window frames, doors and gates</li><li>Metal sheets</li><li>Steel plates, tubes and profiles</li><li>Coils</li><li>200-litre drums</li><li>Paint drums</li><li>Boilers</li><li>Bushings</li><li>Frames</li><li>Bags and sacks</li><li>Cardboard boxes, including three taped boxes at a time</li>
+      </ol>
+      <figure class="machine-stage loads-figure" data-tilt>
+        <img class="machine" src="/assets/atis/drums-mirus300.webp" width="697" height="1100" alt="ATISmirus 300 with a clamp gripping a drum" loading="lazy" decoding="async">
+      </figure>
+      <div class="loads-foot">
+        <p class="loads-ask">Not on the list? Ask us anyway.</p>
+        <a class="home-button" href="/solutions/">See solutions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section band-industries" aria-labelledby="industries">
+    <div class="container">
+      <div class="industries-head">
+        <h2 id="industries" class="giant">Industries</h2>
+        <div class="industries-copy">
+          <p>In Defence we supply and install lifting equipment. Past work includes process equipment for military and civil aerospace.</p>
+          <a class="home-button" href="/industries/">See industries</a>
+        </div>
+      </div>
+      <ul class="ind-panels">
+        <li class="ind-panel ind-automotive"><a href="/industries/#automotive"><span class="ind-big" aria-hidden="true">01</span><span class="ind-num" aria-hidden="true">01</span><span class="ind-name">Automotive.</span></a></li>
+        <li class="ind-panel ind-windows"><a href="/industries/#windows-doors"><img class="machine" src="/assets/atis/frames-windows.webp" width="603" height="1100" alt="" loading="lazy" decoding="async"><span class="ind-num" aria-hidden="true">02</span><span class="ind-name">Windows &amp; Doors.</span></a></li>
+        <li class="ind-panel ind-food"><a href="/industries/#food-beverage"><img src="/assets/atis/kegs-in-situ.webp" width="759" height="791" alt="" loading="lazy" decoding="async"><span class="ind-num" aria-hidden="true">03</span><span class="ind-name">Food &amp; Beverage.</span></a></li>
+        <li class="ind-panel ind-defence"><a href="/industries/#defence"><span class="ind-big" aria-hidden="true">04</span><span class="ind-num" aria-hidden="true">04</span><span class="ind-name">Defence.</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="home-section home-cta cta-cinema" aria-label="Contact">
+    <div class="cta-media" aria-hidden="true"><img src="/assets/hero/hero-roll-lift_poster.webp" width="1920" height="1080" alt="" loading="lazy" decoding="async"></div>
+    <div class="container">
+      <p class="cta-big">Got a load that&#x27;s hard to handle? Just call us on <a href="tel:07771873177">07771 873177</a>.</p>
+      <p>Or email <a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a>.</p>
       <a class="home-button" href="tel:07771873177">Call 07771 873177</a>
     </div>
   </section>
-  <section class="home-section" aria-labelledby="what-we-do">
-    <div class="container section-grid">
-      <h2 id="what-we-do">What we do</h2>
-      <div class="section-copy"><p>Heavy, awkward or easy to damage? That&#x27;s the kind of load we deal with. AOE Engineering supplies the lifting equipment and takes repetitive handling off your people.</p>
-<p>We design manipulators, build them, install them and commission them. If your workshop needs changing to take the new machinery, we do that too. You don&#x27;t have to organise any of it.</p>
-<p>We&#x27;re the UK agent for ATIS and supply its manipulators. We also supply manipulators and equipment from other makers, and pick whatever suits your process.</p></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/boxes-mirus200.webp" width="772" height="907" alt="ATISmirus 200 with multiple suction cups lifting taped cardboard boxes" loading="lazy" decoding="async"></figure>
-    </div>
-  </section>
-  <section class="home-section" aria-labelledby="honest-about-automation">
-    <div class="container section-grid">
-      <h2 id="honest-about-automation">Honest about automation</h2>
-      <div class="section-copy"><p>Automation isn&#x27;t right for every company. If it isn&#x27;t right for yours, we&#x27;ll say so.</p>
-<p>Where it would make a serious difference, we lay out the options and show you which one gives the best return. Then it&#x27;s your call.</p>
-<p>We&#x27;d rather work with you for years than sell you one machine.</p></div>
-
-    </div>
-  </section>
-  <section class="home-section" aria-labelledby="manipulators">
-    <div class="container section-grid">
-      <h2 id="manipulators">Manipulators</h2>
-      <div class="section-copy"><p>ATIS makes four families of pneumatic manipulator. ATISmirus has a rigid arm. ATISacer runs on a double rope, ATISferax works on a lever, and ATISlinear moves up and down on linear guides. Between them they lift from 55 kg to 1,000 kg.</p>
-<a class="home-button" href="/manipulators/">See the manipulators</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/plates-mirus200.webp" width="631" height="734" alt="ATISmirus 200 rigid-arm manipulator with a plate gripper" loading="lazy" decoding="async"></figure>
-    </div>
-  </section>
-  <section class="home-section" aria-labelledby="gripping">
-    <div class="container section-grid">
-      <h2 id="gripping">Gripping</h2>
-      <div class="section-copy"><p>The arm is only half of it. What holds the load matters just as much: mechanical clamps, pneumatic clamps, magnets, forks, hooks or vacuum cups. The right one depends on what you&#x27;re lifting.</p>
-<a class="home-button" href="/gripping/">See gripping systems</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/bushings-pneumatic.webp" width="974" height="1100" alt="ATISmirus 100 with a tilting pneumatic gripper for bushings" loading="lazy" decoding="async"></figure>
-    </div>
-  </section>
-  <section class="home-section" aria-labelledby="what-you-can-lift">
-    <div class="container section-grid">
-      <h2 id="what-you-can-lift">What you can lift</h2>
-      <div class="section-copy"><p>Some of the loads ATIS manipulators have been set up to handle:</p>
-<ul class="loads-list"><li>Glass panes</li><li>Window frames, doors and gates</li><li>Metal sheets</li><li>Steel plates, tubes and profiles</li><li>Coils</li><li>200-litre drums</li><li>Paint drums</li><li>Boilers</li><li>Bushings</li><li>Frames</li><li>Bags and sacks</li><li>Cardboard boxes, including three taped boxes at a time</li></ul>
-<p>Not on the list? Ask us anyway.</p>
-<a class="home-button" href="/solutions/">See solutions</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/drums-mirus300.webp" width="697" height="1100" alt="ATISmirus 300 with a clamp gripping a drum" loading="lazy" decoding="async"></figure>
-    </div>
-  </section>
-  <section class="home-section" aria-labelledby="industries">
-    <div class="container section-grid">
-      <h2 id="industries">Industries</h2>
-      <div class="section-copy"><p>Automotive. Windows &amp; Doors. Food &amp; Beverage. Defence.</p>
-<p>In Defence we supply and install lifting equipment. Past work includes process equipment for military and civil aerospace.</p>
-<a class="home-button" href="/industries/">See industries</a></div>
-      <figure class="home-image-placeholder section-figure"><img src="/assets/atis/kegs-in-situ.webp" width="759" height="791" alt="ATISmirus 100 with a drum tipper next to pallets of kegs" loading="lazy" decoding="async"></figure>
-    </div>
-  </section>
-  <section class="home-section" aria-labelledby="service-and-support">
-    <div class="container section-grid">
-      <h2 id="service-and-support">Service and support</h2>
-      <div class="section-copy"><p>We service manipulators and lifting equipment of every make, ATIS or otherwise.</p>
-<p>For equipment we supply, we&#x27;ll put together a support package to suit you: scheduled maintenance, statutory inspections and training for your team.</p>
-<a class="home-button" href="/services/">See services</a></div>
-
-    </div>
-  </section>
-<section class="home-section home-cta" aria-label="Contact"><div class="container"><p>Got a load that&#x27;s hard to handle? Just call us on <a href="tel:07771873177">07771 873177</a>.</p>
-<p>Or email <a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a>.</p>
-<a class="home-button" href="tel:07771873177">Call 07771 873177</a></div></section>
 </main>
 <footer class="site-footer">
   <div class="container footer-inner">
