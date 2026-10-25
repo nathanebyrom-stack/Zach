@@ -108,7 +108,7 @@ p { margin: var(--space-0) var(--space-0) var(--space-5); }
 .footer-contact a { color: var(--color-text); }
 .copyright { margin: var(--space-0); color: var(--color-dim); font-size: var(--text-small); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); }
 .skip-link { position: fixed; left: var(--page-gutter); top: var(--space-4); z-index: 100; padding: var(--space-3) var(--space-4); background: var(--color-accent); color: #fff; transform: translateY(-300%); }
-.skip-link:focus { transform: none; }
+.skip-link:focus { transform: none; outline: var(--focus-width) solid #fff; outline-offset: 2px; }
 
 @media (min-width: 48rem) {
   .footer-contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-7); }

@@ -47,8 +47,7 @@
 /* ---------- Shared section system ---------- */
 .home-section { position: relative; padding-block: var(--space-9); isolation: isolate; }
 /* Off-screen sections skip rendering until they are near the viewport (big saving on a long page). */
-.home-section:not(.band-intro), .verb { content-visibility: auto; contain-intrinsic-size: auto 900px; }
-.verbs.is-pinned .verb { content-visibility: visible; }
+.home-section:not(.band-intro) { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 .home-section h2 { margin: var(--space-0); font: var(--weight-heading) var(--text-heading) / var(--leading-heading) var(--font-heading); font-stretch: var(--stretch-display); letter-spacing: var(--tracking-heading); text-wrap: balance; }
 .home-section h2.label { font: var(--weight-label) var(--text-label) / 1 var(--font-body); letter-spacing: var(--tracking-label); margin-bottom: var(--space-6); }
 .giant { overflow-wrap: normal; font-size: clamp(2.6rem, 10.5vw, 10rem) !important; line-height: 0.88 !important; letter-spacing: var(--tracking-display) !important; }

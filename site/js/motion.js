@@ -136,8 +136,9 @@
         if (!v) return;
         const i = list.indexOf(v);
         const y = st.start + (st.end - st.start) * ((i + 0.9) / tl.duration());
-        window.scrollTo({ top: y, behavior: 'auto' });
-        st.update();
+        window.scrollTo({ top: y, behavior: 'instant' });
+        tl.progress(Math.min(1, (i + 0.9) / tl.duration()));
+        setActive(i);
       };
       verbs.addEventListener('focusin', onFocus);
       return () => {
