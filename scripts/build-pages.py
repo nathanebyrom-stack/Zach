@@ -19,6 +19,23 @@ BUILD = ["manipulators", "gripping", "solutions", "services", "industries", "abo
 # Sections held back from the live page until checked (see report).
 HOLD = {("manipulators", "Mounting")}
 figures = []
+# Full-frame photographs (not cut-outs): framed rather than floated on a light pool.
+PHOTOS = {"kegs-in-situ"}
+# Hero light-stage image per page: real ATIS cut-outs already in site/assets/atis, decorative here (alt="")
+# because each page's own figures carry the described images. Chosen so the hero doesn't repeat a figure on the same page.
+HERO_IMAGE = {
+    "manipulators": "sheets-mirus300", "gripping": "strips-wide", "solutions": "doors-vacuum",
+    "services": "bushings-pneumatic", "industries": "drums-mirus300", "about": "boilers-forks",
+}
+# Each page's hero takes a different tint from the brand range.
+HERO_TINT = {"manipulators": "cobalt", "gripping": "teal", "solutions": "steel", "services": "cobalt",
+             "industries": "teal", "about": "steel", "contact": "cobalt"}
+INDUSTRY_PANELS = [  # (section heading, anchor, image or None, panel class)
+    ("Automotive", "automotive", None, "ind-automotive"),
+    ("Windows & Doors", "windows-doors", "frames-windows", "ind-windows"),
+    ("Food & Beverage", "food-beverage", "kegs-in-situ", "ind-food"),
+    ("Defence", "defence", None, "ind-defence"),
+]
 TEL = '<a href="tel:07771873177">07771 873177</a>'
 MAIL = '<a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a>'
 
@@ -92,7 +109,10 @@ def blocks(lines):
             flush()
             name, alt = [x.strip() for x in s[6:].split("|", 1)]
             w, h = image_size(name)
-            figures.append(f'<figure class="section-figure"><img src="/assets/atis/{name}.webp" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="lazy" decoding="async"></figure>')
+            if name in PHOTOS:
+                figures.append(f'<figure class="section-figure figure-photo"><img src="/assets/atis/{name}.webp" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="lazy" decoding="async"></figure>')
+            else:
+                figures.append(f'<figure class="section-figure machine-stage" data-tilt><img class="machine" src="/assets/atis/{name}.webp" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="lazy" decoding="async"></figure>')
             continue
         if s.startswith("Button:"):
             flush()
@@ -128,6 +148,46 @@ def parse(slug):
                 if l.startswith("- Title tag:"): meta["title"] = l.split(":", 1)[1].strip()
                 if l.startswith("- Meta description:"): meta["description"] = l.split(":", 1)[1].strip()
     return title, sections, meta
+
+
+def masked(text):
+    """Wrap each word of a heading in a mask so it can rise line by line (CSS only; visible without JS)."""
+    return " ".join(f'<span class="mask"><span>{html.escape(w)}</span></span>' for w in text.split())
+
+
+def page_hero(slug, title, intro_html, tall=False):
+    img = HERO_IMAGE.get(slug)
+    tint = HERO_TINT.get(slug, "steel")
+    art = ""
+    if img:
+        w, h = image_size(img)
+        art = f'''
+    <div class="page-hero-art machine-stage" aria-hidden="true" data-tilt><img class="machine" src="/assets/atis/{img}.webp" width="{w}" height="{h}" alt="" fetchpriority="high" decoding="async"></div>'''
+    cls = f"page-hero tint-{tint}" + (" has-art" if img else "") + (" page-hero-tall" if tall else "")
+    intro = f'\n      <div class="page-intro">{intro_html}</div>' if intro_html else ""
+    return f'''  <section class="{cls}" aria-labelledby="page-title">
+    <div class="container page-hero-grid">
+      <div class="page-hero-copy">
+        <p class="label">AOE Engineering</p>
+        <h1 id="page-title" class="page-title">{masked(title)}</h1>{intro}
+      </div>{art}
+    </div>
+  </section>'''
+
+
+def industry_panels():
+    out = []
+    for i, (name, anchor, img, cls) in enumerate(INDUSTRY_PANELS, 1):
+        pic = ""
+        if img:
+            w, h = image_size(img)
+            klass = "" if img in PHOTOS else ' class="machine"'
+            pic = f'<img{klass} src="/assets/atis/{img}.webp" width="{w}" height="{h}" alt="" loading="lazy" decoding="async">'
+        big = "" if img else f'<span class="ind-big" aria-hidden="true">{i:02d}</span>'
+        out.append(f'<li class="ind-panel {cls}"><a href="#{anchor}">{big}{pic}<span class="ind-num" aria-hidden="true">{i:02d}</span><span class="ind-name">{html.escape(name)}</span></a></li>')
+    return '''  <section class="ind-panels-band" aria-label="Industries">
+    <div class="container"><ul class="ind-panels">''' + "".join(out) + '''</ul></div>
+  </section>'''
 
 
 def contact_form():
@@ -188,19 +248,17 @@ def build(slug):
     body = [s for s in sections if s[0].startswith("Section: ")]
     intro, rest = body[0], body[1:]
     cta = next((s for s in sections if s[0] == "CTA"), None)
-    parts = [f'''<main class="page-main" id="main" tabindex="-1">
-  <section class="page-hero" aria-labelledby="page-title">
-    <div class="container">
-      <p class="eyebrow">AOE Engineering</p>
-      <h1 id="page-title">{html.escape(title)}</h1>
-      <div class="page-intro">{blocks(intro[1])}</div>
-    </div>
-  </section>''']
+    parts = ['<main class="page-main" id="main" tabindex="-1">', page_hero(slug, title, blocks(intro[1]))]
+    if slug == "industries":
+        parts.append(industry_panels())
     figures.clear()
+    n = 0
+    flip = False
     for name, lines in rest:
         name = name[len("Section: "):]
         if (slug, name) in HOLD:
             continue
+        n += 1
         sid = slugify(name)
         if slug == "contact" and name == "Send us a message":
             lines = [l for l in lines if not l.startswith(("Fields:", "Button:", "Note under form:"))]
@@ -208,10 +266,14 @@ def build(slug):
         else:
             content = blocks(lines)
         fig = "".join(figures); figures.clear()
-        grid = "section-grid has-figure" if fig else "section-grid"
-        parts.append(f'''  <section class="home-section" aria-labelledby="{sid}">
-    <div class="container {grid}">
-      <h2 id="{sid}">{html.escape(name)}</h2>
+        kind = "has-figure" if fig else "no-figure"
+        if fig:
+            flip = not flip
+            kind += " flip" if not flip else ""
+        tint = ("tint-a", "tint-b", "tint-c")[(n - 1) % 3]
+        parts.append(f'''  <section class="home-section inner-section {tint} {kind}" id="{sid}-section" aria-labelledby="{sid}">
+    <div class="container inner-grid">
+      <div class="section-head"><p class="sec-num" aria-hidden="true">{n:02d}</p><h2 id="{sid}">{html.escape(name)}</h2></div>
       <div class="section-copy">{content}</div>{fig}
     </div>
   </section>''')
@@ -232,8 +294,8 @@ def build_privacy():
         name, *lines = chunk.splitlines()
         out.append(f"<h2>{html.escape(name)}</h2>\n{blocks(lines)}")
     body = f'''<main class="page-main" id="main" tabindex="-1">
-  <section class="page-hero" aria-labelledby="page-title"><div class="container"><p class="eyebrow">AOE Engineering</p><h1 id="page-title">Privacy policy</h1></div></section>
-  <section class="home-section"><div class="container prose">{"".join(out)}</div></section>
+{page_hero("privacy", "Privacy policy", "")}
+  <section class="home-section prose-section"><div class="container prose">{"".join(out)}</div></section>
 </main>'''
     doc = head("Privacy Policy | AOE Engineering", "How AOE Engineering Ltd handles the personal data you send us.", "privacy").replace('<meta property="og:type"', '<meta name="robots" content="noindex">\n  <meta property="og:type"') + header + "\n\n" + body + "\n" + footer + "\n\n</body>\n</html>\n"
     (ROOT / "site/privacy/index.html").write_text(doc)
@@ -242,7 +304,7 @@ def build_privacy():
 def build_simple(slug, title, h1, copy, description, path, noindex=True):
     header, footer = shell(slug)
     body = f'''<main class="page-main" id="main" tabindex="-1">
-  <section class="page-hero page-hero-tall" aria-labelledby="page-title"><div class="container"><p class="eyebrow">AOE Engineering</p><h1 id="page-title">{h1}</h1><div class="page-intro">{copy}</div></div></section>
+{page_hero(slug, html.unescape(h1), copy, tall=True)}
 </main>'''
     doc = head(title, description, slug.strip("/"))
     if noindex:
