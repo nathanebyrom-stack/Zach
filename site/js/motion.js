@@ -22,7 +22,7 @@
 
   /* ---------- Reveals ---------- */
   const groups = [
-    '.page-hero .label, .page-hero h1, .page-hero .page-intro',
+    '.page-hero .label, .page-hero .page-intro',
     '.band-intro .label, .band-intro .statement',
     '.band-honest .label, .honest-big, .honest-copy',
     '.machine-grid .giant, .machine-grid .machine-copy',
