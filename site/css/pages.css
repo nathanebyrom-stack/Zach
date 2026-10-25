@@ -21,8 +21,10 @@
 .page-intro > :last-child { margin-bottom: var(--space-0); }
 .page-intro .home-button { margin-top: var(--space-2); }
 .page-hero-art { justify-self: center; padding: var(--space-4) var(--space-4) var(--space-6); }
-.page-hero-art .machine { max-height: min(22rem, 46vh); }
+.page-hero-art .machine { height: min(22rem, 46vh); }
 .tint-teal .page-hero-art::before { background: radial-gradient(closest-side, rgb(46 170 200 / 42%), rgb(0 67 254 / 22%) 50%, transparent 100%); }
+.motion .page-hero .label { animation: aoe-fade-up 0.8s var(--ease-machined) both; }
+.motion .page-hero .page-intro { animation: aoe-fade-up 0.9s var(--ease-machined) 0.3s both; }
 .motion .page-hero-art { animation: aoe-fade-up 1.2s var(--ease-machined) 0.25s both; }
 .page-hero-tall { min-height: 78vh; display: flex; align-items: center; }
 .page-hero-tall .page-hero-grid { width: 100%; }
@@ -30,7 +32,7 @@
   .page-hero { padding-block: calc(var(--header-height) + var(--space-9)) var(--space-9); min-height: min(52rem, 88vh); display: flex; align-items: center; }
   .page-hero > .container { width: 100%; }
   .page-hero.has-art .page-hero-grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); column-gap: var(--space-7); }
-  .page-hero-art .machine { max-height: min(34rem, 62vh); }
+  .page-hero-art .machine { height: min(34rem, 62vh); }
   .page-hero.has-art .page-title { font-size: clamp(3.5rem, 6.6vw, 7rem); }
 }
 
@@ -49,7 +51,7 @@
 .section-copy .home-button { margin-top: var(--space-2); }
 .section-copy strong { color: var(--color-text); }
 .section-figure { margin: 0; min-width: 0; }
-.section-figure.machine-stage .machine { max-height: min(30rem, 58vh); }
+.section-figure.machine-stage .machine { height: min(30rem, 58vh); }
 .figure-photo { position: relative; justify-self: center; width: min(100%, 30rem); }
 .figure-photo::before { content: ""; position: absolute; inset: -12%; z-index: -1; background: radial-gradient(closest-side, rgb(46 170 200 / 26%), transparent); }
 .figure-photo img { display: block; width: 100%; height: auto; border: var(--border-width) solid var(--color-line-strong); filter: saturate(0.88) contrast(1.04); }

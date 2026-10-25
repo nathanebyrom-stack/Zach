@@ -4,13 +4,13 @@
   src: url("/assets/fonts/archivo-aoe.woff2") format("woff2");
   font-weight: 500 900;
   font-stretch: 100% 125%;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Inter AOE";
   src: url("/assets/fonts/inter-aoe.woff2") format("woff2");
   font-weight: 400 600;
-  font-display: swap;
+  font-display: optional;
 }
 /* Metric-matched fallbacks so the swap to the real fonts doesn't shift the layout. */
 @font-face { font-family: "Archivo Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 700 900; size-adjust: 104%; ascent-override: 84%; descent-override: 20%; line-gap-override: 0%; }

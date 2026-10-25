@@ -150,6 +150,26 @@ def parse(slug):
     return title, sections, meta
 
 
+CSS_FILES = ["tokens", "shell", "home", "pages"]
+
+
+def css_block():
+    """Inline site/css/*.css (the source of truth) into the head: four render-blocking requests become none.
+    Comments and whitespace are stripped only; nothing else is rewritten."""
+    css = "".join((ROOT / "site/css" / f"{n}.css").read_text() for n in CSS_FILES)
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"\s+", " ", css).replace("; ", ";").replace(" { ", "{").replace(" } ", "}").replace("{ ", "{").replace(" }", "}")
+    return f"<!-- css:start (inlined from site/css by scripts/build-pages.py) --><style>{css.strip()}</style><!-- css:end -->"
+
+
+def refresh_home():
+    """Home is hand-built; only its inlined CSS block is refreshed here."""
+    path = ROOT / "site/index.html"
+    doc = path.read_text()
+    doc = re.sub(r"<!-- css:start.*?<!-- css:end -->", lambda m: css_block(), doc, flags=re.S)
+    path.write_text(doc)
+
+
 def masked(text):
     """Wrap each word of a heading in a mask so it can rise line by line (CSS only; visible without JS)."""
     return " ".join(f'<span class="mask"><span>{html.escape(w)}</span></span>' for w in text.split())
@@ -222,13 +242,8 @@ def head(title, description, slug, extra=""):
   <meta property="og:image" content="{SITE}/assets/hero/hero-roll-lift_poster.jpg">
   <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');</script>
   <link rel="preload" href="/assets/fonts/archivo-aoe.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/shell.css">
-  <link rel="stylesheet" href="/css/home.css">
-  <link rel="stylesheet" href="/css/pages.css">
+  {css_block()}
   <script src="/js/menu.js" defer></script>
-  <script src="/assets/vendor/gsap.min.js" defer></script>
-  <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
   <script src="/js/motion.js" defer></script>{extra}
 </head>
 <body>
@@ -323,6 +338,7 @@ if __name__ == "__main__":
     build_simple("contact/thanks", "Thanks | AOE Engineering", "Thanks. We've got your message.",
                  f'<p>We\'ll get back to you soon. If it\'s urgent, call us on {TEL}.</p><a class="home-button" href="/">Back to home</a>',
                  "Enquiry sent.", "contact/thanks/index.html")
+    refresh_home()
     pages = [""] + BUILD
     urls = "".join(f"  <url><loc>{SITE}/{p + '/' if p else ''}</loc></url>\n" for p in pages)
     (ROOT / "site/sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')

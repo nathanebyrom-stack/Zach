@@ -22,7 +22,6 @@
 
   /* ---------- Reveals ---------- */
   const groups = [
-    '.page-hero .label, .page-hero .page-intro',
     '.band-intro .label, .band-intro .statement',
     '.band-honest .label, .honest-big, .honest-copy',
     '.machine-grid .giant, .machine-grid .machine-copy',
@@ -64,6 +63,20 @@
     if (idx > -1) items.slice(0, idx + 1).forEach(show);
   });
 
+  /* GSAP + ScrollTrigger (self-hosted) are only needed for scroll-scrubbed work, so they load after
+     the page has painted and finished loading: they never compete with the hero or the CSS. */
+  const load = src => new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+  const start = () => load('/assets/vendor/gsap.min.js').then(() => load('/assets/vendor/ScrollTrigger.min.js')).then(scrollWork).catch(() => {});
+  /* Everything GSAP does is scroll-driven, so it loads on the first sign of intent (scroll, pointer, key, touch),
+     or after a long idle as a fallback. The page above the fold never waits on it. */
+  let started = false;
+  const intent = ['scroll', 'wheel', 'pointerdown', 'pointermove', 'keydown', 'touchstart'];
+  const go = () => { if (started) return; started = true; intent.forEach(t => window.removeEventListener(t, go)); start(); };
+  intent.forEach(t => window.addEventListener(t, go, { passive: true, once: true }));
+  if (window.scrollY > 0) go();
+  window.addEventListener('load', () => setTimeout(go, 8000), { once: true });
+
+  function scrollWork() {
   const gsap = window.gsap;
   const ST = window.ScrollTrigger;
   if (!gsap || !ST) return;
@@ -179,5 +192,6 @@
   });
 
   /* Fonts or late images change heights: keep trigger positions honest. */
-  window.addEventListener('load', () => ST.refresh());
+  ST.refresh();
+  }
 })();

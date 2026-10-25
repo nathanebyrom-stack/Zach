@@ -29,6 +29,7 @@ function syncHero() {
 }
 reducedMotion.addEventListener('change', syncHero);
 video.addEventListener('error', () => { video.hidden = true; });
-syncHero();
+/* Start the footage once the page has loaded: the still underneath is the same frame, so nothing visibly waits. */
+if (document.readyState === 'complete') syncHero(); else window.addEventListener('load', syncHero, { once: true });
 
 /* Section entrance motion lives in /js/motion.js (shared with the inner pages). */
