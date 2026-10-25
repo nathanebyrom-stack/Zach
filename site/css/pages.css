@@ -33,7 +33,7 @@
   .page-hero > .container { width: 100%; }
   .page-hero.has-art .page-hero-grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); column-gap: var(--space-7); }
   .page-hero-art .machine { height: min(34rem, 62vh); }
-  .page-hero.has-art .page-title { font-size: clamp(3.5rem, 6.6vw, 7rem); }
+  .page-hero.has-art .page-title { font-size: clamp(3.25rem, 5.6vw, 6.25rem); }
 }
 
 /* ---------- Sections: numbered, tinted in turn, figures on light stages, alternating sides ---------- */

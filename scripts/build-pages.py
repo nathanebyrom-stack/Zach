@@ -198,13 +198,12 @@ def page_hero(slug, title, intro_html, tall=False):
 def industry_panels():
     out = []
     for i, (name, anchor, img, cls) in enumerate(INDUSTRY_PANELS, 1):
-        pic = ""
+        frame = ""
         if img:
             w, h = image_size(img)
-            klass = "" if img in PHOTOS else ' class="machine"'
-            pic = f'<img{klass} src="/assets/atis/{img}.webp" width="{w}" height="{h}" alt="" loading="lazy" decoding="async">'
-        big = "" if img else f'<span class="ind-big" aria-hidden="true">{i:02d}</span>'
-        out.append(f'<li class="ind-panel {cls}"><a href="#{anchor}">{big}{pic}<span class="ind-num" aria-hidden="true">{i:02d}</span><span class="ind-name">{html.escape(name)}</span></a></li>')
+            frame = f'<span class="ind-frame"><img src="/assets/atis/{img}.webp" width="{w}" height="{h}" alt="" loading="lazy" decoding="async"></span>'
+        photo = " has-photo" if img else ""
+        out.append(f'<li class="ind-panel {cls}{photo}"><a href="#{anchor}"><span class="ind-num" aria-hidden="true">{i:02d}</span>{frame}<span class="ind-name">{html.escape(name)}</span></a></li>')
     return '''  <section class="ind-panels-band" aria-label="Industries">
     <div class="container"><ul class="ind-panels">''' + "".join(out) + '''</ul></div>
   </section>'''
