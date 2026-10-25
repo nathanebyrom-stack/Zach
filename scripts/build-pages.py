@@ -23,6 +23,16 @@ TEL = '<a href="tel:07771873177">07771 873177</a>'
 MAIL = '<a href="mailto:davidogden@aoeengineering.com">davidogden@aoeengineering.com</a>'
 
 
+PREPAINT = """<script>/* Set the header's mobile/desktop state before first paint so the menu swap never shifts the layout. */
+(function () {
+  var d = window.matchMedia('(min-width: 75rem)').matches;
+  var t = document.querySelector('.menu-toggle');
+  var n = document.getElementById('primary-navigation');
+  if (t && n) { t.hidden = d; n.hidden = !d; t.setAttribute('aria-expanded', String(d)); }
+})();
+</script>"""
+
+
 def navigation(current):
     links = []
     for slug, label in PAGES:
@@ -37,6 +47,18 @@ def inline(text):
     text = html.escape(text, quote=False)
     text = text.replace("07771 873177", TEL).replace("davidogden@aoeengineering.com", MAIL)
     return re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
+
+
+def image_size(name):
+    """Read width/height straight from the WebP header (no dependencies), so every figure reserves its space (CLS 0)."""
+    b = (ROOT / "site/assets/atis" / f"{name}.webp").read_bytes()
+    kind = b[12:16]
+    if kind == b"VP8X":
+        return 1 + int.from_bytes(b[24:27], "little"), 1 + int.from_bytes(b[27:30], "little")
+    if kind == b"VP8L":
+        v = int.from_bytes(b[21:25], "little")
+        return (v & 0x3FFF) + 1, ((v >> 14) & 0x3FFF) + 1
+    return int.from_bytes(b[26:28], "little") & 0x3FFF, int.from_bytes(b[28:30], "little") & 0x3FFF
 
 
 def slugify(text):
@@ -69,7 +91,8 @@ def blocks(lines):
         if s.startswith("Image:"):
             flush()
             name, alt = [x.strip() for x in s[6:].split("|", 1)]
-            figures.append(f'<figure class="section-figure"><img src="/assets/atis/{name}.webp" alt="{html.escape(alt)}" loading="lazy" decoding="async"></figure>')
+            w, h = image_size(name)
+            figures.append(f'<figure class="section-figure"><img src="/assets/atis/{name}.webp" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="lazy" decoding="async"></figure>')
             continue
         if s.startswith("Button:"):
             flush()
@@ -137,17 +160,16 @@ def head(title, description, slug, extra=""):
   <meta property="og:description" content="{html.escape(description)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:image" content="{SITE}/assets/hero/hero-roll-lift_poster.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=optional"></noscript>
+  <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');</script>
+  <link rel="preload" href="/assets/fonts/archivo-aoe.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/shell.css">
   <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="/css/pages.css">
   <script src="/js/menu.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="/js/pages.js" defer></script>{extra}
+  <script src="/assets/vendor/gsap.min.js" defer></script>
+  <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/motion.js" defer></script>{extra}
 </head>
 <body>
 '''
@@ -157,7 +179,7 @@ def shell(slug):
     header = (ROOT / "scripts/partials/header.html").read_text().replace("{{NAV}}", navigation(slug))
     footer = (ROOT / "scripts/partials/footer.html").read_text().replace("{{NAV}}", navigation(slug))
     footer = footer.replace("{{PRIVACY_CURRENT}}", ' aria-current="page"' if slug == "privacy" else "")
-    return header.strip(), footer.strip()
+    return header.strip() + "\n" + PREPAINT, footer.strip()
 
 
 def build(slug):
