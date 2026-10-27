@@ -21,3 +21,12 @@ Anything legal in the page text is Dave's to confirm; none of it has been invent
 
 ## 5. Not needed any more
 - The ATIS side-member and seat video originals. Nathan has decided to go without. The live hero is Vic's roll-lift loop, and a roll-gripper close-up plays behind the closing call-to-action band (both cut from the ATIS website reel; Dave confirmed on 17 Oct 2026 that AOE can use any ATIS video or image). Nothing to send.
+
+## Resolved 27 Oct 2026 (Dave's answers, via Nathan)
+- Companies House: 6716033 is correct as shown. No change.
+- Privacy page: enquiries that don't lead to work are deleted after 28 days; no analytics, so the cookies bracket is removed; last updated set to 27 October 2026.
+- Contact details: as shown (match Dave's email footer).
+- Both wording points: Dave is fine with them. No change.
+- Preview sign-off: Dave has given Nathan the final say; Nathan has approved the preview.
+- Domain: Dave holds the aoeengineering.com login (DNS at GoDaddy; site currently on Wix; email on Microsoft 365, which must not be touched).
+- Contact form: submissions go to Nathan (nathan.e.byrom@gmail.com), who handles first enquiries. Netlify form detection switched on and an email notification added in Netlify (27 Oct); not in the code.
