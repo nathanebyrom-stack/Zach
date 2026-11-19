@@ -20,6 +20,7 @@ The rigid arm. Six models, from 115 kg right up to 1,000 kg, which makes it the 
 What does that look like on the floor? ATIS has set up ATISmirus arms to tilt bushings, move boilers off a conveyor onto a trolley, stack taped boxes on a pallet three at a time and feed metal sheets into a machine.
 
 Take the ATISmirus 200 VT, set up for windows. It picks each window out of its container and puts it down on a forklift. Suction cups adjust for different sizes and thicknesses. A brake holds the load still while the operator grips and lets go. And if the vacuum drops suddenly, safety valves keep hold of the window.
+Image: boilers-forks | ATISmirus 200 rigid-arm manipulator with covered forks, holding a boiler
 
 ## Section: ATISacer: double rope
 Double rope. Three models, 55 kg to 150 kg.
@@ -31,6 +32,7 @@ Double rope. Three models, 55 kg to 150 kg.
 | ATISacer 150 | 150 kg | 5,000 mm | 1,800 mm |
 
 ATIS has used an ATISacer 55 with a shaped hook to lift paint drums off a production line and onto a pallet.
+Image: sacks-acer150 | ATISacer 150 double-rope manipulator with a suction gripper lifting a sack
 
 ## Section: ATISferax: lever
 The lever manipulator. Just the one model: up to 80 kg, 4,000 mm of reach and 1,500 mm of vertical stroke. ATIS describes it as low inertia.
@@ -39,6 +41,7 @@ The lever manipulator. Just the one model: up to 80 kg, 4,000 mm of reach and 1,
 Straight up and down on linear guides, hung from an overhead rail. Up to 800 kg.
 
 ATIS has run an ATISlinear on a runway with a pneumatic clamp to carry frames from a production line to a bench.
+Image: frames-linear | ATISlinear manipulator with a pneumatic clamp for frames
 
 ## Section: Mounting
 <!-- Jenny: every mounting below is [VERIFY]. They come from image file names on the ATIS executions page, not page text. Check the live page before approval; cut any that don't match. -->
@@ -61,6 +64,7 @@ Then we get on with it. Design, build, installation, commissioning. If your work
 After that, we service manipulators and lifting equipment of every make, ATIS or not.
 
 For kit we supply, we'll put together a support package around you: scheduled maintenance, statutory inspections and training for your team.
+Image: strips-arm | ATISmirus 200 with a multi-cup suction gripper on a floor column
 
 ## CTA
 Not sure which manipulator fits your load? Call us on 07771 873177 and talk it through.

@@ -6,13 +6,9 @@ const connection = navigator.connection;
 const slowConnection = connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '');
 
 function syncHero() {
+  /* The still image loads from the markup itself (srcset in the picture),
+     so the LCP image needs no JavaScript. This only gates the video. */
   const ready = video.dataset.mediaReady === 'true';
-  if (ready) {
-    hero.querySelectorAll('[data-srcset]').forEach(source => {
-      source.srcset = source.dataset.srcset;
-    });
-    hero.querySelector('img').src = hero.querySelector('img').dataset.still;
-  }
   if (!ready || reducedMotion.matches || slowConnection) {
     video.pause();
     video.hidden = true;
@@ -20,7 +16,11 @@ function syncHero() {
     video.load();
     return;
   }
-  video.poster = video.dataset.poster;
+  /* Use the same still the picture already painted (and preloaded) as the
+     poster, so the video element never waits on a second image. */
+  video.poster = window.matchMedia('(max-width: 47.99rem)').matches
+    ? '/assets/hero/hero-roll-lift-mobile_still.webp'
+    : '/assets/hero/hero-roll-lift_still.webp';
   video.querySelectorAll('source').forEach(source => { source.src = source.dataset.src; });
   video.muted = true;
   video.load();
@@ -29,22 +29,35 @@ function syncHero() {
 }
 reducedMotion.addEventListener('change', syncHero);
 video.addEventListener('error', () => { video.hidden = true; });
-syncHero();
+/* Start the footage once the page has loaded: the still underneath is the same frame, so nothing visibly waits. */
+if (document.readyState === 'complete') syncHero(); else window.addEventListener('load', syncHero, { once: true });
 
-/* Reveal on entry only; keep content visible if GSAP or JS is unavailable. */
-if (window.gsap && 'IntersectionObserver' in window) {
-  const motion = gsap.matchMedia();
-  motion.add('(prefers-reduced-motion: no-preference)', () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        gsap.fromTo(entry.target, { y: 24 }, {
-          y: 0, duration: 0.55, ease: 'power2.out', clearProps: 'transform'
-        });
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.home-section').forEach(section => observer.observe(section));
-    return () => observer.disconnect();
-  });
-}
+/* Section entrance motion lives in /js/motion.js (shared with the inner pages). */
+
+/* Closing CTA band: the roll gripper close-up loop. Nothing is requested until the band is
+   near the viewport; it pauses when off-screen. Reduced motion, Save-Data/2G or no JS keep the still. */
+(() => {
+  const band = document.querySelector('.cta-cinema');
+  const clip = band && band.querySelector('.cta-video');
+  if (!clip || !('IntersectionObserver' in window)) return;
+  let loaded = false;
+  const allowed = () => !reducedMotion.matches && !slowConnection;
+  const stop = () => { clip.pause(); clip.classList.remove('is-playing'); };
+  const play = () => {
+    if (!allowed()) { stop(); clip.hidden = true; return; }
+    if (!loaded) {
+      loaded = true;
+      clip.querySelectorAll('source').forEach(s => { s.src = s.dataset.src; });
+      clip.muted = true;
+      clip.load();
+    }
+    clip.hidden = false;
+    const p = clip.play();
+    if (p) p.then(() => clip.classList.add('is-playing')).catch(() => { clip.hidden = true; });
+  };
+  clip.addEventListener('error', () => { clip.hidden = true; });
+  new IntersectionObserver(entries => {
+    entries.forEach(e => (e.isIntersecting ? play() : stop()));
+  }, { rootMargin: '200px 0px' }).observe(band);
+  reducedMotion.addEventListener('change', () => { if (!allowed()) { stop(); clip.hidden = true; } });
+})();

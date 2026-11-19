@@ -268,3 +268,24 @@ Every ATIS image, its file URL and the page it sits on are listed in `content/so
 - Names of other manipulator makers AOE supplies or services (A-10; Nathan, 17 Oct: keep it general).
 - The gantry crane size figure from the old About page (C-05).
 - A VAT number anywhere on the site (D-06).
+
+## Shared: image register (added 22 Oct 2026, Jenny)
+Photos extracted from ATIS case-study PDFs that Dave Ogden sent Nathan by WeTransfer ("ATIS Marketing Material", 31 Jul 2026), now in Nathan's Google Drive ("Verified AOE material for content creation" > "ATIS UK letters" / "ATIS UK flyer"). Rights: A-08. These show ATIS applications, not AOE jobs; alt text describes the machine and load only. Files in `site/assets/atis/`.
+
+| File | ATIS PDF | Shows |
+|---|---|---|
+| boxes-mirus200 | 40.250.064 | ATISmirus 200, multiple suction cups, taped boxes |
+| boilers-forks | 40.250.070 | ATISmirus 200, covered forks, boiler |
+| bushings-pneumatic | 40.250.032 | ATISmirus 100, tilting pneumatic gripper, bushings |
+| plates-mirus200 | 40.250.152 | ATISmirus 200, metal plate gripper |
+| frames-windows | 40.250.165 | ATISmirus 300, window/door frame |
+| sacks-acer150 | 40.220.440 | ATISacer 150, suction gripper, sack |
+| frames-linear | 40.240.098 | ATISlinear, frame clamp |
+| coil-magnet | 40.240.267 | ATISmirus 100, double pneumatic magnet, roll of metal strip |
+| doors-vacuum | 40.240.363 | ATISmirus 100, vacuum frame, metal door |
+| drums-mirus300 | 40.250.167 | ATISmirus 300, drum clamp |
+| drums-tipper | 40.230.414 | ATISmirus 100, drum turned upside down |
+| kegs-in-situ | 40.230.414 | ATISmirus 100 on site beside pallets of kegs |
+| sheets-mirus300 | 40.160.120 | ATISmirus 300, suction cups, metal sheet |
+| strips-wide, strips-arm | 40.250.004 | ATISmirus 200, three-arm suction gripper |
+Not used: 40.250.013 (bottles, banned per H-09/K-08); template graphics repeated across PDFs.
